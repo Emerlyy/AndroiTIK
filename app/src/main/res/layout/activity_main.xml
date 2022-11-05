@@ -13,7 +13,6 @@
         tools:context=".MainActivity"
         android:animateLayoutChanges="true">
 
-        <!-- ExpandableTextView Container -->
         <androidx.cardview.widget.CardView
             android:id="@+id/card1"
             android:layout_width="match_parent"
