@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +34,23 @@ public class ThirdActivity extends AppCompatActivity {
         entries.add(new BarEntry(3,2));
         entries.add(new BarEntry(4,7));
         entries.add(new BarEntry(5,4));
-        dataSet = new BarDataSet(entries,"Label");
+        dataSet = new BarDataSet(entries,"");
         barData = new BarData(dataSet);
+        dataSet.setDrawValues(false); // removes values above the bars
+        barData.setBarWidth(0.8f); // bar width
+        barData.setHighlightEnabled(false); // disables highlight
         barChart.setData(barData);
+        XAxis xAxis = barChart.getXAxis();
+        xAxis.setDrawGridLines(false); // removes the grid lines
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM); // sets xAsis position
+        //barChart.getAxisLeft().setEnabled(false);
+        barChart.setScaleEnabled(false); // disables the scale
+        barChart.getAxisRight().setEnabled(false); // removes right axis
+        barChart.animateY(600); // animation
+        barChart.getDescription().setEnabled(false); // removes the description
+        barChart.setFitBars(true); // make the x-axis fit exactly all bars
+        barChart.getLegend().setEnabled(false); // hide the legend
+        //barChart.getXAxis().setDrawLabels(false); // hide the labels
         barChart.invalidate();
     }
     public void goBack2(View v){
