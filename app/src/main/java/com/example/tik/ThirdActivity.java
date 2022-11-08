@@ -51,6 +51,8 @@ public class ThirdActivity extends AppCompatActivity {
         barChart.setFitBars(true); // make the x-axis fit exactly all bars
         barChart.getLegend().setEnabled(false); // hide the legend
         //barChart.getXAxis().setDrawLabels(false); // hide the labels
+        barChart.setDrawBorders(true);
+        barChart.setBorderWidth(0.5f);
         barChart.invalidate();
     }
     public void goBack2(View v){
