@@ -81,7 +81,7 @@ public class SecondActivity extends AppCompatActivity {
         String str9 = "A9 = ";
         SpannableString str09 = new SpannableString(str9 + calcAn(period, width, amplitude, 9));
         str09.setSpan(new RelativeSizeSpan(0.6f),1,2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        checkBox9.setText(str04);
+        checkBox9.setText(str09);
 
         checkBox10 = findViewById(R.id.checkBox10);
         String str10 = "A10 = ";
