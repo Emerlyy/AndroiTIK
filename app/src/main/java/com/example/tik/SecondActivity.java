@@ -37,7 +37,8 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     public double calcA0(int T,int t,int h){
-        return (double)h*t/T;
+        double result = (double) h*t/T;
+        return Double.parseDouble(String.format("%.2f", result));
     }
 
     public double calcAn(int T,int t,int h,int k) {
