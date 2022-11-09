@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.SubscriptSpan;
 import android.view.View;
 import android.widget.CheckBox;
 
@@ -20,7 +23,11 @@ public class SecondActivity extends AppCompatActivity {
         width = getIntent().getIntExtra("width", 0);
         amplitude = getIntent().getIntExtra("amplitude", 0);
         checkBox1 = findViewById(R.id.checkBox);
-        checkBox1.setText(Double.toString(calcA0(period, width, amplitude)));
+        String str2 = "A0 = ";
+        SpannableString str = new SpannableString(str2 +calcA0(period,width,amplitude));
+        str.setSpan(new SubscriptSpan(),1,2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        checkBox1.setText(str);
         checkBox2 = findViewById(R.id.checkBox2);
         checkBox2.setText(Double.toString(calcAn(period, width, amplitude, 1)));
     }
