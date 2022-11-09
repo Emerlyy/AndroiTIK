@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void afterTextChanged(Editable s) {
-                if(s.toString().trim().length()==0){
+                if(s.toString().trim().length()==0||editPeriod.length()==0){
                     nextStepButton.setEnabled(false);
                 } else {
                     nextStepButton.setEnabled(true);
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void afterTextChanged(Editable s) {
-                if(s.toString().trim().length()==0){
+                if(s.toString().trim().length()==0||editWidth.length()==0){
                     nextStepButton.setEnabled(false);
                 } else {
                     nextStepButton.setEnabled(true);
