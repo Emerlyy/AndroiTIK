@@ -12,191 +12,100 @@
         android:layout_height="wrap_content"
         tools:context=".VadimProgramist"
         android:animateLayoutChanges="true">
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SecondActivity">
+
+
 
     <CheckBox
         android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+        style="@style/CustomStyle"
+        android:text="CheckBox" />
+
 
     <CheckBox
-        android:id="@+id/checkBox14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox13"
-        tools:layout_editor_absoluteX="32dp" />
-
-    <CheckBox
-        android:id="@+id/checkBox12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox11"
-        tools:layout_editor_absoluteX="32dp" />
-
-    <CheckBox
-        android:id="@+id/checkBox6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox5"
-        tools:layout_editor_absoluteX="32dp" />
-
-    <CheckBox
-        android:id="@+id/checkBox13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox12"
-        tools:layout_editor_absoluteX="32dp" />
-
-    <CheckBox
-        android:id="@+id/checkBox11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox10"
-        tools:layout_editor_absoluteX="32dp" />
+        android:id="@+id/checkBox1"
+        style="@style/CustomStyle"
+        android:layout_below="@+id/checkBox"
+        android:text="CheckBox" />
 
     <CheckBox
         android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <CheckBox
-        android:id="@+id/checkBox15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox14"
-        tools:layout_editor_absoluteX="32dp" />
-
-    <CheckBox
-        android:id="@+id/checkBox8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox7"
-        tools:layout_editor_absoluteX="32dp" />
-
-    <CheckBox
-        android:id="@+id/checkBox9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="32dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox8"
-        tools:layout_editor_absoluteX="32dp" />
-
-    <CheckBox
-        android:id="@+id/checkBox10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox9"
-        tools:layout_editor_absoluteX="32dp" />
-
-    <CheckBox
-        android:id="@+id/checkBox7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox6"
-        tools:layout_editor_absoluteX="32dp" />
-
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox3"
-        tools:layout_editor_absoluteX="32dp" />
-
-    <CheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox4"
-        tools:layout_editor_absoluteX="32dp" />
+        style="@style/CustomStyle"
+        android:layout_below="@+id/checkBox1"
+        android:text="CheckBox" />
 
     <CheckBox
         android:id="@+id/checkBox3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox"
-        tools:layout_editor_absoluteX="32dp" />
+        style="@style/CustomStyle"
+        android:layout_below="@+id/checkBox2"
+        android:text="CheckBox" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginBottom="32dp"
+    <CheckBox
+        android:id="@+id/checkBox4"
+        style="@style/CustomStyle"
+        android:layout_below="@+id/checkBox3"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        style="@style/CustomStyle"
+        android:layout_below="@+id/checkBox4"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox6"
+        style="@style/CustomStyle"
+        android:layout_below="@+id/checkBox5"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox7"
+        style="@style/CustomStyle"
+        android:layout_below="@+id/checkBox6"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox8"
+        style="@style/CustomStyle"
+        android:layout_below="@+id/checkBox7"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox9"
+        style="@style/CustomStyle"
+        android:layout_below="@+id/checkBox8"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox10"
+        style="@style/CustomStyle"
+        android:layout_below="@+id/checkBox9"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox11"
+        style="@style/CustomStyle"
+        android:layout_below="@+id/checkBox10"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox12"
+        style="@style/CustomStyle"
+        android:layout_below="@+id/checkBox11"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox13"
+        style="@style/CustomStyle"
+        android:layout_below="@+id/checkBox12"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox14"
+        style="@style/CustomStyle"
+        android:layout_below="@+id/checkBox13"
+        android:text="CheckBox" />
 
 
-        android:onClick="goBack"
-        android:text="Previous step"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button2"
@@ -204,14 +113,14 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="80dp"
+        android:layout_below="@+id/checkBox14"
 
         android:layout_marginBottom="32dp"
         android:onClick="startNewActivity2"
         android:text="Next step"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </RelativeLayout>
 

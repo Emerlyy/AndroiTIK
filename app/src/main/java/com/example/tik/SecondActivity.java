@@ -28,10 +28,7 @@ public class SecondActivity extends AppCompatActivity {
         Intent intent = new Intent(this,ThirdActivity.class);
         startActivity(intent);
     }
-    public void goBack(View v){
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
-    }
+
     public double calcA0(int T,int t,int h){
         return (double)h*t/T;
     }
