@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         //layout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         mainLayout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         nextStepButton=(Button)findViewById(R.id.button);
+
         nextStepButton.setEnabled(false);
         editWidth.addTextChangedListener(new TextWatcher() {
             @Override
@@ -53,6 +54,21 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        editPeriod.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(s.toString().trim().length()==0){
+                    nextStepButton.setEnabled(false);
+                } else {
+                    nextStepButton.setEnabled(true);
+                }
+            }
+        });
+
 
     }
     public void startNewActivity(View v) {
