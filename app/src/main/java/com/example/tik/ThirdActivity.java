@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -36,13 +37,31 @@ public class ThirdActivity extends AppCompatActivity {
         entries.add(new BarEntry(5,4));
         dataSet = new BarDataSet(entries,"");
         barData = new BarData(dataSet);
-        dataSet.setDrawValues(false); // removes values above the bars
+
+
+        final ArrayList<String> xLabel = new ArrayList<>();
+        for(int i=0; i<6; i++) {
+            xLabel.add("A" + i);
+        }
+
+
+        // dataSet.setDrawValues(false); // removes values above the bars
+        dataSet.setValueTextSize(12f);
         barData.setBarWidth(0.8f); // bar width
         barData.setHighlightEnabled(false); // disables highlight
         barChart.setData(barData);
         XAxis xAxis = barChart.getXAxis();
         xAxis.setDrawGridLines(false); // removes the grid lines
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM); // sets xAsis position
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM); // sets xAxis position
+
+        xAxis.setValueFormatter(new IAxisValueFormatter() {
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return xLabel.get((int)value);
+            }
+        });
+
+
         //barChart.getAxisLeft().setEnabled(false);
         barChart.setScaleEnabled(false); // disables the scale
         barChart.getAxisRight().setEnabled(false); // removes right axis

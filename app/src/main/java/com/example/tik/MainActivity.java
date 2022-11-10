@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         editWidth = findViewById(R.id.editWidth);
         editAmplitude = findViewById(R.id.editAmplitude);
         mainLayout = findViewById(R.id.mainLayout);
-        //layout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         mainLayout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         nextStepButton=(Button)findViewById(R.id.button);
 
