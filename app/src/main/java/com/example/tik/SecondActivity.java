@@ -13,6 +13,8 @@ import android.text.style.SubscriptSpan;
 import android.view.View;
 import android.widget.CheckBox;
 
+import java.text.DecimalFormat;
+
 public class SecondActivity extends AppCompatActivity {
     int period,width,amplitude;
     CheckBox checkBox0,checkBox1,checkBox2,checkBox3,checkBox4,checkBox5,checkBox6,checkBox7,checkBox8,checkBox9,checkBox10,checkBox11,checkBox12,checkBox13,checkBox14;
@@ -120,15 +122,19 @@ public class SecondActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public double calcA0(int T,int t,int h){
+    public String calcA0(int T,int t,int h){
         double result = (double) h*t/T;
-        return Double.parseDouble(String.format("%.2f", result));
+        DecimalFormat decimalFormat = new DecimalFormat( "#.###" );
+        String resultStr = decimalFormat.format(result);
+        return resultStr;
     }
 
-    public double calcAn(int T,int t,int h,int k) {
+    public String calcAn(int T,int t,int h,int k) {
         double w = 2 * Math.PI / T;
         double result = 2 * h * t * Math.sin(k * w * t / 2) / (T * k * w * t / 2);
-        return Double.parseDouble(String.format("%.2f", result));
+        DecimalFormat decimalFormat = new DecimalFormat( "#.###" );
+        String resultStr = decimalFormat.format(result);
+        return resultStr;
     }
 
 }

@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
        intent.putExtra("period", period);
        intent.putExtra("width",width);
        intent.putExtra("amplitude",amplitude);
-        startActivity(intent);
+       startActivity(intent);
     }
 
 
