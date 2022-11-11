@@ -1,10 +1,13 @@
 package com.example.tik;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -28,19 +31,19 @@ public class ThirdActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
+        float[] arrData = getIntent().getFloatArrayExtra("data");
+
         barChart = (BarChart) findViewById(R.id.chart);
         entries = new ArrayList<BarEntry>();
-        entries.add(new BarEntry(1,2));
-        entries.add(new BarEntry(2,1));
-        entries.add(new BarEntry(3,2));
-        entries.add(new BarEntry(4,7));
-        entries.add(new BarEntry(5,4));
+        for(int i=0;i< arrData.length;i++){
+            entries.add(new BarEntry(i, arrData[i]));
+        }
         dataSet = new BarDataSet(entries,"");
         barData = new BarData(dataSet);
 
 
         final ArrayList<String> xLabel = new ArrayList<>();
-        for(int i=0; i<6; i++) {
+        for(int i=0; i < arrData.length; i++) {
             xLabel.add("A" + i);
         }
 
@@ -53,7 +56,7 @@ public class ThirdActivity extends AppCompatActivity {
         XAxis xAxis = barChart.getXAxis();
         xAxis.setDrawGridLines(false); // removes the grid lines
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM); // sets xAxis position
-
+        xAxis.setLabelCount(arrData.length);
         xAxis.setValueFormatter(new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
