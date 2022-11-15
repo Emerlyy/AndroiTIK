@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".VadimProgramist"
-        android:animateLayoutChanges="true">
+        android:animateLayoutChanges="true"
+        android:padding="10dp">
 
 
 
@@ -104,6 +105,11 @@
         style="@style/CustomStyle"
         android:layout_below="@+id/checkBox13"
         android:text="CheckBox" />
+        <CheckBox
+            android:id="@+id/checkBox15"
+            style="@style/CustomStyle"
+            android:layout_below="@+id/checkBox14"
+            android:text="CheckBox" />
 
 
 
@@ -112,13 +118,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginEnd="80dp"
-        android:layout_below="@+id/checkBox14"
-
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/checkBox15"
+        android:layout_marginBottom="20dp"
         android:onClick="startNewActivity2"
-        android:text="Next step"
-         />
+        android:text="Next step"/>
 
 
 

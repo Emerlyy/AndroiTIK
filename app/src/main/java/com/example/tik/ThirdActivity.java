@@ -1,13 +1,9 @@
 package com.example.tik;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
-import android.util.Log;
 import android.view.View;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -16,8 +12,12 @@ import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.IValueFormatter;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +27,7 @@ public class ThirdActivity extends AppCompatActivity {
     List<BarEntry> entries;
     BarDataSet dataSet;
     BarData barData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,21 +36,29 @@ public class ThirdActivity extends AppCompatActivity {
 
         barChart = (BarChart) findViewById(R.id.chart);
         entries = new ArrayList<BarEntry>();
-        for(int i=0;i< arrData.length;i++){
+        for (int i = 0; i < arrData.length; i++) {
             entries.add(new BarEntry(i, arrData[i]));
         }
-        dataSet = new BarDataSet(entries,"");
+        dataSet = new BarDataSet(entries, "");
         barData = new BarData(dataSet);
 
 
         final ArrayList<String> xLabel = new ArrayList<>();
-        for(int i=0; i < arrData.length; i++) {
+        for (int i = 0; i < arrData.length; i++) {
             xLabel.add("A" + i);
         }
 
 
         // dataSet.setDrawValues(false); // removes values above the bars
-        dataSet.setValueTextSize(12f);
+        dataSet.setValueTextSize(10f);
+        dataSet.setValueFormatter(new IValueFormatter() {
+            private DecimalFormat mFormat = new DecimalFormat("#.##");
+
+            @Override
+            public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+                return mFormat.format(value);
+            }
+        });
         barData.setBarWidth(0.8f); // bar width
         barData.setHighlightEnabled(false); // disables highlight
         barChart.setData(barData);
@@ -60,14 +69,14 @@ public class ThirdActivity extends AppCompatActivity {
         xAxis.setValueFormatter(new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
-                return xLabel.get((int)value);
+                return xLabel.get((int) value);
             }
         });
-
 
         //barChart.getAxisLeft().setEnabled(false);
         barChart.setScaleEnabled(false); // disables the scale
         barChart.getAxisRight().setEnabled(false); // removes right axis
+        barChart.getAxisLeft().setAxisMinimum(0); // makes minimum Y value to 0
         barChart.animateY(600); // animation
         barChart.getDescription().setEnabled(false); // removes the description
         barChart.setFitBars(true); // make the x-axis fit exactly all bars
@@ -77,8 +86,9 @@ public class ThirdActivity extends AppCompatActivity {
         barChart.setBorderWidth(0.5f);
         barChart.invalidate();
     }
-    public void goBack2(View v){
-        Intent intent = new Intent(this,SecondActivity.class);
+
+    public void goBack2(View v) {
+        Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
     }
 }

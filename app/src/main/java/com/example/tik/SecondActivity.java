@@ -1,7 +1,5 @@
 package com.example.tik;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,22 +7,22 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
-import android.text.style.SubscriptSpan;
 import android.view.View;
 import android.widget.CheckBox;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.util.Arrays;
 
 public class SecondActivity extends AppCompatActivity {
-    CheckBox[] arrayCheckBox = new CheckBox[15];
-    float[] arrayData = new float[15];
+
+    CheckBox[] arrayCheckBox = new CheckBox[16];
+    float[] arrayData = new float[arrayCheckBox.length];
+    float[] absData = new float[arrayData.length];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
         int period = getIntent().getIntExtra("period", 0);
         int width = getIntent().getIntExtra("width", 0);
         int amplitude = getIntent().getIntExtra("amplitude", 0);
@@ -44,30 +42,24 @@ public class SecondActivity extends AppCompatActivity {
             text.setSpan(new RelativeSizeSpan(0.6f), 1, String.valueOf(i).length() + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             arrayCheckBox[i].setText(text);
         }
-        for(int i =0;i< arrayData.length;i++)
-            arrayData[i] = Math.abs(arrayData[i]);
+        for (int i = 0; i < arrayData.length; i++)
+            absData[i] = arrayData[i] < 0 ? Math.abs(arrayData[i]) : arrayData[i];
     }
 
     public void startNewActivity2(View v) {
         Intent intent = new Intent(this, ThirdActivity.class);
-        intent.putExtra("data", arrayData);
+        intent.putExtra("data", absData);
         startActivity(intent);
     }
 
     public float calcA0(int T, int t, int h) {
         BigDecimal result = new BigDecimal((double) h * t / T).setScale(2, BigDecimal.ROUND_HALF_UP);
-        //DecimalFormat decimalFormat = new DecimalFormat( "#.###" );
-        //String resultStr = decimalFormat.format(result);
         return result.floatValue();
     }
 
     public float calcAn(int T, int t, int h, int k) {
         double w = 2 * Math.PI / T;
         BigDecimal result = new BigDecimal(2 * h * t * Math.sin(k * w * t / 2) / (T * k * w * t / 2)).setScale(2, BigDecimal.ROUND_HALF_UP);
-        /*double result = 2 * h * t * Math.sin(k * w * t / 2) / (T * k * w * t / 2);
-        DecimalFormat decimalFormat = new DecimalFormat( "#.###" );
-        String resultStr = decimalFormat.format(result);*/
         return result.floatValue();
     }
-
 }
