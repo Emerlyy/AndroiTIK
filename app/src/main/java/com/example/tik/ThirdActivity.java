@@ -32,20 +32,24 @@ public class ThirdActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
-        float[] arrData = getIntent().getFloatArrayExtra("data");
-
+       // float[] arrData = getIntent().getFloatArrayExtra("data");
+        List<Float> arrData = (List<Float>) getIntent().getSerializableExtra("data");
+        List<Integer> indexes = (List<Integer>) getIntent().getSerializableExtra("indexes");
         barChart = (BarChart) findViewById(R.id.chart);
         entries = new ArrayList<BarEntry>();
-        for (int i = 0; i < arrData.length; i++) {
+   /*     for (int i = 0; i < arrData.length; i++) {
             entries.add(new BarEntry(i, arrData[i]));
+        }*/
+        for (int i = 0; i < arrData.size(); i++) {
+            entries.add(new BarEntry(i, arrData.get(i)));
         }
         dataSet = new BarDataSet(entries, "");
         barData = new BarData(dataSet);
 
 
         final ArrayList<String> xLabel = new ArrayList<>();
-        for (int i = 0; i < arrData.length; i++) {
-            xLabel.add("A" + i);
+        for (int i = 0; i < indexes.size(); i++) {
+            xLabel.add("A" + indexes.get(i));
         }
 
 
@@ -65,7 +69,7 @@ public class ThirdActivity extends AppCompatActivity {
         XAxis xAxis = barChart.getXAxis();
         xAxis.setDrawGridLines(false); // removes the grid lines
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM); // sets xAxis position
-        xAxis.setLabelCount(arrData.length);
+        xAxis.setLabelCount(arrData.size());
         xAxis.setValueFormatter(new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {

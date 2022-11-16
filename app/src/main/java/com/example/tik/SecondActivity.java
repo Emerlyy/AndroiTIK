@@ -10,13 +10,16 @@ import android.text.style.RelativeSizeSpan;
 import android.view.View;
 import android.widget.CheckBox;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SecondActivity extends AppCompatActivity {
 
     CheckBox[] arrayCheckBox = new CheckBox[16];
     float[] arrayData = new float[arrayCheckBox.length];
-    float[] absData = new float[arrayData.length];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +45,21 @@ public class SecondActivity extends AppCompatActivity {
             text.setSpan(new RelativeSizeSpan(0.6f), 1, String.valueOf(i).length() + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             arrayCheckBox[i].setText(text);
         }
-        for (int i = 0; i < arrayData.length; i++)
-            absData[i] = arrayData[i] < 0 ? Math.abs(arrayData[i]) : arrayData[i];
+
     }
 
     public void startNewActivity2(View v) {
+        List<Float> absData = new ArrayList<>();
+        List<Integer> indexes = new ArrayList<>();
         Intent intent = new Intent(this, ThirdActivity.class);
-        intent.putExtra("data", absData);
+        for (int i = 0; i < arrayData.length; i++){
+            if(arrayCheckBox[i].isChecked()) {
+                absData.add(Math.abs(arrayData[i]));
+                indexes.add(i);
+            }
+        }
+        intent.putExtra("data", (Serializable) absData);
+        intent.putExtra("indexes", (Serializable) indexes);
         startActivity(intent);
     }
 
@@ -62,4 +73,6 @@ public class SecondActivity extends AppCompatActivity {
         BigDecimal result = new BigDecimal(2 * h * t * Math.sin(k * w * t / 2) / (T * k * w * t / 2)).setScale(2, BigDecimal.ROUND_HALF_UP);
         return result.floatValue();
     }
+
 }
+
