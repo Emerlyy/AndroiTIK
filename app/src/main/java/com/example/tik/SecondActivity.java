@@ -9,6 +9,8 @@ import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.ToggleButton;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -19,23 +21,21 @@ public class SecondActivity extends AppCompatActivity {
 
     CheckBox[] arrayCheckBox = new CheckBox[16];
     float[] arrayData = new float[arrayCheckBox.length];
-
+    ToggleButton checkAllButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
         int period = getIntent().getIntExtra("period", 0);
         int width = getIntent().getIntExtra("width", 0);
         int amplitude = getIntent().getIntExtra("amplitude", 0);
 
-        arrayCheckBox[0] = (CheckBox) findViewById(R.id.checkBox);
+        arrayCheckBox[0] = (CheckBox) findViewById(R.id.checkBox0);
         arrayData[0] = calcA0(period, width, amplitude);
         SpannableString text = new SpannableString("A0 = " + arrayData[0]);
         text.setSpan(new RelativeSizeSpan(0.6f), 1, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         arrayCheckBox[0].setText(text);
-
         for (int i = 1; i < arrayCheckBox.length; i++) {
             String strId = "checkBox" + String.valueOf(i);
             int resId = getResources().getIdentifier(strId, "id", getPackageName());
@@ -44,16 +44,62 @@ public class SecondActivity extends AppCompatActivity {
             text = new SpannableString("A" + i + " = " + arrayData[i]);
             text.setSpan(new RelativeSizeSpan(0.6f), 1, String.valueOf(i).length() + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             arrayCheckBox[i].setText(text);
+
+
         }
+        for (int i = 0; i < arrayCheckBox.length; i++) {
+            arrayCheckBox[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChacked) {
+
+                    updateButton();
+                }
+            });
+
+        }
+        checkAllButton = findViewById(R.id.checkAllButton);
+        boolean isChecked = checkAllButton.isChecked();
+        updateVisibility(isChecked);
+        checkAllButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateVisibility(checkAllButton.isChecked());
+            }
+        });
 
     }
+
+    private void updateButton() {
+        for (int i = 0; i < arrayCheckBox.length; i++) {
+            if (!arrayCheckBox[i].isChecked()) {
+                checkAllButton.setChecked(false);
+                return;
+            }
+        }
+        checkAllButton.setChecked(true);
+    }
+
+    private void updateVisibility(boolean isChecked) {
+        if (isChecked) {
+
+            for (int i = 0; i < arrayCheckBox.length; i++) {
+                arrayCheckBox[i].setChecked(true);
+            }
+
+        } else {
+            for (int i = 0; i < arrayCheckBox.length; i++) {
+                arrayCheckBox[i].setChecked(false);
+            }
+        }
+    }
+
 
     public void startNewActivity2(View v) {
         List<Float> absData = new ArrayList<>();
         List<Integer> indexes = new ArrayList<>();
         Intent intent = new Intent(this, ThirdActivity.class);
-        for (int i = 0; i < arrayData.length; i++){
-            if(arrayCheckBox[i].isChecked()) {
+        for (int i = 0; i < arrayData.length; i++) {
+            if (arrayCheckBox[i].isChecked()) {
                 absData.add(Math.abs(arrayData[i]));
                 indexes.add(i);
             }

@@ -14,18 +14,24 @@
         android:animateLayoutChanges="true"
         android:padding="10dp">
 
-
-
-    <CheckBox
-        android:id="@+id/checkBox"
+        <ToggleButton
+            android:id="@+id/checkAllButton"
+            style="@style/CustomStyle"
+            android:checked="true"
+            android:text="CheckBox"
+            android:textOff="Вибрати всі"
+            android:textOn="Вибрати всі" />
+        <CheckBox
+        android:id="@+id/checkBox0"
         style="@style/CustomStyle"
+        android:layout_below="@+id/checkAllButton"
         android:text="CheckBox" />
 
 
-    <CheckBox
+        <CheckBox
         android:id="@+id/checkBox1"
         style="@style/CustomStyle"
-        android:layout_below="@+id/checkBox"
+        android:layout_below="@+id/checkBox0"
         android:text="CheckBox" />
 
     <CheckBox
