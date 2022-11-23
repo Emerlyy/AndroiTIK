@@ -101,7 +101,7 @@
                         android:layout_marginLeft="20dp"
                         android:text="@string/time_title"
                         android:textColor="@color/purple_500"
-                        android:textSize="24sp"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -169,11 +169,11 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="120dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:onClick="startNewActivity"
-            android:text="Next step"
+            android:text="@string/button_main"
             android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
