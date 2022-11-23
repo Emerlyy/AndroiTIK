@@ -128,7 +128,7 @@
         android:layout_below="@+id/checkBox15"
         android:layout_marginBottom="20dp"
         android:onClick="startNewActivity2"
-        android:text="Next step"/>
+        android:text="@string/button_second"/>
 
 
 

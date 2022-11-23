@@ -32,6 +32,7 @@ public class ThirdActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
+        setTitle(R.string.third_activity_title);
        // float[] arrData = getIntent().getFloatArrayExtra("data");
         List<Float> arrData = (List<Float>) getIntent().getSerializableExtra("data");
         List<Integer> indexes = (List<Integer>) getIntent().getSerializableExtra("indexes");

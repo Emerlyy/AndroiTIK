@@ -27,6 +27,7 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+        setTitle(R.string.second_activity_title);
         int period = getIntent().getIntExtra("period", 0);
         int width = getIntent().getIntExtra("width", 0);
         int amplitude = getIntent().getIntExtra("amplitude", 0);

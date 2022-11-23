@@ -1,10 +1,18 @@
 <resources>
     <string name="app_name">TIK - 1lab</string>
+	<!-- main layout -->
+	<string name="main_activity_title">Введіть початкові значення</string>
     <string name="period_title">Період - T</string>
-	<string name="period_expandable">період період період період період період період період період період період період період період період період період період період період період період період період період період період період період</string>
+	<string name="period_expandable">Період сигналу - найменший проміжок часу, через який повторюються миттєві значення сигналу.</string>
 	<string name="time_title">Ширина імпульсів - t</string>
 	<string name="time_expandable">ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина ширина</string>
 	<string name="amplitude_title">Амплітуда - h</string>
 	<string name="amplitude_expandable">амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда амплітуда</string>
-	
+	<string name="button_main">Розрахувати спектр</string>
+	<!-- second layout -->
+	<string name="second_activity_title">Значення амплітуд</string>
+	<string name="button_second">Побудувати графік</string>
+	<!-- third layout -->
+	<string name="third_activity_title">Графік</string>
+	<string name="button_third_text">Повернутись</string>
 </resources>
