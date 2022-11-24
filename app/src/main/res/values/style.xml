@@ -7,4 +7,47 @@
         <item name="android:layout_marginTop">20dp</item>
         <item name="android:textColor">@color/black</item>/>
     </style>
+
+    <style name="cardTitleStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:textColor">@color/cardTitleColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="cardEditStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_marginTop">-7dp</item>
+        <item name="android:inputType">numberSigned</item>
+        <item name="android:maxLength">3</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_weight">0</item>
+    </style>
+
+    <style name="cardDetailsTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:justificationMode">inter_word</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+    </style>
+
+    <style name="cardArrowImageStyle">
+        <item name="android:layout_height">10dp</item>
+        <item name="android:layout_width">10dp</item>
+        <item name="android:src">@drawable/arrow</item>
+        <item name="android:layout_gravity">end|bottom</item>
+        <item name="android:maxLength">3</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+    </style>
+
 </resources>
+

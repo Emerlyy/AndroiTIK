@@ -5,10 +5,17 @@ import androidx.cardview.widget.CardView;
 
 import android.animation.LayoutTransition;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.transition.AutoTransition;
+import android.transition.ChangeBounds;
+import android.transition.Scene;
+import android.transition.TransitionManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.view.View;
@@ -26,12 +33,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle(R.string.main_activity_title);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
 
         editPeriod = findViewById(R.id.editPeriod);
         editWidth = findViewById(R.id.editWidth);
         editAmplitude = findViewById(R.id.editAmplitude);
         mainLayout = findViewById(R.id.mainLayout);
-        mainLayout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+        //mainLayout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         nextStepButton = (Button) findViewById(R.id.button);
 
         nextStepButton.setEnabled(false);
@@ -88,7 +96,13 @@ public class MainActivity extends AppCompatActivity {
         CardView card = (CardView) view;
         LinearLayout lin1 = (LinearLayout) card.getChildAt(0);
         TextView detailsText = (TextView) lin1.getChildAt(1);
+        ImageView arrow = (ImageView) card.getChildAt(1);
         int v = (detailsText.getVisibility() == view.GONE) ? View.VISIBLE : View.GONE;
+        int av = (v==View.GONE)?0:180;
+        AutoTransition autoTransition = new AutoTransition();
+        autoTransition.setDuration(200);
+        TransitionManager.beginDelayedTransition(mainLayout, autoTransition);
+        arrow.animate().rotation(av).start();
         detailsText.setVisibility(v);
     }
 

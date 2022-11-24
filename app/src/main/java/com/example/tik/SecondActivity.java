@@ -3,6 +3,7 @@ package com.example.tik;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -28,6 +29,7 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         setTitle(R.string.second_activity_title);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
         int period = getIntent().getIntExtra("period", 0);
         int width = getIntent().getIntExtra("width", 0);
         int amplitude = getIntent().getIntExtra("amplitude", 0);

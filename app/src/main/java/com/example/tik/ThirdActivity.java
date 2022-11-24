@@ -3,6 +3,7 @@ package com.example.tik;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 
@@ -33,6 +34,7 @@ public class ThirdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
         setTitle(R.string.third_activity_title);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
        // float[] arrData = getIntent().getFloatArrayExtra("data");
         List<Float> arrData = (List<Float>) getIntent().getSerializableExtra("data");
         List<Integer> indexes = (List<Integer>) getIntent().getSerializableExtra("indexes");
