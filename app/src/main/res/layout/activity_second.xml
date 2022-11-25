@@ -20,7 +20,7 @@
             android:checked="true"
             android:text="CheckBox"
             android:textOff="Вибрати всі"
-            android:textOn="Вибрати всі" />
+            android:textOn="Не вибрати жодного" />
         <CheckBox
         android:id="@+id/checkBox0"
         style="@style/CustomStyle"
@@ -120,7 +120,7 @@
 
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

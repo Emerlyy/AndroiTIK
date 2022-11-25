@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TIK - 1lab</string>
+    <string name="app_name">Розрахунок спектру</string>
 	<!-- main layout -->
 	<string name="main_activity_title">Введіть початкові значення</string>
     <string name="period_title">Період - T</string>
