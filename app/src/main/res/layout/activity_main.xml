@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
     xmlns:app = "http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scroll"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -12,12 +13,43 @@
         android:layout_height="wrap_content"
         android:paddingBottom="20dp"
         android:animateLayoutChanges="true">
+        <!--  ExpandableTextView Container -->
+        <com.ms.square.android.expandabletextview.ExpandableTextView
+            android:id="@+id/expand_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="50dp"
+            expandableTextView:animDuration="100"
+            expandableTextView:maxCollapsedLines="1">
+
+            <!-- simple text view  -->
+            <TextView
+                android:id="@id/expandable_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="#666666"
+                android:textSize="18sp" />
+
+            <!-- expandable ImageButton -->
+            <ImageButton
+                android:id="@id/expand_collapse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:background="@android:color/transparent" />
+
+        </com.ms.square.android.expandabletextview.ExpandableTextView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_below="@id/expand_text_view"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="50dp"
