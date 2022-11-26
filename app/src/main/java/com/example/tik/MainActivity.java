@@ -1,26 +1,24 @@
 package com.example.tik;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
-import android.animation.LayoutTransition;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.transition.AutoTransition;
-import android.transition.ChangeBounds;
-import android.transition.Scene;
 import android.transition.TransitionManager;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
+import com.ms.square.android.expandabletextview.ExpandableTextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ExpandableTextView expTv = (ExpandableTextView) findViewById(R.id.expand_text_view).findViewById(R.id.expand_text_view);
+        expTv.setText(getString(R.string.expandable_text));
         setTitle(R.string.main_activity_title);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
 
