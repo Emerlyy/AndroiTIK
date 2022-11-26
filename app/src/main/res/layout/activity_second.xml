@@ -14,45 +14,76 @@
         android:animateLayoutChanges="true"
         android:padding="10dp">
 
+        <TextView
+            android:id="@+id/textFormulas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/cardTitleStyle"
+            android:text="Необхідні формули:" />
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_above="@+id/textFormulas"
+            android:layout_marginTop="-202dp"
+            android:layout_marginEnd="257dp"
+            android:layout_marginBottom="-131dp"
+            android:src="@drawable/a0" />
+
+        <ImageView
+            android:layout_width="225dp"
+            android:layout_height="125dp"
+            android:layout_above="@+id/textFormulas"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="62dp"
+            android:layout_marginTop="-248dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="-162dp"
+            android:src="@drawable/ak" />
+
         <ToggleButton
             android:id="@+id/checkAllButton"
             style="@style/CustomStyle"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="199dp"
+            android:layout_marginBottom="88dp"
             android:checked="true"
             android:text="CheckBox"
             android:textOff="Вибрати всі"
             android:textOn="Не вибрати жодного" />
-        <CheckBox
-        android:id="@+id/checkBox0"
-        style="@style/CustomStyle"
-        android:layout_below="@+id/checkAllButton"
-        android:text="CheckBox" />
-
 
         <CheckBox
-        android:id="@+id/checkBox1"
-        style="@style/CustomStyle"
-        android:layout_below="@+id/checkBox0"
-        android:text="CheckBox" />
+            android:id="@+id/checkBox0"
+            style="@style/CustomStyle"
+            android:layout_below="@+id/checkAllButton"
+            android:layout_marginTop="-67dp"
+            android:text="CheckBox" />
 
-    <CheckBox
-        android:id="@+id/checkBox2"
-        style="@style/CustomStyle"
-        android:layout_below="@+id/checkBox1"
-        android:text="CheckBox" />
+        <CheckBox
+            android:id="@+id/checkBox1"
+            style="@style/CustomStyle"
+            android:layout_below="@+id/checkBox0"
+            android:text="CheckBox" />
 
-    <CheckBox
-        android:id="@+id/checkBox3"
-        style="@style/CustomStyle"
-        android:layout_below="@+id/checkBox2"
-        android:text="CheckBox" />
+        <CheckBox
+            android:id="@+id/checkBox2"
+            style="@style/CustomStyle"
+            android:layout_below="@+id/checkBox1"
+            android:text="CheckBox" />
 
-    <CheckBox
-        android:id="@+id/checkBox4"
-        style="@style/CustomStyle"
-        android:layout_below="@+id/checkBox3"
-        android:text="CheckBox" />
+        <CheckBox
+            android:id="@+id/checkBox3"
+            style="@style/CustomStyle"
+            android:layout_below="@+id/checkBox2"
+            android:text="CheckBox" />
 
-    <CheckBox
+        <CheckBox
+            android:id="@+id/checkBox4"
+            style="@style/CustomStyle"
+            android:layout_below="@+id/checkBox3"
+            android:text="CheckBox" />
+
+        <CheckBox
         android:id="@+id/checkBox5"
         style="@style/CustomStyle"
         android:layout_below="@+id/checkBox4"
@@ -111,15 +142,14 @@
         style="@style/CustomStyle"
         android:layout_below="@+id/checkBox13"
         android:text="CheckBox" />
+
         <CheckBox
             android:id="@+id/checkBox15"
             style="@style/CustomStyle"
             android:layout_below="@+id/checkBox14"
             android:text="CheckBox" />
 
-
-
-    <Button
+        <Button
         android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -129,8 +159,6 @@
         android:layout_marginBottom="20dp"
         android:onClick="startNewActivity2"
         android:text="@string/button_second"/>
-
-
 
     </RelativeLayout>
 

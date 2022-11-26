@@ -20,12 +20,14 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class SecondActivity extends AppCompatActivity {
 
     CheckBox[] arrayCheckBox = new CheckBox[16];
     float[] arrayData = new float[arrayCheckBox.length];
     ToggleButton checkAllButton;
     Button nextStepButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
