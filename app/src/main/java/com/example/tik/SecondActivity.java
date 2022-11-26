@@ -17,6 +17,7 @@ import android.widget.ToggleButton;
 import android.widget.Button;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,19 +38,28 @@ public class SecondActivity extends AppCompatActivity {
         int period = getIntent().getIntExtra("period", 0);
         int width = getIntent().getIntExtra("width", 0);
         int amplitude = getIntent().getIntExtra("amplitude", 0);
-
+        double w = 2*Math.PI/period;
         arrayCheckBox[0] = (CheckBox) findViewById(R.id.checkBox0);
         nextStepButton = (Button) findViewById(R.id.next);
         arrayData[0] = calcA0(period, width, amplitude);
-        SpannableString text = new SpannableString("A0 = " + arrayData[0]);
+
+        String hStr = String.valueOf(amplitude);
+        String tStr = String.valueOf(width);
+        String TStr = String.valueOf(period);
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        String wStr = decimalFormat.format(2*Math.PI/period);
+
+        SpannableString text = new SpannableString("A0 = " + hStr+"*"+tStr+"/"+TStr+" = "+arrayData[0]);
         text.setSpan(new RelativeSizeSpan(0.6f), 1, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         arrayCheckBox[0].setText(text);
+
+
         for (int i = 1; i < arrayCheckBox.length; i++) {
             String strId = "checkBox" + String.valueOf(i);
             int resId = getResources().getIdentifier(strId, "id", getPackageName());
             arrayCheckBox[i] = (CheckBox) findViewById(resId);
             arrayData[i] = calcAn(period, width, amplitude, i);
-            text = new SpannableString("A" + i + " = " + arrayData[i]);
+            text = new SpannableString("A" + i + " = 2*" +hStr+"*"+tStr+"*sin("+i+"*"+wStr+"*"+tStr+"/2)/("+TStr+"*("+i+"*"+wStr+"*"+tStr+"/2)) = "+arrayData[i]);
             text.setSpan(new RelativeSizeSpan(0.6f), 1, String.valueOf(i).length() + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             arrayCheckBox[i].setText(text);
 
@@ -113,7 +123,6 @@ public class SecondActivity extends AppCompatActivity {
             }
         }
     }
-
     public void startNewActivity2(View v) {
         List<Float> absData = new ArrayList<>();
         List<Integer> indexes = new ArrayList<>();

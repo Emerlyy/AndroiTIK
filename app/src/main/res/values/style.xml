@@ -3,9 +3,10 @@
     <style name="CustomStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">12pt</item>
+        <item name="android:textSize">6pt</item>
         <item name="android:layout_marginTop">20dp</item>
         <item name="android:textColor">@color/black</item>/>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="cardTitleStyle">
@@ -48,6 +49,5 @@
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:layout_marginEnd">10dp</item>
     </style>
-
 </resources>
 
