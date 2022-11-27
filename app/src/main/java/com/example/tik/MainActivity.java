@@ -52,11 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void afterTextChanged(Editable s) {
-                if (s.toString().trim().length() == 0 || editPeriod.length() == 0) {
-                    nextStepButton.setEnabled(false);
-                } else {
-                    nextStepButton.setEnabled(true);
-                }
+                nextStepButton.setEnabled(s.toString().trim().length() != 0 && editPeriod.length() != 0);
             }
         });
         editPeriod.addTextChangedListener(new TextWatcher() {
@@ -70,11 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (s.toString().trim().length() == 0 || editWidth.length() == 0) {
-                    nextStepButton.setEnabled(false);
-                } else {
-                    nextStepButton.setEnabled(true);
-                }
+                nextStepButton.setEnabled(s.toString().trim().length() != 0 && editWidth.length() != 0);
             }
         });
     }
@@ -95,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout lin1 = (LinearLayout) card.getChildAt(0);
         TextView detailsText = (TextView) lin1.getChildAt(1);
         ImageView arrow = (ImageView) card.getChildAt(1);
-        int v = (detailsText.getVisibility() == view.GONE) ? View.VISIBLE : View.GONE;
+        int v = (detailsText.getVisibility() == View.GONE) ? View.VISIBLE : View.GONE;
         int av = (v==View.GONE)?0:180;
         AutoTransition autoTransition = new AutoTransition();
         autoTransition.setDuration(200);

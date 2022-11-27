@@ -18,7 +18,7 @@
 імпульсної послідовності, що має період Т, ширину імпульсів t та
 амплітуду імпульсу h. Тому для розрахунку значень складових спектру
 їх потрібно задати.</string>
-	<string name="button_main">Розрахувати значення складових спектру</string>
+	<string name="button_main">Розрахувати значення\nскладових спектру</string>
 	<!-- second layout -->
 	<string name="second_activity_title">Значення амплітуд</string>
 	<string name="button_second">Побудувати графік</string>

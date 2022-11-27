@@ -39,7 +39,7 @@ public class ThirdActivity extends AppCompatActivity {
         List<Float> arrData = (List<Float>) getIntent().getSerializableExtra("data");
         List<Integer> indexes = (List<Integer>) getIntent().getSerializableExtra("indexes");
         barChart = (BarChart) findViewById(R.id.chart);
-        entries = new ArrayList<BarEntry>();
+        entries = new ArrayList<>();
    /*     for (int i = 0; i < arrData.length; i++) {
             entries.add(new BarEntry(i, arrData[i]));
         }*/
@@ -59,7 +59,7 @@ public class ThirdActivity extends AppCompatActivity {
         // dataSet.setDrawValues(false); // removes values above the bars
         dataSet.setValueTextSize(10f);
         dataSet.setValueFormatter(new IValueFormatter() {
-            private DecimalFormat mFormat = new DecimalFormat("#.##");
+            private final DecimalFormat mFormat = new DecimalFormat("#.##");
 
             @Override
             public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
