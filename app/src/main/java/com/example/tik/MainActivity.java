@@ -87,13 +87,12 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout lin1 = (LinearLayout) card.getChildAt(0);
         TextView detailsText = (TextView) lin1.getChildAt(1);
         ImageView arrow = (ImageView) card.getChildAt(1);
-        int v = (detailsText.getVisibility() == View.GONE) ? View.VISIBLE : View.GONE;
-        int av = (v==View.GONE)?0:180;
+        int isDetailsVisible = (detailsText.getVisibility() == View.GONE) ? View.VISIBLE : View.GONE;
         AutoTransition autoTransition = new AutoTransition();
         autoTransition.setDuration(200);
         TransitionManager.beginDelayedTransition(mainLayout, autoTransition);
-        arrow.animate().rotation(av).start();
-        detailsText.setVisibility(v);
+        arrow.animate().rotation((isDetailsVisible==View.GONE)?0:180).start();
+        detailsText.setVisibility(isDetailsVisible);
     }
 
     public static Integer tryParse(String text) {
