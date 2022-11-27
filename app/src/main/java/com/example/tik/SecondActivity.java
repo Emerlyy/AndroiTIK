@@ -58,8 +58,8 @@ public class SecondActivity extends AppCompatActivity {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         String wStr = decimalFormat.format(2*Math.PI/period);
 
-        SpannableString text = new SpannableString("A0 = \t\t\t\t\t\t\t\t\t\t\t\t\t= "+arrayData[0]);
-        JLatexMathDrawable drawable = JLatexMathDrawable.builder(hStr+"\\cdot \\frac{"+tStr+"}{"+TStr+"}")
+        SpannableString text = new SpannableString("A0 = ");
+        JLatexMathDrawable drawable = JLatexMathDrawable.builder(hStr+"\\cdot \\frac{"+tStr+"}{"+TStr+"}="+arrayData[0])
                 .textSize(120)
                 .padding(8)
                 .background(0x00000000)
@@ -81,9 +81,9 @@ public class SecondActivity extends AppCompatActivity {
             jLatexMathView[i] = (JLatexMathView) findViewById(resLatexId);
             arrayData[i] = calcAn(period, width, amplitude, i);
 
-            text = new SpannableString("A" + i + " = \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t = "+arrayData[i]);
+            text = new SpannableString("A" + i + " = ");
             drawable = JLatexMathDrawable.builder("\\boldsymbol{2\\cdot "+hStr+"\\cdot \\frac{"+tStr+"\\cdot\\sin("+i+"\\cdot "+wStr+"\\cdot \\frac{"+tStr+"}{2})}" +
-                            "{"+TStr+"\\cdot"+i+"\\cdot"+wStr+"\\cdot \\frac{"+tStr+"}{2}}")
+                            "{"+TStr+"\\cdot"+i+"\\cdot"+wStr+"\\cdot \\frac{"+tStr+"}{2}}="+arrayData[i])
                     .textSize(160)
                     .padding(8)
                     .background(0x00000000)
