@@ -13,56 +13,74 @@
         tools:context=".VadimProgramist"
         android:animateLayoutChanges="true"
         android:padding="10dp">
-
         <TextView
-            android:id="@+id/textFormulas"
+            android:id="@+id/textSub2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/cardTitleStyle"
-            android:text="Необхідні формули:" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            style="@style/subtitleStyle"
+            android:text="@string/second_activity_subtitle"/>
+        <com.ms.square.android.expandabletextview.ExpandableTextView
+            android:id="@+id/expand_text_view1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textSub2"
+            expandableTextView:animDuration="100"
+            expandableTextView:maxCollapsedLines="1">
 
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:layout_above="@+id/textFormulas"
-            android:layout_marginTop="-202dp"
-            android:layout_marginEnd="257dp"
-            android:layout_marginBottom="-131dp"
-            android:src="@drawable/a0" />
+            <!-- simple text view  -->
+            <TextView
+                android:id="@id/expandable_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="#666666"
+                android:textSize="18sp" />
 
-        <ImageView
-            android:layout_width="225dp"
-            android:layout_height="125dp"
-            android:layout_above="@+id/textFormulas"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="62dp"
-            android:layout_marginTop="-248dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="-162dp"
-            android:src="@drawable/ak" />
+            <!-- expandable ImageButton -->
+            <ImageButton
+                android:id="@id/expand_collapse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:background="@android:color/transparent" />
+
+        </com.ms.square.android.expandabletextview.ExpandableTextView>
 
         <ToggleButton
             android:id="@+id/checkAllButton"
             style="@style/CustomStyle"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="199dp"
-            android:layout_marginBottom="88dp"
+            android:layout_below="@+id/expand_text_view1"
             android:checked="true"
             android:text="CheckBox"
             android:textOff="Вибрати всі"
             android:textOn="Не вибрати жодного" />
+        <ImageView
+            android:id="@+id/imageFormula1"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/checkAllButton"
+            android:src="@drawable/a0"
+            tools:ignore="InvalidId" />
 
         <CheckBox
             android:id="@+id/checkBox0"
             style="@style/CustomStyle"
-            android:layout_below="@+id/checkAllButton"
-            android:layout_marginTop="-67dp"
+            android:layout_below="@+id/imageFormula1"
             android:text="CheckBox" />
+        <ImageView
+            android:id="@+id/imageFormula2"
+            android:layout_width="225dp"
+            android:layout_height="125dp"
+            android:layout_below="@+id/checkBox0"
+            android:src="@drawable/ak" />
 
         <CheckBox
             android:id="@+id/checkBox1"
             style="@style/CustomStyle"
-            android:layout_below="@+id/checkBox0"
+            android:layout_below="@+id/imageFormula2"
             android:text="CheckBox" />
 
         <CheckBox
