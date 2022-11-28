@@ -1,9 +1,12 @@
 package com.example.tik;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
@@ -58,6 +61,7 @@ public class ThirdActivity extends AppCompatActivity {
 
         // dataSet.setDrawValues(false); // removes values above the bars
         dataSet.setValueTextSize(10f);
+        dataSet.setColor(ContextCompat.getColor(this,R.color.cardTitleColor));
         dataSet.setValueFormatter(new IValueFormatter() {
             private final DecimalFormat mFormat = new DecimalFormat("#.##");
 
@@ -73,12 +77,7 @@ public class ThirdActivity extends AppCompatActivity {
         xAxis.setDrawGridLines(false); // removes the grid lines
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM); // sets xAxis position
         xAxis.setLabelCount(arrData.size());
-        xAxis.setValueFormatter(new IAxisValueFormatter() {
-            @Override
-            public String getFormattedValue(float value, AxisBase axis) {
-                return xLabel.get((int) value);
-            }
-        });
+        xAxis.setValueFormatter((value, axis) -> xLabel.get((int) value));
 
         //barChart.getAxisLeft().setEnabled(false);
         barChart.setScaleEnabled(false); // disables the scale

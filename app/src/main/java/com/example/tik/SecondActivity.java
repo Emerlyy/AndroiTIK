@@ -19,6 +19,7 @@ import android.widget.ToggleButton;
 import android.widget.Button;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +31,10 @@ import ru.noties.jlatexmath.JLatexMathView;
 public class SecondActivity extends AppCompatActivity {
     CheckBox[] arrayCheckBox = new CheckBox[16];
     JLatexMathView[] jLatexMathView = new JLatexMathView[16];
+    JLatexMathView[] latexFormulas = new JLatexMathView[3];
+    JLatexMathView latexEnteredData;
 
-    JLatexMathView latexFormulaA0;
-    JLatexMathView latexFormulaAk;
+    JLatexMathDrawable drawable;
 
     ToggleButton checkAllButton;
     Button nextStepButton;
@@ -50,118 +52,93 @@ public class SecondActivity extends AppCompatActivity {
         int amplitude = getIntent().getIntExtra("amplitude", 0);
         double w = 2*Math.PI/period;
 
-        arrayCheckBox[0] = (CheckBox) findViewById(R.id.checkBox0);
-        jLatexMathView[0] = (JLatexMathView) findViewById(R.id.math_view0);
-
-        latexFormulaA0 = (JLatexMathView) findViewById(R.id.FormulaA0);
-        latexFormulaAk = (JLatexMathView) findViewById(R.id.FormulaAk);
+        arrayCheckBox[0] = findViewById(R.id.checkBox0);
+        jLatexMathView[0] = findViewById(R.id.math_view0);
+        latexEnteredData = findViewById(R.id.entered);
 
         arrayData[0] = calcA0(period, width, amplitude);
-        nextStepButton = (Button) findViewById(R.id.next);
+        nextStepButton = findViewById(R.id.next);
 
         String hStr = String.valueOf(amplitude);
         String tStr = String.valueOf(width);
         String TStr = String.valueOf(period);
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        String wStr = decimalFormat.format(2*Math.PI/period);
 
         String A0 = "\\boldsymbol{A_{0}=h\\cdot \\frac{t}{T}";
-        JLatexMathDrawable drawableFormulaA0 = JLatexMathDrawable.builder(A0)
-                .textSize(160)
-                .padding(8)
-                .background(0x00000000)
-                .align(JLatexMathDrawable.ALIGN_RIGHT)
-                .build();
-        latexFormulaA0.setLatexDrawable(drawableFormulaA0);
-
         String Ak = "\\boldsymbol{A_{k}=2\\cdot h\\cdot \\frac{t\\cdot\\sin(k\\cdot \\omega\\cdot \\frac{t}{2})}{T\\cdot k\\cdot \\omega\\cdot \\frac{t}{2}}";
-        JLatexMathDrawable drawableFormulaAk = JLatexMathDrawable.builder(Ak)
+        String W = "\\boldsymbol{\\omega=\\frac{2\\pi}{T}}";
+        String []forAllLatexView = {A0,Ak,W};
+
+        for (int i = 0; i < latexFormulas.length; i++) {
+            int latexFormulasId = getResources().getIdentifier("Formula" + i,"id",getPackageName());
+            latexFormulas[i] = findViewById(latexFormulasId);
+
+            drawable = JLatexMathDrawable.builder(forAllLatexView[i])
+                    .textSize(60)
+                    .padding(8)
+                    .background(0x00000000)
+                    .align(JLatexMathDrawable.ALIGN_RIGHT)
+                    .build();
+            latexFormulas[i].setLatexDrawable(drawable);
+        }
+
+        String enteredData = "\\boldsymbol{\\textcolor{OliveGreen}{T}="+TStr+"\\\\\\textcolor{OliveGreen}{t}="+tStr+"}";
+        drawable = JLatexMathDrawable.builder(enteredData)
                 .textSize(160)
                 .padding(8)
                 .background(0x00000000)
                 .align(JLatexMathDrawable.ALIGN_RIGHT)
                 .build();
-        latexFormulaAk.setLatexDrawable(drawableFormulaAk);
+        latexEnteredData.setLatexDrawable(drawable);
 
-
-        //SpannableString text = new SpannableString("A0 = ");
-        JLatexMathDrawable drawable = JLatexMathDrawable.builder("\\boldsymbol{A_{0}="+hStr+"\\cdot \\frac{"+tStr+"}{"+TStr+"}="+arrayData[0]+"}")
+        String calcLatexA0 = "\\boldsymbol{A_{0}="+hStr+"\\cdot \\frac{"+tStr+"}{"+TStr+"}="+arrayData[0]+"}";
+        drawable = JLatexMathDrawable.builder(calcLatexA0)
                 .textSize(160)
                 .padding(8)
                 .background(0x00000000)
                 .align(JLatexMathDrawable.ALIGN_RIGHT)
                 .build();
         jLatexMathView[0].setLatexDrawable(drawable);
-        //text.setSpan(new RelativeSizeSpan(0.6f), 1, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        //arrayCheckBox[0].setText(text);
 
 
         for (int i = 1; i < arrayCheckBox.length; i++) {
-            String strId = "checkBox" + String.valueOf(i);
-            String latexMathViewId = "math_view" + String.valueOf(i);
 
-            int resId = getResources().getIdentifier(strId, "id", getPackageName());
-            int resLatexId = getResources().getIdentifier(latexMathViewId,"id", getPackageName());
+            int Id = getResources().getIdentifier("checkBox" + i, "id", getPackageName());
+            int LatexId = getResources().getIdentifier("math_view" + i,"id", getPackageName());
 
-            arrayCheckBox[i] = (CheckBox) findViewById(resId);
-            jLatexMathView[i] = (JLatexMathView) findViewById(resLatexId);
+            arrayCheckBox[i] = findViewById(Id);
+            jLatexMathView[i] = findViewById(LatexId);
             arrayData[i] = calcAn(period, width, amplitude, i);
 
-            //text = new SpannableString("A" + i + " = ");
-            drawable = JLatexMathDrawable.builder("\\boldsymbol{A_{"+i+"}=2\\cdot "+hStr+"\\cdot \\frac{"+tStr+"\\cdot\\sin("+i+"\\cdot "+wStr+"\\cdot \\frac{"+tStr+"}{2})}" +
-                            "{"+TStr+"\\cdot"+i+"\\cdot"+wStr+"\\cdot \\frac{"+tStr+"}{2}}="+arrayData[i]+"}")
+            drawable = JLatexMathDrawable.builder("\\boldsymbol{A_{\\textcolor{OliveGreen}{"+i+"}}=2\\cdot "+hStr+"\\cdot \\frac{"+tStr+"\\cdot\\sin(\\textcolor{OliveGreen}{"+i+"}\\cdot \\frac{2\\pi}{"+TStr+"}\\cdot \\frac{"+tStr+"}{2})}" +
+                    "{"+TStr+"\\cdot\\textcolor{OliveGreen}{"+i+"}\\cdot \\frac{2\\pi}{"+TStr+"}\\cdot \\frac{"+tStr+"}{2}}="+arrayData[i]+"}")
                     .textSize(160)
                     .padding(8)
                     .background(0x00000000)
                     .align(JLatexMathDrawable.ALIGN_RIGHT)
                     .build();
             jLatexMathView[i].setLatexDrawable(drawable);
-
-            //text.setSpan(new RelativeSizeSpan(0.6f), 1, String.valueOf(i).length() + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            //arrayCheckBox[i].setText(text);
         }
-        for (int i = 0; i < arrayCheckBox.length; i++) {
-            arrayCheckBox[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    updateButton();
-                }
-            });
+        for (CheckBox box : arrayCheckBox) {
+            box.setOnCheckedChangeListener((buttonView, isChecked) -> updateButton());
         }
         checkAllButton = findViewById(R.id.checkAllButton);
         boolean isChecked = checkAllButton.isChecked();
         updateVisibility(isChecked);
-        checkAllButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updateVisibility(checkAllButton.isChecked());
-            }
-        });
-
+        checkAllButton.setOnClickListener(view -> updateVisibility(checkAllButton.isChecked()));
 
         nextStepButton.setEnabled(true);
-        for (int i = 0; i < arrayCheckBox.length; i++) {
-            arrayCheckBox[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                    if(arrayCheckBox[0].isChecked()||arrayCheckBox[1].isChecked()||arrayCheckBox[2].isChecked()||arrayCheckBox[3].isChecked()||arrayCheckBox[4].isChecked()||
-                            arrayCheckBox[5].isChecked()||arrayCheckBox[6].isChecked()||arrayCheckBox[7].isChecked()||arrayCheckBox[8].isChecked()|| arrayCheckBox[9].isChecked()||
-                            arrayCheckBox[10].isChecked()||arrayCheckBox[11].isChecked()||arrayCheckBox[12].isChecked()||arrayCheckBox[13].isChecked()||arrayCheckBox[14].isChecked()||arrayCheckBox[15].isChecked()) {
-                        nextStepButton.setEnabled(true);
-                    }
-                    else{
-                        nextStepButton.setEnabled(false);
-                    }
-                }
-            });
+        for (CheckBox checkBox : arrayCheckBox) {
+            checkBox.setOnCheckedChangeListener((buttonView, isChecked1) -> nextStepButton.setEnabled(arrayCheckBox[0].isChecked() || arrayCheckBox[1].isChecked() || arrayCheckBox[2].isChecked() || arrayCheckBox[3].isChecked() || arrayCheckBox[4].isChecked() ||
+                    arrayCheckBox[5].isChecked() || arrayCheckBox[6].isChecked() || arrayCheckBox[7].isChecked() || arrayCheckBox[8].isChecked() || arrayCheckBox[9].isChecked() ||
+                    arrayCheckBox[10].isChecked() || arrayCheckBox[11].isChecked() || arrayCheckBox[12].isChecked() || arrayCheckBox[13].isChecked() || arrayCheckBox[14].isChecked() || arrayCheckBox[15].isChecked()));
         }
 
     }
 
     private void updateButton() {
-        for (int i = 0; i < arrayCheckBox.length; i++) {
-            if (!arrayCheckBox[i].isChecked()) {
+        for (CheckBox checkBox : arrayCheckBox) {
+            if (!checkBox.isChecked()) {
                 checkAllButton.setChecked(false);
                 return;
             }
@@ -171,13 +148,13 @@ public class SecondActivity extends AppCompatActivity {
 
     private void updateVisibility(boolean isChecked) {
         if (isChecked) {
-            for (int i = 0; i < arrayCheckBox.length; i++) {
-                arrayCheckBox[i].setChecked(true);
+            for (CheckBox checkBox : arrayCheckBox) {
+                checkBox.setChecked(true);
             }
 
         } else {
-            for (int i = 0; i < arrayCheckBox.length; i++) {
-                arrayCheckBox[i].setChecked(false);
+            for (CheckBox checkBox : arrayCheckBox) {
+                checkBox.setChecked(false);
             }
         }
     }
@@ -197,13 +174,13 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     public float calcA0(int T, int t, int h) {
-        BigDecimal result = new BigDecimal((double) h * t / T).setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal result = new BigDecimal((double) h * t / T).setScale(2, RoundingMode.HALF_UP);
         return result.floatValue();
     }
 
     public float calcAn(int T, int t, int h, int k) {
         double w = 2 * Math.PI / T;
-        BigDecimal result = new BigDecimal(2 * h * t * Math.sin(k * w * t / 2) / (T * k * w * t / 2)).setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal result = new BigDecimal(2 * h * t * Math.sin(k * w * t / 2) / (T * k * w * t / 2)).setScale(2, RoundingMode.HALF_UP);
         return result.floatValue();
     }
 

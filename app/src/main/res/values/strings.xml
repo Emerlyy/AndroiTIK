@@ -32,10 +32,15 @@
 імпульсної послідовності, що має період Т, ширину імпульсів t та
 амплітуду імпульсу h. Тому для розрахунку значень складових спектру
 їх потрібно задати.</string>
+	<string name="second_activity_top">Необхідні формули:</string>
+	<string name="second_activity_entered_data">Введені дані:</string>
+
 	<string name="second_activity_title">Значення амплітуд</string>
 	<string name="second_activity_subtitle">Складові спектру:</string>
 	<string name="button_second">Побудувати графік</string>
 	<!-- third layout -->
 	<string name="third_activity_title">Графік</string>
 	<string name="button_third_text">Повернутись</string>
+	<string name="second_activity_chooseAll">Вибрати всі</string>
+	<string name="second_activity_chooseNoOne">Не вибрати жодного</string>
 </resources>
