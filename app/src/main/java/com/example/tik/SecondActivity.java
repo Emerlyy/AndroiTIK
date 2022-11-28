@@ -31,6 +31,9 @@ public class SecondActivity extends AppCompatActivity {
     CheckBox[] arrayCheckBox = new CheckBox[16];
     JLatexMathView[] jLatexMathView = new JLatexMathView[16];
 
+    JLatexMathView latexFormulaA0;
+    JLatexMathView latexFormulaAk;
+
     ToggleButton checkAllButton;
     Button nextStepButton;
 
@@ -49,6 +52,10 @@ public class SecondActivity extends AppCompatActivity {
 
         arrayCheckBox[0] = (CheckBox) findViewById(R.id.checkBox0);
         jLatexMathView[0] = (JLatexMathView) findViewById(R.id.math_view0);
+
+        latexFormulaA0 = (JLatexMathView) findViewById(R.id.FormulaA0);
+        latexFormulaAk = (JLatexMathView) findViewById(R.id.FormulaAk);
+
         arrayData[0] = calcA0(period, width, amplitude);
         nextStepButton = (Button) findViewById(R.id.next);
 
@@ -57,6 +64,25 @@ public class SecondActivity extends AppCompatActivity {
         String TStr = String.valueOf(period);
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         String wStr = decimalFormat.format(2*Math.PI/period);
+
+        String A0 = "\\boldsymbol{A_{0}=h\\cdot \\frac{t}{T}";
+        JLatexMathDrawable drawableFormulaA0 = JLatexMathDrawable.builder(A0)
+                .textSize(160)
+                .padding(8)
+                .background(0x00000000)
+                .align(JLatexMathDrawable.ALIGN_RIGHT)
+                .build();
+        latexFormulaA0.setLatexDrawable(drawableFormulaA0);
+
+        String Ak = "\\boldsymbol{A_{k}=2\\cdot h\\cdot \\frac{t\\cdot\\sin(k\\cdot \\omega\\cdot \\frac{t}{2})}{T\\cdot k\\cdot \\omega\\cdot \\frac{t}{2}}";
+        JLatexMathDrawable drawableFormulaAk = JLatexMathDrawable.builder(Ak)
+                .textSize(160)
+                .padding(8)
+                .background(0x00000000)
+                .align(JLatexMathDrawable.ALIGN_RIGHT)
+                .build();
+        latexFormulaAk.setLatexDrawable(drawableFormulaAk);
+
 
         //SpannableString text = new SpannableString("A0 = ");
         JLatexMathDrawable drawable = JLatexMathDrawable.builder("\\boldsymbol{A_{0}="+hStr+"\\cdot \\frac{"+tStr+"}{"+TStr+"}="+arrayData[0]+"}")

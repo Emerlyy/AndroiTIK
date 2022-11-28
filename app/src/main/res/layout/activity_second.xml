@@ -21,25 +21,24 @@
             style="@style/cardTitleStyle"
             android:text="Необхідні формули:" />
 
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:layout_above="@+id/textFormulas"
-            android:layout_marginTop="-202dp"
-            android:layout_marginEnd="257dp"
-            android:layout_marginBottom="-131dp"
-            android:src="@drawable/a0" />
 
-        <ImageView
-            android:layout_width="225dp"
-            android:layout_height="125dp"
-            android:layout_above="@+id/textFormulas"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="62dp"
-            android:layout_marginTop="-248dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="-162dp"
-            android:src="@drawable/ak" />
+        <ru.noties.jlatexmath.JLatexMathView
+            android:id="@+id/FormulaA0"
+            android:layout_width="115dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/textFormulas"
+            android:layout_alignEnd="@+id/textFormulas"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="230dp" />
+
+        <ru.noties.jlatexmath.JLatexMathView
+            android:id="@+id/FormulaAk"
+            android:layout_width="260dp"
+            android:layout_height="80dp"
+            android:layout_alignTop="@+id/textFormulas"
+            android:layout_alignEnd="@+id/textFormulas"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="90dp" />
 
         <ToggleButton
             android:id="@+id/checkAllButton"
