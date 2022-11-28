@@ -58,16 +58,16 @@ public class SecondActivity extends AppCompatActivity {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         String wStr = decimalFormat.format(2*Math.PI/period);
 
-        SpannableString text = new SpannableString("A0 = ");
-        JLatexMathDrawable drawable = JLatexMathDrawable.builder(hStr+"\\cdot \\frac{"+tStr+"}{"+TStr+"}="+arrayData[0])
-                .textSize(120)
+        //SpannableString text = new SpannableString("A0 = ");
+        JLatexMathDrawable drawable = JLatexMathDrawable.builder("\\boldsymbol{A_{0}="+hStr+"\\cdot \\frac{"+tStr+"}{"+TStr+"}="+arrayData[0]+"}")
+                .textSize(160)
                 .padding(8)
                 .background(0x00000000)
                 .align(JLatexMathDrawable.ALIGN_RIGHT)
                 .build();
         jLatexMathView[0].setLatexDrawable(drawable);
-        text.setSpan(new RelativeSizeSpan(0.6f), 1, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        arrayCheckBox[0].setText(text);
+        //text.setSpan(new RelativeSizeSpan(0.6f), 1, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        //arrayCheckBox[0].setText(text);
 
 
         for (int i = 1; i < arrayCheckBox.length; i++) {
@@ -81,9 +81,9 @@ public class SecondActivity extends AppCompatActivity {
             jLatexMathView[i] = (JLatexMathView) findViewById(resLatexId);
             arrayData[i] = calcAn(period, width, amplitude, i);
 
-            text = new SpannableString("A" + i + " = ");
-            drawable = JLatexMathDrawable.builder("\\boldsymbol{2\\cdot "+hStr+"\\cdot \\frac{"+tStr+"\\cdot\\sin("+i+"\\cdot "+wStr+"\\cdot \\frac{"+tStr+"}{2})}" +
-                            "{"+TStr+"\\cdot"+i+"\\cdot"+wStr+"\\cdot \\frac{"+tStr+"}{2}}="+arrayData[i])
+            //text = new SpannableString("A" + i + " = ");
+            drawable = JLatexMathDrawable.builder("\\boldsymbol{A_{"+i+"}=2\\cdot "+hStr+"\\cdot \\frac{"+tStr+"\\cdot\\sin("+i+"\\cdot "+wStr+"\\cdot \\frac{"+tStr+"}{2})}" +
+                            "{"+TStr+"\\cdot"+i+"\\cdot"+wStr+"\\cdot \\frac{"+tStr+"}{2}}="+arrayData[i]+"}")
                     .textSize(160)
                     .padding(8)
                     .background(0x00000000)
@@ -91,8 +91,8 @@ public class SecondActivity extends AppCompatActivity {
                     .build();
             jLatexMathView[i].setLatexDrawable(drawable);
 
-            text.setSpan(new RelativeSizeSpan(0.6f), 1, String.valueOf(i).length() + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            arrayCheckBox[i].setText(text);
+            //text.setSpan(new RelativeSizeSpan(0.6f), 1, String.valueOf(i).length() + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            //arrayCheckBox[i].setText(text);
         }
         for (int i = 0; i < arrayCheckBox.length; i++) {
             arrayCheckBox[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
