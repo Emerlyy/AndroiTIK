@@ -1,6 +1,7 @@
 package com.example.tik;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -11,9 +12,14 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.style.RelativeSizeSpan;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 import android.widget.Button;
@@ -40,6 +46,8 @@ public class SecondActivity extends AppCompatActivity {
     ToggleButton checkAllButton;
     Button nextStepButton;
 
+    RelativeLayout layout;
+
     float[] arrayData = new float[arrayCheckBox.length];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +64,7 @@ public class SecondActivity extends AppCompatActivity {
         int width = getIntent().getIntExtra("width", 0);
         int amplitude = getIntent().getIntExtra("amplitude", 0);
         double w = 2 * Math.PI / period;
-
+        layout = findViewById(R.id.layout);
         arrayCheckBox[0] = findViewById(R.id.checkBox0);
         jLatexMathView[0] = findViewById(R.id.math_view0);
         latexEnteredData = findViewById(R.id.entered);
@@ -169,6 +177,19 @@ public class SecondActivity extends AppCompatActivity {
         double w = 2 * Math.PI / T;
         BigDecimal result = new BigDecimal(2 * h * t * Math.sin(k * w * t / 2) / (T * k * w * t / 2)).setScale(2, RoundingMode.HALF_UP);
         return result.floatValue();
+    }
+
+    public void expand1(View view) {
+        CardView card = (CardView) view;
+        LinearLayout lin1 = (LinearLayout) card.getChildAt(0);
+        LinearLayout hiddenLayout = (LinearLayout) lin1.getChildAt(1);
+        ImageView arrow = (ImageView) card.getChildAt(1);
+        int isDetailsVisible = (hiddenLayout.getVisibility() == View.GONE) ? View.VISIBLE : View.GONE;
+        AutoTransition autoTransition = new AutoTransition();
+        autoTransition.setDuration(200);
+        TransitionManager.beginDelayedTransition(layout, autoTransition);
+        arrow.animate().rotation((isDetailsVisible==View.GONE)?0:180).start();
+        hiddenLayout.setVisibility(isDetailsVisible);
     }
 
 }
