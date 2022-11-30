@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/teoryCard"
             app:cardElevation="0dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             app:cardBackgroundColor="@color/bgColor"
@@ -33,7 +33,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
-
                     android:text="Короткі теоретичні відомості:"/>
                 <TextView
                     android:layout_width="match_parent"
@@ -94,7 +93,8 @@
                 <TextView
                     android:id="@+id/details1"
                     android:text="@string/period_details"
-                    style="@style/detailsTextStyle"/>
+                    style="@style/detailsTextStyle"
+                    android:visibility="gone"/>
 
             </LinearLayout>
 
@@ -138,7 +138,8 @@
                 <TextView
                     android:id="@+id/details2"
                     android:text="@string/width_details"
-                    style="@style/detailsTextStyle"/>
+                    style="@style/detailsTextStyle"
+                    android:visibility="gone"/>
 
             </LinearLayout>
 
@@ -183,7 +184,8 @@
                 <TextView
                     android:id="@+id/details3"
                     android:text="@string/amplitude_details"
-                    style="@style/detailsTextStyle"/>
+                    style="@style/detailsTextStyle"
+                    android:visibility="gone"/>
 
             </LinearLayout>
 
