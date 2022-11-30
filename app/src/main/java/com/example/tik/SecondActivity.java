@@ -77,9 +77,9 @@ public class SecondActivity extends AppCompatActivity {
         String TStr = String.valueOf(period);
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
-        String A0 = "\\boldsymbol{A_{0}=h\\cdot \\frac{t}{T}";
-        String Ak = "\\boldsymbol{A_{k}=2\\cdot h\\cdot \\frac{t\\cdot\\sin(k\\cdot \\omega\\cdot \\frac{t}{2})}{T\\cdot k\\cdot \\omega\\cdot \\frac{t}{2}}";
-        String W = "\\boldsymbol{\\omega=\\frac{2\\pi}{T}}";
+        String A0 = "\\boldsymbol{A_{0}=h\\cdot \\frac{\\tau}{T}";
+        String Ak = "\\boldsymbol{A_{k}=2\\cdot h\\cdot \\frac{\\tau\\cdot\\sin(k\\cdot \\omega\\cdot \\frac{\\tau}{2})}{T\\cdot k\\cdot \\omega\\cdot \\frac{\\tau}{2}}";
+        String W = "\\boldsymbol{\\omega=\\frac{2\\pi}{T}} = " + decimalFormat.format(w);
         String[] forAllLatexView = {A0, Ak, W};
 
         for (int i = 0; i < latexFormulas.length; i++) {
@@ -95,7 +95,7 @@ public class SecondActivity extends AppCompatActivity {
             latexFormulas[i].setLatexDrawable(drawable);
         }
 
-        String enteredData = "\\boldsymbol{\\textcolor{OliveGreen}{T}=" + TStr + "\\\\\\textcolor{OliveGreen}{t}=" + tStr + "}";
+        String enteredData = "\\boldsymbol{\\textcolor{OliveGreen}{T}=" + TStr + "\\\\\\textcolor{OliveGreen}{\\tau}=" + tStr + "}";
         drawable = JLatexMathDrawable.builder(enteredData)
                 .textSize(160)
                 .padding(8)
