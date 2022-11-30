@@ -79,7 +79,7 @@ public class SecondActivity extends AppCompatActivity {
 
         String A0 = "\\boldsymbol{A_{0}=h\\cdot \\frac{t}{T}";
         String Ak = "\\boldsymbol{A_{k}=2\\cdot h\\cdot \\frac{t\\cdot\\sin(k\\cdot \\omega\\cdot \\frac{t}{2})}{T\\cdot k\\cdot \\omega\\cdot \\frac{t}{2}}";
-        String W = "\\boldsymbol{\\omega=\\frac{2\\pi}{T}} = " + decimalFormat.format(w);
+        String W = "\\boldsymbol{\\omega=\\frac{2\\pi}{T} = " + decimalFormat.format(w)+ "}";
 
 
         String[] forAllLatexView = {A0, Ak, W};
@@ -97,9 +97,9 @@ public class SecondActivity extends AppCompatActivity {
             latexFormulas[i].setLatexDrawable(drawable);
         }
 
-        String enteredData = "\\boldsymbol{\\textcolor{OliveGreen}{T}=" + TStr + "\\\\\\textcolor{OliveGreen}{t}=" + tStr + "}";
+        String enteredData = "\\boldsymbol{\\textcolor{OliveGreen}{T}=" + TStr +"\\boldsymbol{\\textcolor{white}{-}"+ "\\textcolor{OliveGreen}{t}=" + tStr +"\\boldsymbol{\\textcolor{white}{-}"+"\\textcolor{OliveGreen}{h}=" + hStr+ "}";
         drawable = JLatexMathDrawable.builder(enteredData)
-                .textSize(160)
+                .textSize(80)
                 .padding(8)
                 .background(0x00000000)
                 .align(JLatexMathDrawable.ALIGN_RIGHT)
