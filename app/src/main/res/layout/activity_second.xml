@@ -33,13 +33,41 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:visibility="gone">
+                    <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/details1"
+                    android:text="@string/expandable_text1"
+                    android:textSize="18sp"/>
+                    <ru.noties.jlatexmath.JLatexMathView
+                        android:id="@+id/Formula2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/details1" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/details1"
-                        android:text="@string/period_details"
+                        android:id="@+id/details2"
+                        android:layout_below="@+id/Formula2"
+                        android:text="@string/expandable_text2"
                         android:textSize="18sp"/>
+
+                    <ru.noties.jlatexmath.JLatexMathView
+                        android:id="@+id/Formula0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/details2" />
+
+                    <ru.noties.jlatexmath.JLatexMathView
+                        android:id="@+id/Formula1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Formula0" />
+
+
+
                 </LinearLayout>
             </LinearLayout>
 
@@ -48,36 +76,12 @@
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
 
-            android:id="@+id/textFormulas"
-            style="@style/subtitleStyle"
-            android:layout_below="@+id/card1"
-            android:text="@string/second_activity_top" />
-
-
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/Formula0"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textFormulas" />
-
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/Formula1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Formula0" />
-
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/Formula2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Formula1" />
 
         <TextView
             android:id="@+id/enteredData"
             style="@style/subtitleStyle"
-            android:layout_below="@+id/Formula2"
+            android:layout_below="@+id/card1"
             android:text="@string/second_activity_entered_data" />
 
 
