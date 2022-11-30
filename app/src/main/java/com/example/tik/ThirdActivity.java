@@ -60,8 +60,8 @@ public class ThirdActivity extends AppCompatActivity {
 
 
         // dataSet.setDrawValues(false); // removes values above the bars
-        dataSet.setValueTextSize(10f);
-        dataSet.setColor(ContextCompat.getColor(this,R.color.cardTitleColor));
+        dataSet.setValueTextSize(8f);
+        dataSet.setColor(ContextCompat.getColor(this,R.color.mainColor));
         dataSet.setValueFormatter(new IValueFormatter() {
             private final DecimalFormat mFormat = new DecimalFormat("#.##");
 
@@ -75,6 +75,7 @@ public class ThirdActivity extends AppCompatActivity {
         barChart.setData(barData);
         XAxis xAxis = barChart.getXAxis();
         xAxis.setDrawGridLines(false); // removes the grid lines
+        xAxis.setTextSize(8f);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM); // sets xAxis position
         xAxis.setLabelCount(arrData.size());
         xAxis.setValueFormatter((value, axis) -> xLabel.get((int) value));
