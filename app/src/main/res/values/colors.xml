@@ -13,4 +13,5 @@
 
     <color name="mainColor">#19A51F</color>
     <color name="bgColor">#fafafa</color>
+    <color name="forBGTitle">#CCCCCC</color>
 </resources>

@@ -1,5 +1,7 @@
 package com.example.tik;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
@@ -10,12 +12,14 @@ import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -28,6 +32,8 @@ import java.math.RoundingMode;
 import ru.noties.jlatexmath.JLatexMathDrawable;
 import ru.noties.jlatexmath.JLatexMathView;
 
+
+
 public class MainActivity extends AppCompatActivity {
 
     EditText editPeriod, editWidth, editAmplitude;
@@ -37,18 +43,18 @@ public class MainActivity extends AppCompatActivity {
     int period, width,amplitude;
     JLatexMathView latexView;
     JLatexMathDrawable drawable;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle(R.string.main_activity_title);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
+
         editPeriod = findViewById(R.id.editPeriod);
         editWidth = findViewById(R.id.editWidth);
         editAmplitude = findViewById(R.id.editAmplitude);
         mainLayout = findViewById(R.id.mainLayout);
         //mainLayout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-        nextStepButton = (Button) findViewById(R.id.button);
+        nextStepButton = findViewById(R.id.button);
 
         latexView = findViewById(R.id.latexView);
         String W = "\\boldsymbol{\\omega=\\frac{2\\pi}{T}";
