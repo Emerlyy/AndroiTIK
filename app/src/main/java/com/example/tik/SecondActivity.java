@@ -193,6 +193,18 @@ public class SecondActivity extends AppCompatActivity {
         arrow.animate().rotation((isDetailsVisible==View.GONE)?0:180).start();
         hiddenLayout.setVisibility(isDetailsVisible);
     }
+    public void expand2(View view) {
+        CardView card = (CardView) view;
+        RelativeLayout lin1 = (RelativeLayout) card.getChildAt(0);
+        RelativeLayout hiddenLayout = (RelativeLayout) lin1.getChildAt(2);
+        ImageView arrow = (ImageView) card.getChildAt(1);
+        int isDetailsVisible = (hiddenLayout.getVisibility() == View.GONE) ? View.VISIBLE : View.GONE;
+        AutoTransition autoTransition = new AutoTransition();
+        autoTransition.setDuration(200);
+        TransitionManager.beginDelayedTransition(layout, autoTransition);
+        arrow.animate().rotation((isDetailsVisible==View.GONE)?0:180).start();
+        hiddenLayout.setVisibility(isDetailsVisible);
+    }
 
 }
 
