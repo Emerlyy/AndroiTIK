@@ -13,13 +13,34 @@
         android:animateLayoutChanges="true"
         android:padding="10dp"
         tools:context=".VadimProgramist">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_second"
+            android:layout_height="60dp"
+            android:layout_width="match_parent"
+            android:minHeight="?attr/actionBarSize"
+            android:gravity="top"
+            android:background="@color/white"
+            app:theme="@style/MyTheme.ActionBar.TitleTextStyle"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/second_activity_title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"/>
+
+        </androidx.appcompat.widget.Toolbar>
         <androidx.cardview.widget.CardView
             android:id="@+id/card1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="expand1"
             app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/bgColor">
+            app:cardBackgroundColor="@color/bgColor"
+            android:layout_below="@+id/toolbar_second"
+            android:layout_marginTop="20dp">
+
 
             <LinearLayout
                 android:layout_width="match_parent"

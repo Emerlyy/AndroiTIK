@@ -6,16 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".ThirdActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_third"
+        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:gravity="top"
+        android:background="@color/white"
+        app:theme="@style/MyTheme.ActionBar.TitleTextStyle"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/third_activity_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="377dp"
+        android:layout_height="575dp"
+        android:layout_below="@+id/toolbar_third"
         android:layout_margin="20dp"
+        android:layout_marginTop="40dp"
+        app:flow_horizontalAlign="center"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:flow_horizontalAlign="center">
+        app:layout_constraintTop_toTopOf="parent">
 
     </com.github.mikephil.charting.charts.BarChart>
 

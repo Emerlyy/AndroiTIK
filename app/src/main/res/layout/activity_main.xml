@@ -14,7 +14,7 @@
         android:animateLayoutChanges="true">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbar_main"
             android:layout_height="60dp"
             android:layout_width="match_parent"
             android:minHeight="?attr/actionBarSize"
@@ -41,7 +41,7 @@
             android:layout_marginEnd="30dp"
             app:cardBackgroundColor="@color/bgColor"
             android:onClick="expand"
-            android:layout_below="@+id/toolbar">
+            android:layout_below="@+id/toolbar_main">
 
             <LinearLayout
                 android:layout_width="match_parent"
