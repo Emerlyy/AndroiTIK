@@ -23,6 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 import android.widget.Button;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -76,10 +77,11 @@ public class SecondActivity extends AppCompatActivity {
         String tStr = String.valueOf(width);
         String TStr = String.valueOf(period);
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        String WStr = decimalFormat.format(w);
 
         String A0 = "\\boldsymbol{A_{0}=h\\cdot \\frac{t}{T}";
         String Ak = "\\boldsymbol{A_{k}=2\\cdot h\\cdot \\frac{t\\cdot\\sin(k\\cdot \\omega\\cdot \\frac{t}{2})}{T\\cdot k\\cdot \\omega\\cdot \\frac{t}{2}}";
-        String W = "\\boldsymbol{\\omega=\\frac{2\\pi}{T} = " + decimalFormat.format(w)+ "}";
+        String W = "\\boldsymbol{\\omega=\\frac{2\\pi}{T} = " + WStr+ "}";
 
 
         String[] forAllLatexView = {A0, Ak, W};
@@ -125,8 +127,8 @@ public class SecondActivity extends AppCompatActivity {
             jLatexMathView[i] = findViewById(LatexId);
             arrayData[i] = calcAn(period, width, amplitude, i);
 
-            drawable = JLatexMathDrawable.builder("\\boldsymbol{A_{\\textcolor{OliveGreen}{" + i + "}}=2\\cdot " + hStr + "\\cdot \\frac{" + tStr + "\\cdot\\sin(\\textcolor{OliveGreen}{" + i + "}\\cdot \\frac{2\\pi}{" + TStr + "}\\cdot \\frac{" + tStr + "}{2})}" +
-                            "{" + TStr + "\\cdot\\textcolor{OliveGreen}{" + i + "}\\cdot \\frac{2\\pi}{" + TStr + "}\\cdot \\frac{" + tStr + "}{2}}=" + arrayData[i] + "}")
+            drawable = JLatexMathDrawable.builder("\\boldsymbol{A_{\\textcolor{OliveGreen}{" + i + "}}=2\\cdot " + hStr + "\\cdot \\frac{" + tStr + "\\cdot\\sin(\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2})}" +
+                            "{" + TStr + "\\cdot\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2}}=" + arrayData[i] + "}")
                     .textSize(160)
                     .padding(8)
                     .background(0x00000000)
@@ -143,8 +145,8 @@ public class SecondActivity extends AppCompatActivity {
         nextStepButton.setEnabled(true);
         for (CheckBox checkBox : arrayCheckBox) {
             checkBox.setOnCheckedChangeListener((compoundButton, b) -> {
-                checkAllButton.setChecked(Arrays.stream(arrayCheckBox).allMatch(checkBox1 -> checkBox1.isChecked()));
-                nextStepButton.setEnabled(Arrays.stream(arrayCheckBox).anyMatch(checkBox1 -> checkBox1.isChecked()));
+                checkAllButton.setChecked(Arrays.stream(arrayCheckBox).allMatch(CompoundButton::isChecked));
+                nextStepButton.setEnabled(Arrays.stream(arrayCheckBox).anyMatch(CompoundButton::isChecked));
             });
         }
 
