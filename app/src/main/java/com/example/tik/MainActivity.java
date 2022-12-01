@@ -43,11 +43,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle(R.string.main_activity_title);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
-        int titleId = Resources.getSystem().getIdentifier("action_bar_title","id","android");
-        TextView title = (TextView) findViewById(titleId);
-    /*    title.setSingleLine(false);
-        title.setMaxLines(5);*/
-       // title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
         editPeriod = findViewById(R.id.editPeriod);
         editWidth = findViewById(R.id.editWidth);
         editAmplitude = findViewById(R.id.editAmplitude);
