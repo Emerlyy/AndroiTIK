@@ -50,7 +50,7 @@
         <TextView
             android:id="@+id/textSub1"
             android:layout_below="@id/theoryCard"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
@@ -192,23 +192,6 @@
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/text32"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/card3"
-            android:textSize="18dp"
-            android:text="На основі введених значень обрахуємо:"
-            android:layout_marginLeft="25dp"/>
-
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/latexView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text32"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="5dp" />
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -216,8 +199,7 @@
             app:cardElevation="0dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="80dp"
-            android:layout_below="@id/latexView"
+            android:layout_below="@id/card3"
             app:cardBackgroundColor="@color/bgColor"
             android:onClick="expand">
 
@@ -229,8 +211,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:text="Короткі теоретичні відомості:"/>
+                    android:textSize="17sp"
+                    android:text="На основі введених значень обрахуємо:"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -243,6 +225,16 @@
                 android:layout_margin="0dp"/>
 
         </androidx.cardview.widget.CardView>
+
+
+        <ru.noties.jlatexmath.JLatexMathView
+            android:id="@+id/latexView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wCard"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="80dp"/>
 
         <Button
             android:id="@+id/button"
