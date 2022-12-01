@@ -2,11 +2,13 @@ package com.example.tik;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,25 +22,49 @@ import androidx.cardview.widget.CardView;
 
 import com.ms.square.android.expandabletextview.ExpandableTextView;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+import ru.noties.jlatexmath.JLatexMathDrawable;
+import ru.noties.jlatexmath.JLatexMathView;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText editPeriod, editWidth, editAmplitude;
     RelativeLayout mainLayout;
     Button nextStepButton;
-
+    BigDecimal w;
+    int period, width,amplitude;
+    JLatexMathView latexView;
+    JLatexMathDrawable drawable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle(R.string.main_activity_title);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
-
+        int titleId = Resources.getSystem().getIdentifier("action_bar_title","id","android");
+        TextView title = (TextView) findViewById(titleId);
+    /*    title.setSingleLine(false);
+        title.setMaxLines(5);*/
+       // title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
         editPeriod = findViewById(R.id.editPeriod);
         editWidth = findViewById(R.id.editWidth);
         editAmplitude = findViewById(R.id.editAmplitude);
         mainLayout = findViewById(R.id.mainLayout);
         //mainLayout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         nextStepButton = (Button) findViewById(R.id.button);
+
+        latexView = findViewById(R.id.latexView);
+        String W = "\\boldsymbol{\\omega=\\frac{2\\pi}{T}";
+        drawable = JLatexMathDrawable.builder(W)
+                .textSize(60)
+                .padding(8)
+                .background(0x00000000)
+                .align(JLatexMathDrawable.ALIGN_RIGHT)
+                .build();
+        latexView.setLatexDrawable(drawable);
+
 
         nextStepButton.setEnabled(false);
         editWidth.addTextChangedListener(new TextWatcher() {
@@ -50,7 +76,21 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void afterTextChanged(Editable s) {
-                nextStepButton.setEnabled(s.toString().trim().length() != 0 && editPeriod.length() != 0);
+                boolean enabled = editWidth.length() != 0 && editPeriod.length() != 0 && editAmplitude.length() != 0;
+                if(!enabled){
+                    nextStepButton.setEnabled(false);
+                    return;
+                }
+                nextStepButton.setEnabled(true);
+                period = tryParse(editPeriod.getText().toString());
+                w = new BigDecimal( 2 * Math.PI / period).setScale(2, RoundingMode.HALF_UP);
+                drawable = JLatexMathDrawable.builder(W + " = " + w)
+                        .textSize(60)
+                        .padding(8)
+                        .background(0x00000000)
+                        .align(JLatexMathDrawable.ALIGN_RIGHT)
+                        .build();
+                latexView.setLatexDrawable(drawable);
             }
         });
         editPeriod.addTextChangedListener(new TextWatcher() {
@@ -64,16 +104,29 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                nextStepButton.setEnabled(s.toString().trim().length() != 0 && editWidth.length() != 0);
+                boolean enabled = editWidth.length() != 0 && editPeriod.length() != 0 && editAmplitude.length() != 0;
+                if(!enabled){
+                    nextStepButton.setEnabled(false);
+                    return;
+                }
+                nextStepButton.setEnabled(true);
+                period = tryParse(editPeriod.getText().toString());
+                w = new BigDecimal( 2 * Math.PI / period).setScale(2, RoundingMode.HALF_UP);
+                drawable = JLatexMathDrawable.builder(W + " = " + w)
+                        .textSize(60)
+                        .padding(8)
+                        .background(0x00000000)
+                        .align(JLatexMathDrawable.ALIGN_RIGHT)
+                        .build();
+                latexView.setLatexDrawable(drawable);
             }
         });
     }
 
     public void startNewActivity(View v) {
         Intent intent = new Intent(this, SecondActivity.class);
-        int period = tryParse(editPeriod.getText().toString());
-        int width = tryParse(editWidth.getText().toString());
-        int amplitude = tryParse(editAmplitude.getText().toString());
+        width = tryParse(editWidth.getText().toString());
+        amplitude = tryParse(editAmplitude.getText().toString());
         intent.putExtra("period", period);
         intent.putExtra("width", width);
         intent.putExtra("amplitude", amplitude);
