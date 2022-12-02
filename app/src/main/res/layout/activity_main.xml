@@ -1,284 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app = "http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"> <!--IMPORTANT otherwise backgrnd img. will not fill the whole screen -->
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/mainLayout"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="20dp"
-        android:animateLayoutChanges="true">
+        android:background="@color/colorPrimary">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_main"
-            android:layout_height="60dp"
             android:layout_width="match_parent"
-            android:minHeight="?attr/actionBarSize"
-            android:gravity="top"
-            android:background="@color/colorPrimary"
-            app:theme="@style/MyTheme.ActionBar.TitleTextStyle"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/MyTheme.ActionBar.TitleTextStyle">
 
             <TextView
-                android:id="@+id/text_view1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
                 android:text="@string/main_activity_title"
-                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"/>
-
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+                android:textColor="@color/white" />
         </androidx.appcompat.widget.Toolbar>
-        <TextView
-            android:id="@+id/textSub1"
-            android:layout_below="@id/toolbar_main"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            style="@style/subtitleStyle"
-            android:text="@string/activity_subtitle" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card1"
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:id="@+id/mainLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/theoryCard"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="40dp"
-            android:onClick="expand"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="5dp">
+            android:animateLayoutChanges="true"
+            android:paddingBottom="20dp">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/textSub1"
+                style="@style/subtitleStyle"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/activity_subtitle" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="20dp">
+                android:layout_below="@id/theoryCard"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:onClick="expand"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/cardTitleStyle"
+                            android:text="@string/period_title" />
+
+                        <EditText
+                            android:id="@+id/editPeriod"
+                            style="@style/cardEditStyle" />
+
+                    </LinearLayout>
 
                     <TextView
-                        style="@style/cardTitleStyle"
-                        android:text="@string/period_title"/>
-
-                    <EditText
-                        android:id="@+id/editPeriod"
-                        style="@style/cardEditStyle"/>
+                        android:id="@+id/details1"
+                        style="@style/detailsTextStyle"
+                        android:text="@string/period_details"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/details1"
-                    android:text="@string/period_details"
-                    style="@style/detailsTextStyle"
-                    android:visibility="gone"/>
+                <ImageView style="@style/cardArrowImageStyle" />
 
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-            <ImageView style="@style/cardArrowImageStyle"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/card1"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:onClick="expand"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="5dp">
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="20dp">
+                android:layout_below="@id/card1"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:onClick="expand"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/cardTitleStyle"
+                            android:text="@string/width_title"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/editWidth"
+                            style="@style/cardEditStyle" />
+
+                    </LinearLayout>
 
                     <TextView
-                        style="@style/cardTitleStyle"
-                        android:text="@string/width_title"
-                        android:textSize="20sp"/>
-
-                    <EditText
-                        android:id="@+id/editWidth"
-                        style="@style/cardEditStyle"/>
+                        android:id="@+id/details2"
+                        style="@style/detailsTextStyle"
+                        android:text="@string/width_details"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/details2"
-                    android:text="@string/width_details"
-                    style="@style/detailsTextStyle"
-                    android:visibility="gone"/>
+                <ImageView style="@style/cardArrowImageStyle" />
 
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-            <ImageView style="@style/cardArrowImageStyle"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="30dp"
-            android:layout_below="@id/card2"
-            android:onClick="expand">
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="20dp">
+                android:layout_below="@id/card2"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="30dp"
+                android:onClick="expand"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/cardTitleStyle"
+                            android:text="@string/amplitude_title" />
+
+                        <EditText
+                            android:id="@+id/editAmplitude"
+                            style="@style/cardEditStyle"
+                            android:enabled="false"
+                            android:text="1" />
+
+                    </LinearLayout>
 
                     <TextView
-                        style="@style/cardTitleStyle"
-                        android:text="@string/amplitude_title"/>
-
-                    <EditText
-                        android:id="@+id/editAmplitude"
-                        style="@style/cardEditStyle"
-                        android:enabled="false"
-                        android:text="1"/>
+                        android:id="@+id/details3"
+                        style="@style/detailsTextStyle"
+                        android:text="@string/amplitude_details"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/details3"
-                    android:text="@string/amplitude_details"
-                    style="@style/detailsTextStyle"
-                    android:visibility="gone"/>
+                <ImageView style="@style/cardArrowImageStyle" />
 
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-            <ImageView style="@style/cardArrowImageStyle"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/theoryCard"
-            app:cardElevation="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            app:cardBackgroundColor="@color/bgColor"
-            android:onClick="expand"
-            android:layout_below="@+id/textSub1">
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/theoryCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
+                android:layout_below="@+id/textSub1"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="30dp"
+                android:onClick="expand"
+                app:cardBackgroundColor="@color/bgColor"
+                app:cardElevation="0dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:text="Короткі теоретичні відомості:" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/expandable_text"
-                    style="@style/detailsTextStyle"
-                    android:visibility="gone"/>
-            </LinearLayout>
+                    android:orientation="vertical">
 
-            <ImageView style="@style/cardArrowImageStyle"
-                android:layout_margin="0dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Короткі теоретичні відомості:"
+                        android:textSize="20dp" />
 
-        </androidx.cardview.widget.CardView>
+                    <TextView
+                        style="@style/detailsTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/expandable_text"
+                        android:visibility="gone" />
+                </LinearLayout>
 
-        <TextView
-            android:id="@+id/textSub2"
-            android:layout_marginTop="40dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            style="@style/subtitleStyle"
-            android:layout_below="@id/card3"
-            android:text="@string/activity_subtitle1"
-            />
+                <ImageView
+                    style="@style/cardArrowImageStyle"
+                    android:layout_margin="0dp" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/wCard"
-            app:cardElevation="0dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_below="@+id/textSub2"
-            app:cardBackgroundColor="@color/bgColor"
-            android:onClick="expand">
+            </androidx.cardview.widget.CardView>
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/textSub2"
+                style="@style/subtitleStyle"
+                android:layout_below="@id/card3"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/activity_subtitle1" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/wCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="10dp">
-                <TextView
+                android:layout_below="@+id/textSub2"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:onClick="expand"
+                app:cardBackgroundColor="@color/bgColor"
+                app:cardElevation="0dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:text="@string/short_theory1"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/expandable_text"
-                    style="@style/detailsTextStyle"
-                    android:visibility="gone"/>
-            </LinearLayout>
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
 
-            <ImageView style="@style/cardArrowImageStyle"
-                android:layout_margin="0dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/short_theory1"
+                        android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+                    <TextView
+                        style="@style/detailsTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/expandable_text"
+                        android:visibility="gone" />
+                </LinearLayout>
 
+                <ImageView
+                    style="@style/cardArrowImageStyle"
+                    android:layout_margin="0dp" />
 
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/latexView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/wCard"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="80dp"/>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:onClick="startNewActivity"
-            android:text="@string/button_main"
-            android:layout_alignParentBottom="true"
-            android:backgroundTint="@color/colorPrimary"/>
+            </androidx.cardview.widget.CardView>
 
 
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/latexView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/wCard"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="80dp" />
 
-    </RelativeLayout>
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="startNewActivity"
+                android:text="@string/button_main" />
 
-</ScrollView>
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

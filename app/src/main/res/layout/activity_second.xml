@@ -1,469 +1,489 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/scroll"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"> <!--IMPORTANT otherwise backgrnd img. will not fill the whole screen -->
-    <RelativeLayout
-        android:id="@+id/layout"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:animateLayoutChanges="true"
-        tools:context=".VadimProgramist">
+        android:background="@color/colorPrimary">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_second"
-            android:layout_height="60dp"
             android:layout_width="match_parent"
-            android:minHeight="?attr/actionBarSize"
-            android:gravity="top"
-            android:background="@color/colorPrimary"
-            app:theme="@style/MyTheme.ActionBar.TitleTextStyle"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/MyTheme.ActionBar.TitleTextStyle">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
                 android:text="@string/second_activity_title"
-                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"/>
+                android:textAlignment="center"
 
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+                android:textColor="@color/white" />
         </androidx.appcompat.widget.Toolbar>
 
-        <TextView
-            android:id="@+id/text_view2"
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:id="@+id/layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar_second"
-            android:layout_marginTop="30dp"
-            android:text="Розрахуємо складові спектру амплітуд:"
-            android:layout_marginStart="10dp"
-            style="@style/subtitleStyle" />
+            android:animateLayoutChanges="true"
+            tools:context=".VadimProgramist">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="expand1"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/bgColor"
-            android:layout_below="@+id/text_view2"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp">
-
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/text_view2"
+                style="@style/subtitleStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="10dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/short_theory"
-                    android:textSize="20sp"/>
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:text="Розрахуємо складові спектру амплітуд:" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view2"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:onClick="expand1"
+                app:cardBackgroundColor="@color/bgColor"
+                app:cardElevation="0dp">
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-                    <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/details1"
-                    android:text="@string/expandable_text1"
-                    style="@style/detailsTextStyle"/>
-                    <ru.noties.jlatexmath.JLatexMathView
-                        android:id="@+id/Formula2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/details1" />
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/details2"
-                        android:layout_below="@+id/Formula2"
-                        android:text="@string/expandable_text2"
-                        android:textSize="18sp"/>
+                        android:text="@string/short_theory"
+                        android:textSize="20sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/details1"
+                            style="@style/detailsTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/expandable_text1" />
+
+                        <ru.noties.jlatexmath.JLatexMathView
+                            android:id="@+id/Formula2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/details1" />
+
+                        <TextView
+                            android:id="@+id/details2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/Formula2"
+                            android:text="@string/expandable_text2"
+                            android:textSize="18sp" />
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
 
-            <ImageView style="@style/cardArrowImageStyle"
-                android:layout_marginBottom="0dp"/>
+                <ImageView
+                    style="@style/cardArrowImageStyle"
+                    android:layout_marginBottom="0dp" />
 
-        </androidx.cardview.widget.CardView>
-
-
+            </androidx.cardview.widget.CardView>
 
 
-        <ToggleButton
-            android:id="@+id/checkAllButton"
-            style="@style/CustomStyle"
-            android:layout_below="@+id/card1"
-            android:layout_marginStart="0dp"
-            android:textOff="@string/second_activity_chooseAll"
-            android:textOn="@string/second_activity_chooseNoOne" />
+            <ToggleButton
+                android:id="@+id/checkAllButton"
+                style="@style/CustomStyle"
+                android:layout_below="@+id/card1"
+                android:layout_marginStart="0dp"
+                android:textOff="@string/second_activity_chooseAll"
+                android:textOn="@string/second_activity_chooseNoOne" />
 
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/math_view0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/checkBox0"
-            android:layout_alignTop="@+id/checkBox0"
-            android:layout_alignBottom="@+id/checkBox0"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="-5dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="-5dp" />
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/math_view0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/checkBox0"
+                android:layout_alignTop="@+id/checkBox0"
+                android:layout_alignBottom="@+id/checkBox0"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="-5dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="-5dp" />
 
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/math_view1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/checkBox1"
-            android:layout_alignTop="@+id/checkBox1"
-            android:layout_alignBottom="@+id/checkBox1"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="-5dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="-10dp" />
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/math_view1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/checkBox1"
+                android:layout_alignTop="@+id/checkBox1"
+                android:layout_alignBottom="@+id/checkBox1"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="-5dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="-10dp" />
 
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/math_view2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/checkBox2"
-            android:layout_alignTop="@+id/checkBox2"
-            android:layout_alignBottom="@+id/checkBox2"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="-5dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="-10dp" />
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/math_view2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/checkBox2"
+                android:layout_alignTop="@+id/checkBox2"
+                android:layout_alignBottom="@+id/checkBox2"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="-5dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="-10dp" />
 
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/checkBox2"
-            android:onClick="expand2"
-            android:layout_marginTop="10dp"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/bgColor">
-
-            <RelativeLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="10dp"
-                >
-                <CheckBox
-                    android:id="@+id/checkBox3"
-                    style="@style/CustomStyle"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginBottom="10dp"/>
-                <ru.noties.jlatexmath.JLatexMathView
-                    android:id="@+id/math_view3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/checkBox3"
-                    android:layout_alignTop="@+id/checkBox3"
-                    android:layout_alignBottom="@+id/checkBox3"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="-5dp"
-                    android:layout_marginEnd="40dp"
-                    android:layout_marginBottom="-10dp" />
-
+                android:layout_below="@+id/checkBox2"
+                android:layout_marginTop="10dp"
+                android:onClick="expand2"
+                app:cardBackgroundColor="@color/bgColor"
+                app:cardElevation="0dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="70dp"
-                    android:visibility="gone">
-                    <CheckBox
-                        android:id="@+id/checkBox4"
-                        style="@style/CustomStyle"
-                        android:layout_marginTop="50dp" />
-                    <CheckBox
-                        android:id="@+id/checkBox5"
-                        style="@style/CustomStyle"
-                        android:layout_below="@+id/checkBox4"
-                        android:layout_marginTop="50dp" />
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
 
                     <CheckBox
-                        android:id="@+id/checkBox6"
+                        android:id="@+id/checkBox3"
                         style="@style/CustomStyle"
-                        android:layout_below="@+id/checkBox5"
-                        android:layout_marginTop="50dp" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox7"
-                        style="@style/CustomStyle"
-                        android:layout_below="@+id/checkBox6"
-                        android:layout_marginTop="50dp" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox8"
-                        style="@style/CustomStyle"
-                        android:layout_below="@+id/checkBox7"
-                        android:layout_marginTop="50dp" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox9"
-                        style="@style/CustomStyle"
-                        android:layout_below="@+id/checkBox8"
-                        android:layout_marginTop="50dp" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox10"
-                        style="@style/CustomStyle"
-                        android:layout_below="@+id/checkBox9"
-                        android:layout_marginTop="50dp" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox11"
-                        style="@style/CustomStyle"
-                        android:layout_below="@+id/checkBox10"
-                        android:layout_marginTop="50dp" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox12"
-                        style="@style/CustomStyle"
-                        android:layout_below="@+id/checkBox11"
-                        android:layout_marginTop="50dp" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox13"
-                        style="@style/CustomStyle"
-                        android:layout_below="@+id/checkBox12"
-                        android:layout_marginTop="50dp" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox14"
-                        style="@style/CustomStyle"
-                        android:layout_below="@+id/checkBox13"
-                        android:layout_marginTop="50dp" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox15"
-                        style="@style/CustomStyle"
-                        android:layout_marginBottom="10dp"
-                        android:layout_below="@+id/checkBox14"
-                        android:layout_marginTop="50dp" />
-                    <ru.noties.jlatexmath.JLatexMathView
-                        android:id="@+id/math_view4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/checkBox4"
-                        android:layout_alignTop="@+id/checkBox4"
-                        android:layout_alignBottom="@+id/checkBox4"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginEnd="40dp"
-                        android:layout_marginBottom="-10dp" />
-                    <ru.noties.jlatexmath.JLatexMathView
-                        android:id="@+id/math_view5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/checkBox5"
-                        android:layout_alignTop="@+id/checkBox5"
-                        android:layout_alignBottom="@+id/checkBox5"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginEnd="40dp"
-                        android:layout_marginBottom="-10dp" />
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="10dp" />
 
                     <ru.noties.jlatexmath.JLatexMathView
-                        android:id="@+id/math_view6"
+                        android:id="@+id/math_view3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/checkBox6"
-                        android:layout_alignTop="@+id/checkBox6"
-                        android:layout_alignBottom="@+id/checkBox6"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginEnd="40dp"
-                        android:layout_marginBottom="-10dp" />
-
-                    <ru.noties.jlatexmath.JLatexMathView
-                        android:id="@+id/math_view7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/checkBox7"
-                        android:layout_alignTop="@+id/checkBox7"
-                        android:layout_alignBottom="@+id/checkBox7"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginEnd="40dp"
-                        android:layout_marginBottom="-10dp" />
-
-                    <ru.noties.jlatexmath.JLatexMathView
-                        android:id="@+id/math_view8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/checkBox8"
-                        android:layout_alignTop="@+id/checkBox8"
-                        android:layout_alignBottom="@+id/checkBox8"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginEnd="40dp"
-                        android:layout_marginBottom="-10dp" />
-
-                    <ru.noties.jlatexmath.JLatexMathView
-                        android:id="@+id/math_view9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/checkBox9"
-                        android:layout_alignTop="@+id/checkBox9"
-                        android:layout_alignBottom="@+id/checkBox9"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginEnd="40dp"
-                        android:layout_marginBottom="-10dp" />
-
-                    <ru.noties.jlatexmath.JLatexMathView
-                        android:id="@+id/math_view10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/checkBox10"
-                        android:layout_alignTop="@+id/checkBox10"
-                        android:layout_alignBottom="@+id/checkBox10"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginEnd="40dp"
-                        android:layout_marginBottom="-10dp" />
-
-                    <ru.noties.jlatexmath.JLatexMathView
-                        android:id="@+id/math_view11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/checkBox11"
-                        android:layout_alignTop="@+id/checkBox11"
-                        android:layout_alignBottom="@+id/checkBox11"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginEnd="40dp"
-                        android:layout_marginBottom="-10dp" />
-
-                    <ru.noties.jlatexmath.JLatexMathView
-                        android:id="@+id/math_view12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/checkBox12"
-                        android:layout_alignTop="@+id/checkBox12"
-                        android:layout_alignBottom="@+id/checkBox12"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginEnd="40dp"
-                        android:layout_marginBottom="-10dp" />
-
-                    <ru.noties.jlatexmath.JLatexMathView
-                        android:id="@+id/math_view13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/checkBox13"
-                        android:layout_alignTop="@+id/checkBox13"
-                        android:layout_alignBottom="@+id/checkBox13"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginEnd="40dp"
-                        android:layout_marginBottom="-10dp" />
-
-                    <ru.noties.jlatexmath.JLatexMathView
-                        android:id="@+id/math_view14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/checkBox14"
-                        android:layout_alignTop="@+id/checkBox14"
-                        android:layout_alignBottom="@+id/checkBox14"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginEnd="40dp"
-                        android:layout_marginBottom="-10dp" />
-
-                    <ru.noties.jlatexmath.JLatexMathView
-                        android:id="@+id/math_view15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/checkBox15"
-                        android:layout_alignTop="@+id/checkBox15"
-                        android:layout_alignBottom="@+id/checkBox15"
-                        android:layout_alignParentEnd="true"
+                        android:layout_alignStart="@+id/checkBox3"
+                        android:layout_alignTop="@+id/checkBox3"
+                        android:layout_alignBottom="@+id/checkBox3"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="-5dp"
                         android:layout_marginEnd="40dp"
                         android:layout_marginBottom="-10dp" />
 
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="70dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <CheckBox
+                            android:id="@+id/checkBox4"
+                            style="@style/CustomStyle"
+                            android:layout_marginTop="50dp" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox5"
+                            style="@style/CustomStyle"
+                            android:layout_below="@+id/checkBox4"
+                            android:layout_marginTop="50dp" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox6"
+                            style="@style/CustomStyle"
+                            android:layout_below="@+id/checkBox5"
+                            android:layout_marginTop="50dp" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox7"
+                            style="@style/CustomStyle"
+                            android:layout_below="@+id/checkBox6"
+                            android:layout_marginTop="50dp" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox8"
+                            style="@style/CustomStyle"
+                            android:layout_below="@+id/checkBox7"
+                            android:layout_marginTop="50dp" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox9"
+                            style="@style/CustomStyle"
+                            android:layout_below="@+id/checkBox8"
+                            android:layout_marginTop="50dp" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox10"
+                            style="@style/CustomStyle"
+                            android:layout_below="@+id/checkBox9"
+                            android:layout_marginTop="50dp" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox11"
+                            style="@style/CustomStyle"
+                            android:layout_below="@+id/checkBox10"
+                            android:layout_marginTop="50dp" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox12"
+                            style="@style/CustomStyle"
+                            android:layout_below="@+id/checkBox11"
+                            android:layout_marginTop="50dp" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox13"
+                            style="@style/CustomStyle"
+                            android:layout_below="@+id/checkBox12"
+                            android:layout_marginTop="50dp" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox14"
+                            style="@style/CustomStyle"
+                            android:layout_below="@+id/checkBox13"
+                            android:layout_marginTop="50dp" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox15"
+                            style="@style/CustomStyle"
+                            android:layout_below="@+id/checkBox14"
+                            android:layout_marginTop="50dp"
+                            android:layout_marginBottom="10dp" />
+
+                        <ru.noties.jlatexmath.JLatexMathView
+                            android:id="@+id/math_view4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/checkBox4"
+                            android:layout_alignTop="@+id/checkBox4"
+                            android:layout_alignBottom="@+id/checkBox4"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="-10dp" />
+
+                        <ru.noties.jlatexmath.JLatexMathView
+                            android:id="@+id/math_view5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/checkBox5"
+                            android:layout_alignTop="@+id/checkBox5"
+                            android:layout_alignBottom="@+id/checkBox5"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="-10dp" />
+
+                        <ru.noties.jlatexmath.JLatexMathView
+                            android:id="@+id/math_view6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/checkBox6"
+                            android:layout_alignTop="@+id/checkBox6"
+                            android:layout_alignBottom="@+id/checkBox6"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="-10dp" />
+
+                        <ru.noties.jlatexmath.JLatexMathView
+                            android:id="@+id/math_view7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/checkBox7"
+                            android:layout_alignTop="@+id/checkBox7"
+                            android:layout_alignBottom="@+id/checkBox7"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="-10dp" />
+
+                        <ru.noties.jlatexmath.JLatexMathView
+                            android:id="@+id/math_view8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/checkBox8"
+                            android:layout_alignTop="@+id/checkBox8"
+                            android:layout_alignBottom="@+id/checkBox8"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="-10dp" />
+
+                        <ru.noties.jlatexmath.JLatexMathView
+                            android:id="@+id/math_view9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/checkBox9"
+                            android:layout_alignTop="@+id/checkBox9"
+                            android:layout_alignBottom="@+id/checkBox9"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="-10dp" />
+
+                        <ru.noties.jlatexmath.JLatexMathView
+                            android:id="@+id/math_view10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/checkBox10"
+                            android:layout_alignTop="@+id/checkBox10"
+                            android:layout_alignBottom="@+id/checkBox10"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="-10dp" />
+
+                        <ru.noties.jlatexmath.JLatexMathView
+                            android:id="@+id/math_view11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/checkBox11"
+                            android:layout_alignTop="@+id/checkBox11"
+                            android:layout_alignBottom="@+id/checkBox11"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="-10dp" />
+
+                        <ru.noties.jlatexmath.JLatexMathView
+                            android:id="@+id/math_view12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/checkBox12"
+                            android:layout_alignTop="@+id/checkBox12"
+                            android:layout_alignBottom="@+id/checkBox12"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="-10dp" />
+
+                        <ru.noties.jlatexmath.JLatexMathView
+                            android:id="@+id/math_view13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/checkBox13"
+                            android:layout_alignTop="@+id/checkBox13"
+                            android:layout_alignBottom="@+id/checkBox13"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="-10dp" />
+
+                        <ru.noties.jlatexmath.JLatexMathView
+                            android:id="@+id/math_view14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/checkBox14"
+                            android:layout_alignTop="@+id/checkBox14"
+                            android:layout_alignBottom="@+id/checkBox14"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="-10dp" />
+
+                        <ru.noties.jlatexmath.JLatexMathView
+                            android:id="@+id/math_view15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/checkBox15"
+                            android:layout_alignTop="@+id/checkBox15"
+                            android:layout_alignBottom="@+id/checkBox15"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="-10dp" />
 
 
+                    </RelativeLayout>
                 </RelativeLayout>
-            </RelativeLayout>
 
-            <ImageView style="@style/cardArrowImageStyle"
-                android:layout_marginBottom="0dp"/>
+                <ImageView
+                    style="@style/cardArrowImageStyle"
+                    android:layout_marginBottom="0dp" />
 
-        </androidx.cardview.widget.CardView>
-
-
-
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/Formula0"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/checkAllButton" />
-        <CheckBox
-            android:id="@+id/checkBox0"
-            style="@style/CustomStyle"
-            android:layout_below="@+id/Formula0" />
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/Formula1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/checkBox0" />
-
-        <CheckBox
-            android:id="@+id/checkBox1"
-            style="@style/CustomStyle"
-            android:layout_below="@+id/Formula1" />
-
-        <CheckBox
-            android:id="@+id/checkBox2"
-            style="@style/CustomStyle"
-            android:layout_below="@+id/checkBox1"
-            android:layout_marginTop="50dp" />
+            </androidx.cardview.widget.CardView>
 
 
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/Formula0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/checkAllButton" />
 
-        <Button
-            android:id="@+id/next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/card2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
-            android:onClick="startNewActivity2"
-            android:text="@string/button_second"
-            android:backgroundTint="@color/colorPrimary"/>
+            <CheckBox
+                android:id="@+id/checkBox0"
+                style="@style/CustomStyle"
+                android:layout_below="@+id/Formula0" />
 
-    </RelativeLayout>
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/Formula1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/checkBox0"
+                android:layout_marginTop="20dp" />
 
-</ScrollView>
+            <CheckBox
+                android:id="@+id/checkBox1"
+                style="@style/CustomStyle"
+                android:layout_below="@+id/Formula1" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                style="@style/CustomStyle"
+                android:layout_below="@+id/checkBox1"
+                android:layout_marginTop="50dp" />
+
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="startNewActivity2"
+                android:text="@string/button_second" />
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

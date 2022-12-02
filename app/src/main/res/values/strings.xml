@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Розрахунок спектру</string>
 	<!-- main layout -->
-	<string name="main_activity_title">Розрахунок спектру імпульсного \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tсигналу</string>
+	<string name="main_activity_title">Спектр імпульсного сигналу\nВстановлення параметрів сигналу</string>
 	<string name="activity_subtitle">Вкажіть параметри сигналу:</string>
 	<string name="activity_subtitle1">На основі вказаних значень обрахуємо:</string>
     <string name="period_title">Період - T</string>
@@ -33,7 +33,7 @@
 	<string name="second_activity_top">Необхідні формули:</string>
 	<string name="second_activity_entered_data">Введені дані:</string>
 
-	<string name="second_activity_title">Cпектр імпульсного сигналу\nСкладові спектру</string>
+	<string name="second_activity_title">Спектр імпульсного сигналу\nРозрахунок складових спектру</string>
 	<string name="second_activity_subtitle">Складові спектру:</string>
 	<string name="button_second">Побудувати графік</string>
 	<!-- third layout -->
