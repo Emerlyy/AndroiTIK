@@ -4,11 +4,11 @@
 	<string name="main_activity_title">Спектр імпульсного сигналу\nВстановлення параметрів сигналу</string>
 	<string name="activity_subtitle">Вкажіть параметри сигналу:</string>
 	<string name="activity_subtitle1">На основі вказаних значень обрахуємо:</string>
-    <string name="period_title">Період - T</string>
+    <string name="period_title">Період - T, с</string>
 	<string name="period_details">Період сигналу - найменший проміжок часу, через який повторюються миттєві значення сигналу.</string>
-	<string name="width_title">Ширина імпульсів - t</string>
+	<string name="width_title">Ширина імпульсів - t, с</string>
 	<string name="width_details">Ширина імпульсів - інтервал часу, протягом якого сигнал існує за період. </string>
-	<string name="amplitude_title">Амплітуда - h</string>
+	<string name="amplitude_title">Амплітуда - h, В</string>
 	<string name="amplitude_details">Амплітуда - найбільше відхилення значень імпульсного сигналу за один період від деякого значення, умовно прийнятого за нульове.</string>
 	<string name="expandable_text">\t\tСукупність амплітуд Ак та відповідних їм частот wк гармонічних складових розкладу в ряд Фур\'є
 		називають спектром амплітуд періодичного сигналу.
@@ -37,9 +37,9 @@
 	<string name="second_activity_subtitle">Складові спектру:</string>
 	<string name="button_second">Побудувати графік</string>
 	<!-- third layout -->
-	<string name="third_activity_title">Графік</string>
+	<string name="third_activity_title">Спектр імпульсного сигналу\nАмплітудно-частотний спектр</string>
 	<string name="button_third_text">Повернутись</string>
-	<string name="second_activity_chooseAll">Вибрати всі амплітуди для побудови спектру</string>
+	<string name="second_activity_chooseAll">Вибрати всі складові амплітуди для спектру</string>
 	<string name="second_activity_chooseNoOne">Не вибирати всі амплітуди</string>
     <string name="short_theory">Короткі теоретичні відомості:</string>
 	<string name="short_theory1">Короткі теоретичні відомості:</string>

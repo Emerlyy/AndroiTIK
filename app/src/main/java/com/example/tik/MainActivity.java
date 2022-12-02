@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         nextStepButton = findViewById(R.id.button);
 
         latexView = findViewById(R.id.latexView);
-        String W = "\\textcolor{OliveGreen}{\\boldsymbol{\\omega=\\frac{2\\pi}{T}}";
+        String W = "\\textcolor{OliveGreen}{\\boldsymbol{\\omega=\\frac{2\\pi}{T}";
         drawable = JLatexMathDrawable.builder(W)
                 .textSize(70)
                 .padding(8)
@@ -79,7 +79,39 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                boolean enabled = editWidth.length() != 0 && editPeriod.length() != 0 && editAmplitude.length() != 0;
+                boolean enabled = editWidth.length() != 0 && editPeriod.length() != 0 && editAmplitude.length() != 0&&((editPeriod.getText().toString().equals("8")||editPeriod.getText().toString().equals("6")||editPeriod.getText().toString().equals("2"))
+                        &&(editWidth.getText().toString().equals("6")||editWidth.getText().toString().equals("4")||editWidth.getText().toString().equals("2")));
+
+                if(!enabled){
+                    nextStepButton.setEnabled(false);
+                    return;
+                }
+                nextStepButton.setEnabled(true);
+                period = tryParse(editPeriod.getText().toString());
+                w = new BigDecimal( 2 * Math.PI / period).setScale(2, RoundingMode.HALF_UP);
+                drawable = JLatexMathDrawable.builder(W + " = " + w + "\\frac{рад}{с^{-1}}")
+                        .textSize(60)
+                        .padding(8)
+                        .background(0x00000000)
+                        .align(JLatexMathDrawable.ALIGN_RIGHT)
+                        .build();
+                latexView.setLatexDrawable(drawable);
+            }
+        });
+        editPeriod.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                boolean enabled = editWidth.length() != 0 && editPeriod.length() != 0 && editAmplitude.length() != 0&&((editPeriod.getText().toString().equals("8")||editPeriod.getText().toString().equals("6")||editPeriod.getText().toString().equals("2"))
+                        &&(editWidth.getText().toString().equals("6")||editWidth.getText().toString().equals("4")||editWidth.getText().toString().equals("2")));
+
                 if(!enabled){
                     nextStepButton.setEnabled(false);
                     return;

@@ -99,7 +99,7 @@ public class SecondActivity extends AppCompatActivity {
             latexFormulas[i].setLatexDrawable(drawable);
         }
 
-        String calcLatexA0 = "\\boldsymbol{A_{0}=" + hStr + "\\cdot \\frac{" + tStr + "}{" + TStr + "}=" + arrayData[0] + "}";
+        String calcLatexA0 = "\\boldsymbol{\\textcolor{OliveGreen}{A_{0}}=" + hStr + "\\cdot \\frac{" + tStr + "}{" + TStr + "}=\\textcolor{OliveGreen}{" + arrayData[0] + "}}";
         drawable = JLatexMathDrawable.builder(calcLatexA0)
                 .textSize(160)
                 .padding(8)
@@ -118,8 +118,8 @@ public class SecondActivity extends AppCompatActivity {
             jLatexMathView[i] = findViewById(LatexId);
             arrayData[i] = calcAn(period, width, amplitude, i);
 
-            drawable = JLatexMathDrawable.builder("\\boldsymbol{A_{\\textcolor{OliveGreen}{" + i + "}}=2\\cdot " + hStr + "\\cdot \\frac{" + tStr + "\\cdot\\sin(\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2})}" +
-                            "{" + TStr + "\\cdot\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2}}=" + arrayData[i] + "}")
+            drawable = JLatexMathDrawable.builder("\\boldsymbol{\\textcolor{OliveGreen}{A_{" + i + "}}=2\\cdot " + hStr + "\\cdot \\frac{" + tStr + "\\cdot\\sin(\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2})}" +
+                            "{" + TStr + "\\cdot\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2}}=\\textcolor{OliveGreen}{" + arrayData[i] + "}}")
                     .textSize(160)
                     .padding(8)
                     .background(0x00000000)
@@ -189,7 +189,7 @@ public class SecondActivity extends AppCompatActivity {
     public void expand2(View view) {
         CardView card = (CardView) view;
         RelativeLayout lin1 = (RelativeLayout) card.getChildAt(0);
-        RelativeLayout hiddenLayout = (RelativeLayout) lin1.getChildAt(2);
+        RelativeLayout hiddenLayout = (RelativeLayout) lin1.getChildAt(3);
         ImageView arrow = (ImageView) card.getChildAt(1);
         int isDetailsVisible = (hiddenLayout.getVisibility() == View.GONE) ? View.VISIBLE : View.GONE;
         AutoTransition autoTransition = new AutoTransition();

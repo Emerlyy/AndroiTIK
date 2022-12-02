@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="4dp"
                 android:text="@string/second_activity_title"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
 
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
                 android:textColor="@color/white" />
@@ -41,7 +41,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
-            tools:context=".VadimProgramist">
+            tools:context=".VadimProgramist"
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/text_view2"
@@ -49,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:text="Розрахуємо складові спектру амплітуд:" />
 
             <androidx.cardview.widget.CardView
@@ -142,29 +143,15 @@
                 android:layout_alignBottom="@+id/checkBox1"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="-5dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="-10dp" />
-
-            <ru.noties.jlatexmath.JLatexMathView
-                android:id="@+id/math_view2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/checkBox2"
-                android:layout_alignTop="@+id/checkBox2"
-                android:layout_alignBottom="@+id/checkBox2"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="-5dp"
-                android:layout_marginEnd="40dp"
-                android:layout_marginBottom="-10dp" />
+                android:layout_marginTop="-10dp"
+                android:layout_marginBottom="-15dp" />
 
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/checkBox2"
+                android:layout_below="@+id/textA1"
                 android:layout_marginTop="10dp"
                 android:onClick="expand2"
                 app:cardBackgroundColor="@color/bgColor"
@@ -177,23 +164,29 @@
                     android:orientation="vertical">
 
                     <CheckBox
-                        android:id="@+id/checkBox3"
+                        android:id="@+id/checkBox2"
                         style="@style/CustomStyle"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginBottom="10dp" />
-
+                        android:layout_marginTop="40dp" />
                     <ru.noties.jlatexmath.JLatexMathView
-                        android:id="@+id/math_view3"
+                        android:id="@+id/math_view2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/checkBox3"
-                        android:layout_alignTop="@+id/checkBox3"
-                        android:layout_alignBottom="@+id/checkBox3"
+                        android:layout_alignStart="@+id/checkBox2"
+                        android:layout_alignTop="@+id/checkBox2"
+                        android:layout_alignBottom="@+id/checkBox2"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginStart="30dp"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginEnd="40dp"
-                        android:layout_marginBottom="-10dp" />
-
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-15dp"/>
+                    <TextView
+                        android:id="@+id/textA2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_below="@id/checkBox2"
+                        android:layout_marginLeft="40dp"
+                        android:text="Синусоїдальний сигнал з амплітудою A2"
+                        android:layout_marginBottom="10dp"/>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -203,77 +196,190 @@
                         android:visibility="gone">
 
                         <CheckBox
+                            android:id="@+id/checkBox3"
+                            style="@style/CustomStyle"
+                            android:layout_marginTop="80dp" />
+
+                        <ru.noties.jlatexmath.JLatexMathView
+                            android:id="@+id/math_view3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/checkBox3"
+                            android:layout_alignTop="@+id/checkBox3"
+                            android:layout_alignBottom="@+id/checkBox3"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="-10dp"
+                            android:layout_marginBottom="-15dp" />
+
+                        <TextView
+                            android:id="@+id/textA3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_below="@id/checkBox3"
+                            android:layout_marginLeft="40dp"
+                            android:text="Синусоїдальний сигнал з амплітудою A3"/>
+
+                        <CheckBox
                             android:id="@+id/checkBox4"
+                            android:layout_below="@id/textA3"
                             style="@style/CustomStyle"
                             android:layout_marginTop="50dp" />
+                        <TextView
+                            android:id="@+id/textA4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_below="@id/checkBox4"
+                            android:layout_marginLeft="40dp"
+                            android:text="Синусоїдальний сигнал з амплітудою A4"/>
 
                         <CheckBox
                             android:id="@+id/checkBox5"
                             style="@style/CustomStyle"
-                            android:layout_below="@+id/checkBox4"
+                            android:layout_below="@id/textA4"
                             android:layout_marginTop="50dp" />
+
+                        <TextView
+                            android:id="@+id/textA5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_below="@id/checkBox5"
+                            android:layout_marginLeft="40dp"
+                            android:text="Синусоїдальний сигнал з амплітудою A5"/>
 
                         <CheckBox
                             android:id="@+id/checkBox6"
                             style="@style/CustomStyle"
-                            android:layout_below="@+id/checkBox5"
+                            android:layout_below="@id/textA5"
                             android:layout_marginTop="50dp" />
-
+                        <TextView
+                            android:id="@+id/textA6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_below="@id/checkBox6"
+                            android:layout_marginLeft="40dp"
+                            android:text="Синусоїдальний сигнал з амплітудою A6"/>
                         <CheckBox
                             android:id="@+id/checkBox7"
                             style="@style/CustomStyle"
-                            android:layout_below="@+id/checkBox6"
+                            android:layout_below="@id/textA6"
                             android:layout_marginTop="50dp" />
-
+                        <TextView
+                            android:id="@+id/textA7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_below="@id/checkBox7"
+                            android:layout_marginLeft="40dp"
+                            android:text="Синусоїдальний сигнал з амплітудою A7"/>
                         <CheckBox
                             android:id="@+id/checkBox8"
                             style="@style/CustomStyle"
-                            android:layout_below="@+id/checkBox7"
+                            android:layout_below="@id/textA7"
                             android:layout_marginTop="50dp" />
-
+                        <TextView
+                            android:id="@+id/textA8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_below="@id/checkBox8"
+                            android:layout_marginLeft="40dp"
+                            android:text="Синусоїдальний сигнал з амплітудою A8"/>
                         <CheckBox
                             android:id="@+id/checkBox9"
                             style="@style/CustomStyle"
-                            android:layout_below="@+id/checkBox8"
+                            android:layout_below="@id/textA8"
                             android:layout_marginTop="50dp" />
-
+                        <TextView
+                            android:id="@+id/textA9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_below="@id/checkBox9"
+                            android:layout_marginLeft="40dp"
+                            android:text="Синусоїдальний сигнал з амплітудою A9"/>
                         <CheckBox
                             android:id="@+id/checkBox10"
                             style="@style/CustomStyle"
-                            android:layout_below="@+id/checkBox9"
+                            android:layout_below="@id/textA9"
                             android:layout_marginTop="50dp" />
-
+                        <TextView
+                            android:id="@+id/textA10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_below="@id/checkBox10"
+                            android:layout_marginLeft="40dp"
+                            android:text="Синусоїдальний сигнал з амплітудою A10"/>
                         <CheckBox
                             android:id="@+id/checkBox11"
                             style="@style/CustomStyle"
-                            android:layout_below="@+id/checkBox10"
+                            android:layout_below="@id/textA10"
                             android:layout_marginTop="50dp" />
-
+                        <TextView
+                            android:id="@+id/textA11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_below="@id/checkBox11"
+                            android:layout_marginLeft="40dp"
+                            android:text="Синусоїдальний сигнал з амплітудою A11"/>
                         <CheckBox
                             android:id="@+id/checkBox12"
                             style="@style/CustomStyle"
-                            android:layout_below="@+id/checkBox11"
+                            android:layout_below="@id/textA11"
                             android:layout_marginTop="50dp" />
-
+                        <TextView
+                            android:id="@+id/textA12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_below="@id/checkBox12"
+                            android:layout_marginLeft="40dp"
+                            android:text="Синусоїдальний сигнал з амплітудою A12"/>
                         <CheckBox
                             android:id="@+id/checkBox13"
                             style="@style/CustomStyle"
-                            android:layout_below="@+id/checkBox12"
+                            android:layout_below="@id/textA12"
                             android:layout_marginTop="50dp" />
-
+                        <TextView
+                            android:id="@+id/textA13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_below="@id/checkBox13"
+                            android:layout_marginLeft="40dp"
+                            android:text="Синусоїдальний сигнал з амплітудою A13"/>
                         <CheckBox
                             android:id="@+id/checkBox14"
                             style="@style/CustomStyle"
-                            android:layout_below="@+id/checkBox13"
+                            android:layout_below="@id/textA13"
                             android:layout_marginTop="50dp" />
-
+                        <TextView
+                            android:id="@+id/textA14"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_below="@id/checkBox14"
+                            android:layout_marginLeft="40dp"
+                            android:text="Синусоїдальний сигнал з амплітудою A14"/>
                         <CheckBox
                             android:id="@+id/checkBox15"
                             style="@style/CustomStyle"
-                            android:layout_below="@+id/checkBox14"
+                            android:layout_below="@id/textA14"
                             android:layout_marginTop="50dp"
                             android:layout_marginBottom="10dp" />
-
+                        <TextView
+                            android:id="@+id/textA15"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_below="@id/checkBox15"
+                            android:layout_marginLeft="40dp"
+                            android:text="Синусоїдальний сигнал з амплітудою A15"/>
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view4"
                             android:layout_width="wrap_content"
@@ -283,9 +389,8 @@
                             android:layout_alignBottom="@+id/checkBox4"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
-                            android:layout_marginTop="-5dp"
-                            android:layout_marginEnd="40dp"
-                            android:layout_marginBottom="-10dp" />
+                            android:layout_marginTop="-10dp"
+                            android:layout_marginBottom="-15dp" />
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view5"
@@ -296,9 +401,8 @@
                             android:layout_alignBottom="@+id/checkBox5"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
-                            android:layout_marginTop="-5dp"
-                            android:layout_marginEnd="40dp"
-                            android:layout_marginBottom="-10dp" />
+                            android:layout_marginTop="-10dp"
+                            android:layout_marginBottom="-15dp" />
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view6"
@@ -309,9 +413,8 @@
                             android:layout_alignBottom="@+id/checkBox6"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
-                            android:layout_marginTop="-5dp"
-                            android:layout_marginEnd="40dp"
-                            android:layout_marginBottom="-10dp" />
+                            android:layout_marginTop="-10dp"
+                            android:layout_marginBottom="-15dp"/>
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view7"
@@ -322,9 +425,8 @@
                             android:layout_alignBottom="@+id/checkBox7"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
-                            android:layout_marginTop="-5dp"
-                            android:layout_marginEnd="40dp"
-                            android:layout_marginBottom="-10dp" />
+                            android:layout_marginTop="-10dp"
+                            android:layout_marginBottom="-15dp"/>
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view8"
@@ -335,9 +437,8 @@
                             android:layout_alignBottom="@+id/checkBox8"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
-                            android:layout_marginTop="-5dp"
-                            android:layout_marginEnd="40dp"
-                            android:layout_marginBottom="-10dp" />
+                            android:layout_marginTop="-10dp"
+                            android:layout_marginBottom="-15dp"/>
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view9"
@@ -348,9 +449,8 @@
                             android:layout_alignBottom="@+id/checkBox9"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
-                            android:layout_marginTop="-5dp"
-                            android:layout_marginEnd="40dp"
-                            android:layout_marginBottom="-10dp" />
+                            android:layout_marginTop="-10dp"
+                            android:layout_marginBottom="-15dp"/>
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view10"
@@ -361,9 +461,8 @@
                             android:layout_alignBottom="@+id/checkBox10"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
-                            android:layout_marginTop="-5dp"
-                            android:layout_marginEnd="40dp"
-                            android:layout_marginBottom="-10dp" />
+                            android:layout_marginTop="-10dp"
+                            android:layout_marginBottom="-15dp"/>
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view11"
@@ -374,9 +473,8 @@
                             android:layout_alignBottom="@+id/checkBox11"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
-                            android:layout_marginTop="-5dp"
-                            android:layout_marginEnd="40dp"
-                            android:layout_marginBottom="-10dp" />
+                            android:layout_marginTop="-10dp"
+                            android:layout_marginBottom="-15dp"/>
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view12"
@@ -387,9 +485,8 @@
                             android:layout_alignBottom="@+id/checkBox12"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
-                            android:layout_marginTop="-5dp"
-                            android:layout_marginEnd="40dp"
-                            android:layout_marginBottom="-10dp" />
+                            android:layout_marginTop="-10dp"
+                            android:layout_marginBottom="-15dp"/>
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view13"
@@ -400,9 +497,8 @@
                             android:layout_alignBottom="@+id/checkBox13"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
-                            android:layout_marginTop="-5dp"
-                            android:layout_marginEnd="40dp"
-                            android:layout_marginBottom="-10dp" />
+                            android:layout_marginTop="-10dp"
+                            android:layout_marginBottom="-15dp"/>
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view14"
@@ -413,9 +509,8 @@
                             android:layout_alignBottom="@+id/checkBox14"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
-                            android:layout_marginTop="-5dp"
-                            android:layout_marginEnd="40dp"
-                            android:layout_marginBottom="-10dp" />
+                            android:layout_marginTop="-10dp"
+                            android:layout_marginBottom="-15dp"/>
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view15"
@@ -426,9 +521,8 @@
                             android:layout_alignBottom="@+id/checkBox15"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
-                            android:layout_marginTop="-5dp"
-                            android:layout_marginEnd="40dp"
-                            android:layout_marginBottom="-10dp" />
+                            android:layout_marginTop="-10dp"
+                            android:layout_marginBottom="-15dp"/>
 
 
                     </RelativeLayout>
@@ -452,23 +546,36 @@
                 style="@style/CustomStyle"
                 android:layout_below="@+id/Formula0" />
 
+            <TextView
+                android:id="@+id/text4"
+                android:layout_below="@id/checkBox0"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Постійна складова - постійний струм"
+                android:layout_height="wrap_content"/>
+
             <ru.noties.jlatexmath.JLatexMathView
                 android:id="@+id/Formula1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/checkBox0"
+                android:layout_below="@+id/text4"
                 android:layout_marginTop="20dp" />
 
             <CheckBox
                 android:id="@+id/checkBox1"
                 style="@style/CustomStyle"
-                android:layout_below="@+id/Formula1" />
+                android:layout_below="@+id/Formula1"
+                android:layout_marginTop="30dp"/>
 
-            <CheckBox
-                android:id="@+id/checkBox2"
-                style="@style/CustomStyle"
-                android:layout_below="@+id/checkBox1"
-                android:layout_marginTop="50dp" />
+<TextView
+    android:id="@+id/textA1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:layout_below="@id/checkBox1"
+    android:layout_marginLeft="40dp"
+    android:text="Синусоїдальний сигнал з амплітудою A1"/>
 
 
             <Button

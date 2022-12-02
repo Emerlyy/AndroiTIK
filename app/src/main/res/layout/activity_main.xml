@@ -23,9 +23,10 @@
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="4dp"
                 android:text="@string/main_activity_title"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
                 android:textColor="@color/white" />
+
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -73,16 +74,25 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                        <TextView
-                            style="@style/cardTitleStyle"
-                            android:text="@string/period_title" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                style="@style/cardTitleStyle"
+                                android:text="@string/period_title" />
 
-                        <EditText
-                            android:id="@+id/editPeriod"
-                            style="@style/cardEditStyle" />
-
+                            <EditText
+                                android:id="@+id/editPeriod"
+                                style="@style/cardEditStyle" />
+                        </LinearLayout>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Допустимі значення: 8, 6, 2"
+    />
                     </LinearLayout>
 
                     <TextView
@@ -117,16 +127,26 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                style="@style/cardTitleStyle"
+                                android:text="@string/width_title"
+                                android:textSize="20sp" />
+
+                            <EditText
+                                android:id="@+id/editWidth"
+                                style="@style/cardEditStyle" />
+                        </LinearLayout>
 
                         <TextView
-                            style="@style/cardTitleStyle"
-                            android:text="@string/width_title"
-                            android:textSize="20sp" />
-
-                        <EditText
-                            android:id="@+id/editWidth"
-                            style="@style/cardEditStyle" />
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Допустимі значення: 6, 4, 2"/>
 
                     </LinearLayout>
 

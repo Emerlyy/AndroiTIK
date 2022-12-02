@@ -25,20 +25,24 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.noties.jlatexmath.JLatexMathDrawable;
+import ru.noties.jlatexmath.JLatexMathView;
+
 public class ThirdActivity extends AppCompatActivity {
 
     BarChart barChart;
     List<BarEntry> entries;
     BarDataSet dataSet;
     BarData barData;
-
+    JLatexMathView latexAk,latexW;
+    JLatexMathDrawable drawable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
         setTitle(R.string.third_activity_title);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
-       // float[] arrData = getIntent().getFloatArrayExtra("data");
+        // float[] arrData = getIntent().getFloatArrayExtra("data");
         List<Float> arrData = (List<Float>) getIntent().getSerializableExtra("data");
         List<Integer> indexes = (List<Integer>) getIntent().getSerializableExtra("indexes");
         barChart = (BarChart) findViewById(R.id.chart);
@@ -55,13 +59,13 @@ public class ThirdActivity extends AppCompatActivity {
 
         final ArrayList<String> xLabel = new ArrayList<>();
         for (int i = 0; i < indexes.size(); i++) {
-            xLabel.add("A" + indexes.get(i));
+            xLabel.add("w" + indexes.get(i));
         }
 
 
         // dataSet.setDrawValues(false); // removes values above the bars
         dataSet.setValueTextSize(8f);
-        dataSet.setColor(ContextCompat.getColor(this,R.color.mainColor));
+        dataSet.setColor(ContextCompat.getColor(this, R.color.mainColor));
         dataSet.setValueFormatter(new IValueFormatter() {
             private final DecimalFormat mFormat = new DecimalFormat("#.##");
 
@@ -92,6 +96,25 @@ public class ThirdActivity extends AppCompatActivity {
         barChart.setDrawBorders(true);
         barChart.setBorderWidth(0.5f);
         barChart.invalidate();
+
+        latexAk = findViewById(R.id.latexAk);
+        latexW = findViewById(R.id.latexW);
+        String W = "\\boldsymbol{\\omega\\frac{рад}{с^{-1}}}";
+        String Ak = "\\boldsymbol{A_{k}, В}";
+        drawable = JLatexMathDrawable.builder(W)
+                .textSize(70)
+                .padding(8)
+                .background(0x00000000)
+                .align(JLatexMathDrawable.ALIGN_RIGHT)
+                .build();
+        latexW.setLatexDrawable(drawable);
+        drawable = JLatexMathDrawable.builder(Ak)
+                .textSize(70)
+                .padding(8)
+                .background(0x00000000)
+                .align(JLatexMathDrawable.ALIGN_RIGHT)
+                .build();
+        latexAk.setLatexDrawable(drawable);
     }
 
     public void goBack2(View v) {
