@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"> <!--IMPORTANT otherwise backgrnd img. will not fill the whole screen -->
+
     <RelativeLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
@@ -19,58 +20,22 @@
             android:layout_width="match_parent"
             android:minHeight="?attr/actionBarSize"
             android:gravity="top"
-            android:background="@color/white"
+            android:background="@color/colorPrimary"
             app:theme="@style/MyTheme.ActionBar.TitleTextStyle"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
             <TextView
+                android:id="@+id/text_view1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/main_activity_title"
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"/>
 
         </androidx.appcompat.widget.Toolbar>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/theoryCard"
-            app:cardElevation="0dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            app:cardBackgroundColor="@color/bgColor"
-            android:onClick="expand"
-            android:layout_below="@+id/toolbar_main">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="10dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:text="Короткі теоретичні відомості:"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/expandable_text"
-                    style="@style/detailsTextStyle"
-                    android:visibility="gone"/>
-            </LinearLayout>
-
-            <ImageView style="@style/cardArrowImageStyle"
-                android:layout_margin="0dp"/>
-
-
-        </androidx.cardview.widget.CardView>
-
         <TextView
             android:id="@+id/textSub1"
-            android:layout_below="@id/theoryCard"
-            android:layout_marginTop="20dp"
+            android:layout_below="@id/toolbar_main"
+            android:layout_marginTop="30dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
@@ -81,10 +46,11 @@
             android:id="@+id/card1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textSub1"
+            android:layout_below="@id/theoryCard"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="40dp"
             android:onClick="expand"
             app:cardCornerRadius="20dp"
             app:cardElevation="5dp">
@@ -128,7 +94,7 @@
             android:layout_below="@id/card1"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="20dp"
             android:onClick="expand"
             app:cardCornerRadius="20dp"
             app:cardElevation="5dp">
@@ -215,11 +181,56 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/theoryCard"
+            app:cardElevation="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            app:cardBackgroundColor="@color/bgColor"
+            android:onClick="expand"
+            android:layout_below="@+id/textSub1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="Короткі теоретичні відомості:" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/expandable_text"
+                    style="@style/detailsTextStyle"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <ImageView style="@style/cardArrowImageStyle"
+                android:layout_margin="0dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/textSub2"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            style="@style/subtitleStyle"
+            android:layout_below="@id/card3"
+            android:text="@string/activity_subtitle1"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/wCard"
             app:cardElevation="0dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_below="@id/card3"
+            android:layout_below="@+id/textSub2"
             app:cardBackgroundColor="@color/bgColor"
             android:onClick="expand">
 
@@ -231,8 +242,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="17sp"
-                    android:text="На основі введених значень обрахуємо:"/>
+                    android:textSize="20sp"
+                    android:text="@string/short_theory1"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -263,7 +274,8 @@
             android:layout_centerHorizontal="true"
             android:onClick="startNewActivity"
             android:text="@string/button_main"
-            android:layout_alignParentBottom="true"/>
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@color/colorPrimary"/>
 
 
 

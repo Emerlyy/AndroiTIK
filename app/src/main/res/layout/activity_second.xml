@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
-        android:padding="10dp"
         tools:context=".VadimProgramist">
 
         <androidx.appcompat.widget.Toolbar
@@ -20,7 +19,7 @@
             android:layout_width="match_parent"
             android:minHeight="?attr/actionBarSize"
             android:gravity="top"
-            android:background="@color/white"
+            android:background="@color/colorPrimary"
             app:theme="@style/MyTheme.ActionBar.TitleTextStyle"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
@@ -31,6 +30,17 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"/>
 
         </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/text_view2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar_second"
+            android:layout_marginTop="30dp"
+            android:text="Розрахуємо складові спектру амплітуд:"
+            android:layout_marginStart="10dp"
+            style="@style/subtitleStyle" />
+
         <androidx.cardview.widget.CardView
             android:id="@+id/card1"
             android:layout_width="match_parent"
@@ -38,8 +48,9 @@
             android:onClick="expand1"
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/bgColor"
-            android:layout_below="@+id/toolbar_second"
-            android:layout_marginTop="20dp">
+            android:layout_below="@+id/text_view2"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp">
 
 
             <LinearLayout
@@ -85,25 +96,12 @@
 
 
 
-        <TextView
-            android:id="@+id/enteredData"
-            style="@style/subtitleStyle"
-            android:layout_below="@+id/card1"
-            android:text="@string/second_activity_entered_data" />
-
-
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/entered"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_below="@+id/enteredData" />
 
         <ToggleButton
             android:id="@+id/checkAllButton"
             style="@style/CustomStyle"
-            android:layout_below="@+id/entered"
+            android:layout_below="@+id/card1"
             android:layout_marginStart="0dp"
-            android:checked="true"
             android:textOff="@string/second_activity_chooseAll"
             android:textOn="@string/second_activity_chooseNoOne" />
 
@@ -463,7 +461,8 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
             android:onClick="startNewActivity2"
-            android:text="@string/button_second" />
+            android:text="@string/button_second"
+            android:backgroundTint="@color/colorPrimary"/>
 
     </RelativeLayout>
 

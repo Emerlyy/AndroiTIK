@@ -68,7 +68,7 @@ public class SecondActivity extends AppCompatActivity {
         layout = findViewById(R.id.layout);
         arrayCheckBox[0] = findViewById(R.id.checkBox0);
         jLatexMathView[0] = findViewById(R.id.math_view0);
-        latexEnteredData = findViewById(R.id.entered);
+        //latexEnteredData = findViewById(R.id.entered);
 
         arrayData[0] = calcA0(period, width, amplitude);
         nextStepButton = findViewById(R.id.next);
@@ -98,15 +98,6 @@ public class SecondActivity extends AppCompatActivity {
                     .build();
             latexFormulas[i].setLatexDrawable(drawable);
         }
-
-        String enteredData = "\\boldsymbol{\\textcolor{OliveGreen}{T}=" + TStr +"\\boldsymbol{\\textcolor{white}{-}"+ "\\textcolor{OliveGreen}{t}=" + tStr +"\\boldsymbol{\\textcolor{white}{-}"+"\\textcolor{OliveGreen}{h}=" + hStr+ "}";
-        drawable = JLatexMathDrawable.builder(enteredData)
-                .textSize(80)
-                .padding(8)
-                .background(0x00000000)
-                .align(JLatexMathDrawable.ALIGN_RIGHT)
-                .build();
-        latexEnteredData.setLatexDrawable(drawable);
 
         String calcLatexA0 = "\\boldsymbol{A_{0}=" + hStr + "\\cdot \\frac{" + tStr + "}{" + TStr + "}=" + arrayData[0] + "}";
         drawable = JLatexMathDrawable.builder(calcLatexA0)
@@ -142,7 +133,7 @@ public class SecondActivity extends AppCompatActivity {
         updateVisibility(isChecked);
         checkAllButton.setOnClickListener(view -> updateVisibility(checkAllButton.isChecked()));
 
-        nextStepButton.setEnabled(true);
+        nextStepButton.setEnabled(false);
         for (CheckBox checkBox : arrayCheckBox) {
             checkBox.setOnCheckedChangeListener((compoundButton, b) -> {
                 checkAllButton.setChecked(Arrays.stream(arrayCheckBox).allMatch(CompoundButton::isChecked));
