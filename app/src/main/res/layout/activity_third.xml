@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ThirdActivity">
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/toolbar_third"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="@color/colorPrimary">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -34,59 +31,63 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ru.noties.jlatexmath.JLatexMathView
-        android:id="@+id/latexAk"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="-40dp"
-        android:layout_marginRight="-20dp"
-        app:layout_constraintBottom_toTopOf="@+id/chart"
-        app:layout_constraintEnd_toStartOf="@+id/chart"
-        />
-
-
-    <ru.noties.jlatexmath.JLatexMathView
-        android:id="@+id/latexW"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@id/chart"
-        app:layout_constraintLeft_toRightOf="@id/chart"
-        android:layout_marginTop="-20dp"
-        android:layout_marginLeft="-10dp"
-        />
-    <TextView
-        android:id="@id/text"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/subtitleStyle"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="15dp"
-        android:text="Маємо амплітудно-частотний спектр:"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_third"/>
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/chart"
-        android:layout_width="300dp"
-        android:layout_height="552dp"
-        android:layout_below="@+id/text"
-        android:layout_margin="20dp"
-        android:layout_marginTop="60dp"
-        app:flow_horizontalAlign="center"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@id/text"
+                style="@style/subtitleStyle"
+                android:layout_width="match_parent"
+
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="20dp"
+                android:layout_height="wrap_content"
+                android:text="Маємо амплітудно-частотний спектр:" />
 
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:onClick="goBack2"
-        android:text="@string/button_third_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chart" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/latexAk"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:translationX="-16dp"
+                android:layout_alignTop="@id/chart"
+                android:layout_alignStart="@id/chart"/>
+
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/latexW"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@id/chart"
+                android:layout_alignEnd="@id/chart"
+                android:translationX="22dp"
+                android:translationY="20dp"/>
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/chart"
+                android:layout_width="350dp"
+                android:layout_height="552dp"
+                android:layout_below="@id/text"
+                android:layout_centerHorizontal="true" />
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/chart"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:onClick="goBack2"
+                android:text="@string/button_third_text" />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
