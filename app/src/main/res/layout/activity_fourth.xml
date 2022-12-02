@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/MyTheme.ActionBar.TitleTextStyle">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:text="@string/fourth_activity_title"
+                android:textAlignment="textStart"
+
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+                android:textColor="@color/white" />
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        tools:context=".VadimProgramist"
+        android:padding="10dp">
+    <TextView
+        android:id="@+id/text_view"
+        style="@style/subtitleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Розрахуйте самостійно значення складових спектру амплітуд та побудуйте його відповідно до наведених параметрів сигналу:" />
+        <TextView
+            android:id="@+id/variant"
+            android:layout_below="@+id/text_view"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            style="@style/detailsTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1.T=1\tc,\t\tt=1\tc,\th=1\tВ;\n2.T=2\tc,\t\tt=2\tc,\th=1\tВ;\n3.T=3\tc,\t\tt=3\tc,\th=1\tВ." />
+        <TextView
+            android:id="@+id/text_view1"
+            style="@style/subtitleStyle"
+            android:layout_below="@+id/variant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="70dp"
+            android:text="Розрахунки здійснюйте для 15-ти складових спектру.\nВсі отримані складові спектру відобразіть графічно на відповідному графіку." />
+        <TextView
+            android:id="@+id/text_view2"
+            style="@style/subtitleStyle"
+            android:layout_below="@+id/text_view1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="70dp"
+            android:textColor="@color/colorPrimary"
+            android:text="Виконайте фотофіксацію здійснених розрахунків та побудованого спектру амплітуд." />
+
+    </RelativeLayout>
+</LinearLayout>

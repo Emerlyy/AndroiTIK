@@ -113,11 +113,22 @@
             </androidx.cardview.widget.CardView>
 
 
+            <TextView
+                android:id="@+id/text_view21"
+                style="@style/subtitleStyle"
+                android:layout_below="@id/card1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/colorPrimary"
+                android:text="Для прикладу розрахуємо 15 складових спектру\t(всього \nнескінчена кількість)." />
             <ToggleButton
                 android:id="@+id/checkAllButton"
                 style="@style/CustomStyle"
-                android:layout_below="@+id/card1"
+                android:layout_below="@+id/text_view21"
                 android:layout_marginStart="0dp"
+                android:layout_marginBottom="10dp"
                 android:textOff="@string/second_activity_chooseAll"
                 android:textOn="@string/second_activity_chooseNoOne" />
 

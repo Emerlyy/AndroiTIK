@@ -79,8 +79,8 @@ public class SecondActivity extends AppCompatActivity {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         String WStr = decimalFormat.format(w);
 
-        String A0 = "\\boldsymbol{A_{0}=h\\cdot \\frac{t}{T}";
-        String Ak = "\\boldsymbol{A_{k}=2\\cdot h\\cdot \\frac{t\\cdot\\sin(k\\cdot \\omega\\cdot \\frac{t}{2})}{T\\cdot k\\cdot \\omega\\cdot \\frac{t}{2}}";
+        String A0 = "\\boldsymbol{A_{0}=|h\\cdot \\frac{t}{T}|";
+        String Ak = "\\boldsymbol{A_{k}=|2\\cdot h\\cdot \\frac{t\\cdot\\sin(k\\cdot \\omega\\cdot \\frac{t}{2})}{T\\cdot k\\cdot \\omega\\cdot \\frac{t}{2}}|";
         String W = "\\boldsymbol{\\omega=\\frac{2\\pi}{T} = " + WStr+ "}";
 
 
@@ -99,7 +99,7 @@ public class SecondActivity extends AppCompatActivity {
             latexFormulas[i].setLatexDrawable(drawable);
         }
 
-        String calcLatexA0 = "\\boldsymbol{\\textcolor{OliveGreen}{A_{0}}=" + hStr + "\\cdot \\frac{" + tStr + "}{" + TStr + "}=\\textcolor{OliveGreen}{" + arrayData[0] + "}}";
+        String calcLatexA0 = "\\boldsymbol{\\textcolor{OliveGreen}{A_{0}}=|" + hStr + "\\cdot \\frac{" + tStr + "}{" + TStr + "}|=\\textcolor{OliveGreen}{" + Math.abs(arrayData[0]) + " (В)}}";
         drawable = JLatexMathDrawable.builder(calcLatexA0)
                 .textSize(160)
                 .padding(8)
@@ -118,8 +118,8 @@ public class SecondActivity extends AppCompatActivity {
             jLatexMathView[i] = findViewById(LatexId);
             arrayData[i] = calcAn(period, width, amplitude, i);
 
-            drawable = JLatexMathDrawable.builder("\\boldsymbol{\\textcolor{OliveGreen}{A_{" + i + "}}=2\\cdot " + hStr + "\\cdot \\frac{" + tStr + "\\cdot\\sin(\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2})}" +
-                            "{" + TStr + "\\cdot\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2}}=\\textcolor{OliveGreen}{" + arrayData[i] + "}}")
+            drawable = JLatexMathDrawable.builder("\\boldsymbol{\\textcolor{OliveGreen}{A_{" + i + "}}=\\mid2\\cdot " + hStr + "\\cdot \\frac{" + tStr + "\\cdot\\sin(\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2})}" +
+                            "{" + TStr + "\\cdot\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2}}\\mid=\\textcolor{OliveGreen}{" + Math.abs(arrayData[i]) + "(В)}}")
                     .textSize(160)
                     .padding(8)
                     .background(0x00000000)

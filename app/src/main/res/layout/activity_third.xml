@@ -59,7 +59,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/subtitleStyle"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="15dp"
         android:text="Маємо амплітудно-частотний спектр:"
         app:layout_constraintTop_toBottomOf="@id/toolbar_third"/>
     <com.github.mikephil.charting.charts.BarChart

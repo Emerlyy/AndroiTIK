@@ -38,9 +38,11 @@
 	<string name="button_second">Побудувати графік</string>
 	<!-- third layout -->
 	<string name="third_activity_title">Спектр імпульсного сигналу\nАмплітудно-частотний спектр</string>
-	<string name="button_third_text">Повернутись</string>
+	<string name="button_third_text">Індивідуальне розрахункове завдання</string>
 	<string name="second_activity_chooseAll">Вибрати всі складові амплітуди для спектру</string>
 	<string name="second_activity_chooseNoOne">Не вибирати всі амплітуди</string>
     <string name="short_theory">Короткі теоретичні відомості:</string>
 	<string name="short_theory1">Короткі теоретичні відомості:</string>
+	<!-- fourth layout -->
+	<string name="fourth_activity_title">Спектр імпульсного сигналу\nІндивідуальне завдання</string>
 </resources>
