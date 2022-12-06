@@ -68,36 +68,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         nextStepButton.setEnabled(false);
-        editWidth.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                boolean enabled = editWidth.length() != 0 && editPeriod.length() != 0 && editAmplitude.length() != 0&&((editPeriod.getText().toString().equals("8")||editPeriod.getText().toString().equals("6")||editPeriod.getText().toString().equals("2"))
-                        &&(editWidth.getText().toString().equals("6")||editWidth.getText().toString().equals("4")||editWidth.getText().toString().equals("2")));
-
-                if(!enabled){
-                    nextStepButton.setEnabled(false);
-                    return;
-                }
-                nextStepButton.setEnabled(true);
-                period = tryParse(editPeriod.getText().toString());
-                w = new BigDecimal( 2 * Math.PI / period).setScale(2, RoundingMode.HALF_UP);
-                drawable = JLatexMathDrawable.builder(W + " = " + w + "\\frac{рад}{с^{-1}}")
-                        .textSize(60)
-                        .padding(8)
-                        .background(0x00000000)
-                        .align(JLatexMathDrawable.ALIGN_RIGHT)
-                        .build();
-                latexView.setLatexDrawable(drawable);
-            }
-        });
         editPeriod.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -112,20 +82,44 @@ public class MainActivity extends AppCompatActivity {
                 boolean enabled = editWidth.length() != 0 && editPeriod.length() != 0 && editAmplitude.length() != 0&&((editPeriod.getText().toString().equals("8")||editPeriod.getText().toString().equals("6")||editPeriod.getText().toString().equals("2"))
                         &&(editWidth.getText().toString().equals("6")||editWidth.getText().toString().equals("4")||editWidth.getText().toString().equals("2")));
 
+                boolean calcW = (editPeriod.getText().toString().equals("8")||editPeriod.getText().toString().equals("6")||editPeriod.getText().toString().equals("2"));
+
+                if(calcW) {
+                    period = tryParse(editPeriod.getText().toString());
+                    w = new BigDecimal(2 * Math.PI / period).setScale(2, RoundingMode.HALF_UP);
+                    drawable = JLatexMathDrawable.builder(W + " = " + w + "\\frac{рад}{с^{-1}}")
+                            .textSize(60)
+                            .padding(8)
+                            .background(0x00000000)
+                            .align(JLatexMathDrawable.ALIGN_RIGHT)
+                            .build();
+                    latexView.setLatexDrawable(drawable);
+                }
                 if(!enabled){
                     nextStepButton.setEnabled(false);
                     return;
                 }
                 nextStepButton.setEnabled(true);
-                period = tryParse(editPeriod.getText().toString());
-                w = new BigDecimal( 2 * Math.PI / period).setScale(2, RoundingMode.HALF_UP);
-                drawable = JLatexMathDrawable.builder(W + " = " + w)
-                        .textSize(60)
-                        .padding(8)
-                        .background(0x00000000)
-                        .align(JLatexMathDrawable.ALIGN_RIGHT)
-                        .build();
-                latexView.setLatexDrawable(drawable);
+            }
+        });
+        editWidth.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                boolean enabled = editWidth.length() != 0 && editPeriod.length() != 0 && editAmplitude.length() != 0&&((editPeriod.getText().toString().equals("8")||editPeriod.getText().toString().equals("6")||editPeriod.getText().toString().equals("2"))
+                        &&(editWidth.getText().toString().equals("6")||editWidth.getText().toString().equals("4")||editWidth.getText().toString().equals("2")));
+                if(!enabled){
+                    nextStepButton.setEnabled(false);
+                    return;
+                }
+                nextStepButton.setEnabled(true);
             }
         });
     }

@@ -65,7 +65,7 @@ public class ThirdActivity extends AppCompatActivity {
 
         // dataSet.setDrawValues(false); // removes values above the bars
         dataSet.setValueTextSize(8f);
-        dataSet.setColor(ContextCompat.getColor(this, R.color.mainColor));
+        dataSet.setColor(ContextCompat.getColor(this, R.color.colorPrimary));
         dataSet.setValueFormatter(new IValueFormatter() {
             private final DecimalFormat mFormat = new DecimalFormat("#.##");
 
