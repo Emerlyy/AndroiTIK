@@ -39,7 +39,7 @@ import ru.noties.jlatexmath.JLatexMathView;
 public class SecondActivity extends AppCompatActivity {
     CheckBox[] arrayCheckBox = new CheckBox[16];
     JLatexMathView[] jLatexMathView = new JLatexMathView[16];
-    JLatexMathView[] latexFormulas = new JLatexMathView[3];
+    JLatexMathView[] latexFormulas = new JLatexMathView[2];
     JLatexMathView latexEnteredData;
 
     JLatexMathDrawable drawable;
@@ -81,10 +81,9 @@ public class SecondActivity extends AppCompatActivity {
 
         String A0 = "\\boldsymbol{A_{0}=|h\\cdot \\frac{t}{T}|";
         String Ak = "\\boldsymbol{A_{k}=|2\\cdot h\\cdot \\frac{t\\cdot\\sin(k\\cdot \\omega\\cdot \\frac{t}{2})}{T\\cdot k\\cdot \\omega\\cdot \\frac{t}{2}}|";
-        String W = "\\boldsymbol{\\omega=\\frac{2\\pi}{T} = " + WStr+ "}";
 
 
-        String[] forAllLatexView = {A0, Ak, W};
+        String[] forAllLatexView = {A0, Ak};
 
         for (int i = 0; i < latexFormulas.length; i++) {
             int latexFormulasId = getResources().getIdentifier("Formula" + i, "id", getPackageName());
