@@ -82,14 +82,6 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:visibility="gone">
-
-                        <TextView
-                            android:id="@+id/details1"
-                            style="@style/detailsTextStyle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/expandable_text1" />
-
                         <TextView
                             android:id="@+id/details2"
                             android:layout_width="match_parent"

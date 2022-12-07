@@ -282,7 +282,7 @@
                         style="@style/detailsTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/expandable_text"
+                        android:text="@string/expandable_text1"
                         android:visibility="gone" />
                 </LinearLayout>
 
