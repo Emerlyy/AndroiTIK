@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
-                android:text="Розрахуємо складові спектру амплітуд:" />
+                android:text="@string/calculate_amplitudes" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card1"
@@ -202,7 +202,7 @@
                         <CheckBox
                             android:id="@+id/checkBox3"
                             style="@style/CustomStyle"
-                            android:layout_marginTop="80dp" />
+                            android:layout_marginTop="112dp" />
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view3"

@@ -51,7 +51,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="20dp"
                 android:layout_height="wrap_content"
-                android:text="Маємо амплітудно-частотний спектр:" />
+                android:text="@string/what_we_have" />
 
 
             <ru.noties.jlatexmath.JLatexMathView

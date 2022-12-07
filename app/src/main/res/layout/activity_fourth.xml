@@ -29,6 +29,10 @@
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
     <RelativeLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
@@ -43,25 +47,98 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:text="Розрахуйте самостійно значення складових спектру амплітуд та побудуйте його відповідно до наведених параметрів сигналу:" />
-        <TextView
-            android:id="@+id/variant"
+        android:text="@string/doit_byYourself" />
+
+        <ru.noties.jlatexmath.JLatexMathView
+            android:id="@+id/enableVariants1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/text_view"
             android:layout_marginTop="20dp"
             android:layout_marginStart="10dp"
-            style="@style/detailsTextStyle"
+            />
+        <ru.noties.jlatexmath.JLatexMathView
+            android:id="@+id/enableVariants2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1.T=1\tc,\t\tt=1\tc,\th=1\tВ;\n2.T=2\tc,\t\tt=2\tc,\th=1\tВ;\n3.T=3\tc,\t\tt=3\tc,\th=1\tВ." />
+            android:layout_below="@+id/enableVariants1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            />
+        <ru.noties.jlatexmath.JLatexMathView
+            android:id="@+id/enableVariants3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/enableVariants2"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            />
+        <ru.noties.jlatexmath.JLatexMathView
+            android:id="@+id/enableVariants4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/enableVariants3"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            />
+        <ru.noties.jlatexmath.JLatexMathView
+            android:id="@+id/enableVariants5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/enableVariants4"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            />
+        <ru.noties.jlatexmath.JLatexMathView
+            android:id="@+id/enableVariants6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/enableVariants5"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            />
+        <ru.noties.jlatexmath.JLatexMathView
+            android:id="@+id/enableVariants7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/enableVariants6"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            />
+        <ru.noties.jlatexmath.JLatexMathView
+            android:id="@+id/enableVariants8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/enableVariants7"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            />
+        <ru.noties.jlatexmath.JLatexMathView
+            android:id="@+id/enableVariants9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/enableVariants8"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            />
+        <ru.noties.jlatexmath.JLatexMathView
+            android:id="@+id/enableVariants10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/enableVariants9"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            />
+
         <TextView
             android:id="@+id/text_view1"
             style="@style/subtitleStyle"
-            android:layout_below="@+id/variant"
+            android:layout_below="@+id/enableVariants10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="70dp"
-            android:text="Розрахунки здійснюйте для 15-ти складових спектру.\nВсі отримані складові спектру відобразіть графічно на відповідному графіку." />
+            android:layout_marginTop="20dp"
+            android:text="@string/recommends1" />
         <TextView
             android:id="@+id/text_view2"
             style="@style/subtitleStyle"
@@ -69,9 +146,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="20dp"
             android:textColor="@color/colorPrimary"
-            android:text="Виконайте фотофіксацію здійснених розрахунків та побудованого спектру амплітуд." />
+            android:text="@string/recommends2" />
 
     </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>
