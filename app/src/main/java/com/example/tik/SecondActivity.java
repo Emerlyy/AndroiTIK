@@ -40,7 +40,7 @@ public class SecondActivity extends AppCompatActivity {
     CheckBox[] arrayCheckBox = new CheckBox[16];
     JLatexMathView[] jLatexMathView = new JLatexMathView[16];
     JLatexMathView[] latexFormulas = new JLatexMathView[2];
-    JLatexMathView latexEnteredData;
+    JLatexMathView []textUnderCheckBoxes= new JLatexMathView[16];
 
     JLatexMathDrawable drawable;
 
@@ -69,6 +69,7 @@ public class SecondActivity extends AppCompatActivity {
         arrayCheckBox[0] = findViewById(R.id.checkBox0);
         jLatexMathView[0] = findViewById(R.id.math_view0);
         //latexEnteredData = findViewById(R.id.entered);
+        textUnderCheckBoxes[0] = findViewById(R.id.textUnderCheckButton0);
 
         arrayData[0] = calcA0(period, width, amplitude);
         nextStepButton = findViewById(R.id.next);
@@ -81,6 +82,7 @@ public class SecondActivity extends AppCompatActivity {
 
         String A0 = "\\boldsymbol{A_{0}=|h\\cdot \\frac{t}{T}|";
         String Ak = "\\boldsymbol{A_{k}=|2\\cdot h\\cdot \\frac{t\\cdot\\sin(k\\cdot \\omega\\cdot \\frac{t}{2})}{T\\cdot k\\cdot \\omega\\cdot \\frac{t}{2}}|";
+        String StrUnderCheckButton0 = "\\boldsymbol{\\omega_{0}=0\\:\\frac{рад}{c^{-1}}\\\\Постійна\\:складова - постійний\\:струм}";
 
 
         String[] forAllLatexView = {A0, Ak};
@@ -107,15 +109,26 @@ public class SecondActivity extends AppCompatActivity {
                 .build();
         jLatexMathView[0].setLatexDrawable(drawable);
 
+        drawable = JLatexMathDrawable.builder(StrUnderCheckButton0)
+                .textSize(40)
+                .padding(8)
+                .background(0x00000000)
+                .align(JLatexMathDrawable.ALIGN_RIGHT)
+                .build();
+        textUnderCheckBoxes[0].setLatexDrawable(drawable);
+
 
         for (int i = 1; i < arrayCheckBox.length; i++) {
 
             int Id = getResources().getIdentifier("checkBox" + i, "id", getPackageName());
             int LatexId = getResources().getIdentifier("math_view" + i, "id", getPackageName());
+            int idStrUnderCheckButtons = getResources().getIdentifier("textUnderCheckButton"+i,"id",getPackageName());
 
             arrayCheckBox[i] = findViewById(Id);
             jLatexMathView[i] = findViewById(LatexId);
+            textUnderCheckBoxes[i] = findViewById(idStrUnderCheckButtons);
             arrayData[i] = calcAn(period, width, amplitude, i);
+
 
             drawable = JLatexMathDrawable.builder("\\boldsymbol{\\textcolor{OliveGreen}{A_{" + i + "}}=\\mid2\\cdot " + hStr + "\\cdot \\frac{" + tStr + "\\cdot\\sin(\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2})}" +
                             "{" + TStr + "\\cdot\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2}}\\mid=\\textcolor{OliveGreen}{" + Math.abs(arrayData[i]) + "(В)}}")
@@ -125,6 +138,14 @@ public class SecondActivity extends AppCompatActivity {
                     .align(JLatexMathDrawable.ALIGN_RIGHT)
                     .build();
             jLatexMathView[i].setLatexDrawable(drawable);
+
+            drawable = JLatexMathDrawable.builder("\\boldsymbol{\\omega_{"+i+"}="+i+"\\cdot"+WStr+"\\:\\frac{рад}{c^{-1}}\\\\Синусоїдальний\\:сигнал\\:з\\:амплітудою\\:A"+i+"}")
+                    .textSize(40)
+                    .padding(8)
+                    .background(0x00000000)
+                    .align(JLatexMathDrawable.ALIGN_RIGHT)
+                    .build();
+            textUnderCheckBoxes[i].setLatexDrawable(drawable);
         }
 
         checkAllButton = findViewById(R.id.checkAllButton);
