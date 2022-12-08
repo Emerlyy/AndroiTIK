@@ -1,30 +1,21 @@
 package com.example.tik;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
-import android.util.TypedValue;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
-import com.ms.square.android.expandabletextview.ExpandableTextView;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -43,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     int period, width,amplitude;
     JLatexMathView latexView;
     JLatexMathDrawable drawable;
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 if(calcW) {
                     period = tryParse(editPeriod.getText().toString());
                     w = new BigDecimal(2 * Math.PI / period).setScale(2, RoundingMode.HALF_UP);
-                    drawable = JLatexMathDrawable.builder(W + " = " + w + "\\frac{рад}{с^{-1}}")
+                    drawable = JLatexMathDrawable.builder(W + " = " + w + "\\frac{"+getString(R.string.rad)+"}{"+getString(R.string.second)+"^{-1}}}")
                             .textSize(60)
                             .padding(8)
                             .background(0x00000000)
@@ -110,15 +100,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
-
-            @SuppressLint("ResourceAsColor")
             @Override
             public void afterTextChanged(Editable s) {
                 boolean enabled = editWidth.length() != 0 && editPeriod.length() != 0 && editAmplitude.length() != 0&&((editPeriod.getText().toString().equals("8")||editPeriod.getText().toString().equals("6")||editPeriod.getText().toString().equals("2"))
                         &&(editWidth.getText().toString().equals("6")||editWidth.getText().toString().equals("4")||editWidth.getText().toString().equals("2")));
                 if(!enabled){
                     nextStepButton.setEnabled(false);
-
                     return;
                 }
                 nextStepButton.setEnabled(true);

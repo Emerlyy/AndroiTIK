@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -80,6 +79,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
+
                             <TextView
                                 style="@style/cardTitleStyle"
                                 android:text="@string/period_title" />
@@ -88,11 +88,11 @@
                                 android:id="@+id/editPeriod"
                                 style="@style/cardEditStyle" />
                         </LinearLayout>
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/expecting_values"
-    />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/availablePeriodValues" />
                     </LinearLayout>
 
                     <TextView
@@ -133,6 +133,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
+
                             <TextView
                                 style="@style/cardTitleStyle"
                                 android:text="@string/width_title"
@@ -146,7 +147,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Допустимі значення: 6, 4, 2"/>
+                            android:text="@string/availableWidthValues" />
 
                     </LinearLayout>
 
@@ -191,7 +192,6 @@
                         <EditText
                             android:id="@+id/editAmplitude"
                             style="@style/cardEditStyle"
-                            android:background="@color/forBGTitle"
                             android:enabled="false"
                             android:text="1" />
 
@@ -224,13 +224,14 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/short_theory"
-                        android:textSize="20dp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         style="@style/detailsTextStyle"
@@ -270,7 +271,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="14dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -299,20 +300,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/wCard"
-                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="100dp"
                 android:layout_marginBottom="80dp" />
 
             <Button
                 android:id="@+id/button"
+                style="@style/ButtonGreen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:backgroundTint="@color/colorPrimary"
                 android:onClick="startNewActivity"
-                android:text="@string/button_main"
-                android:textColor="@color/white"/>
+                android:text="@string/button_main" />
 
 
         </RelativeLayout>

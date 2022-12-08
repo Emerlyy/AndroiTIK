@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,133 +23,136 @@
                 android:lineSpacingExtra="4dp"
                 android:text="@string/fourth_activity_title"
                 android:textAlignment="textStart"
-
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
                 android:textColor="@color/white" />
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-    <RelativeLayout
-        android:id="@+id/layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:animateLayoutChanges="true"
-        tools:context=".VadimProgramist"
-        android:padding="10dp">
-    <TextView
-        android:id="@+id/text_view"
-        style="@style/subtitleStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/doit_byYourself" />
 
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/enableVariants1"
+        <RelativeLayout
+            android:id="@+id/layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_view"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            />
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/enableVariants2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/enableVariants1"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            />
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/enableVariants3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/enableVariants2"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            />
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/enableVariants4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/enableVariants3"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            />
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/enableVariants5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/enableVariants4"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            />
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/enableVariants6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/enableVariants5"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            />
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/enableVariants7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/enableVariants6"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            />
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/enableVariants8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/enableVariants7"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            />
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/enableVariants9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/enableVariants8"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            />
-        <ru.noties.jlatexmath.JLatexMathView
-            android:id="@+id/enableVariants10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/enableVariants9"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            />
+            android:animateLayoutChanges="true"
+            android:padding="10dp">
 
-        <TextView
-            android:id="@+id/text_view1"
-            style="@style/subtitleStyle"
-            android:layout_below="@+id/enableVariants10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/recommends1" />
-        <TextView
-            android:id="@+id/text_view2"
-            style="@style/subtitleStyle"
-            android:layout_below="@+id/text_view1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/colorPrimary"
-            android:text="@string/recommends2" />
+            <TextView
+                android:id="@+id/text_view"
+                style="@style/subtitleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/doit_byYourself" />
 
-    </RelativeLayout>
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/enableVariants1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp" />
+
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/enableVariants2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/enableVariants1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp" />
+
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/enableVariants3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/enableVariants2"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp" />
+
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/enableVariants4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/enableVariants3"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp" />
+
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/enableVariants5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/enableVariants4"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp" />
+
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/enableVariants6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/enableVariants5"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp" />
+
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/enableVariants7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/enableVariants6"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp" />
+
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/enableVariants8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/enableVariants7"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp" />
+
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/enableVariants9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/enableVariants8"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp" />
+
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/enableVariants10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/enableVariants9"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:id="@+id/text_view1"
+                style="@style/subtitleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/enableVariants10"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/recommends1" />
+
+            <TextView
+                android:id="@+id/text_view2"
+                style="@style/subtitleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/recommends2"
+                android:textColor="@color/colorPrimary" />
+
+        </RelativeLayout>
+
     </androidx.core.widget.NestedScrollView>
+
 </LinearLayout>

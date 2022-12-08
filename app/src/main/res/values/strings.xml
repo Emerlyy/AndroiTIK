@@ -1,55 +1,56 @@
 <resources>
     <string name="app_name">Розрахунок спектру</string>
-	<!-- main layout -->
-	<string name="main_activity_title">Спектр імпульсного сигналу\nВстановлення параметрів</string>
-	<string name="activity_subtitle">Вкажіть параметри сигналу:</string>
-	<string name="activity_subtitle1">На основі вказаних значень обрахуємо кругову частоту:</string>
+    <!-- main layout -->
+    <string name="main_activity_title">Спектр імпульсного сигналу\nВстановлення параметрів</string>
+    <string name="activity_subtitle">Вкажіть параметри сигналу:</string>
+    <string name="activity_subtitle1">На основі вказаних значень обрахуємо кругову частоту:</string>
     <string name="period_title">Період - T, с</string>
-	<string name="period_details">Період сигналу - найменший проміжок часу, через який повторюються миттєві значення сигналу.</string>
-	<string name="width_title">Ширина імпульсів - t, с</string>
-	<string name="width_details">Ширина імпульсів - інтервал часу, протягом якого сигнал існує за період. </string>
-	<string name="amplitude_title">Амплітуда - h, В</string>
-	<string name="amplitude_details">Амплітуда - найбільше відхилення значень імпульсного сигналу за один період від деякого значення, умовно прийнятого за нульове.</string>
-	<string name="expandable_text">\t\tСукупність амплітуд Ак та відповідних їм частот wк гармонічних складових розкладу в ряд Фур\'є
+    <string name="period_details">Період сигналу - найменший проміжок часу, через який повторюються миттєві значення сигналу.</string>
+    <string name="width_title">Ширина імпульсів - t, с</string>
+    <string name="width_details">Ширина імпульсів - інтервал часу, протягом якого сигнал існує за період. </string>
+    <string name="amplitude_title">Амплітуда - h, В</string>
+    <string name="amplitude_details">Амплітуда - найбільше відхилення значень імпульсного сигналу за один період від деякого значення, умовно прийнятого за нульове.</string>
+    <string name="availablePeriodValues">Допустимі значення: 8, 6, 2</string>
+    <string name="availableWidthValues">Допустимі значення: 6, 4, 2</string>
+    <string name="expandable_text">\t\tСукупність амплітуд Ак та відповідних їм частот wк гармонічних складових розкладу в ряд Фур\'є
 		називають спектром амплітуд періодичного сигналу.
 		\n\t\tСпектр амплітуд дозволяє наглядно проводити	аналіз сигналів з точки зору їх узгодження з параметрами полоси
 		пропускання лінійних тактів інформаційних систем.
 		\n\t\tДля побудови спектрів амплітуд необхідно задати період Т, ширину імпульсів t та амплітуду імпульсу h. </string>
-
-	<string name="expandable_text1">
+    <string name="expandable_text1">
 		\t\tХарактерною особливістю спектра періодичного сигналу є його
-дискретність, причому відстань між сусідніми складовими спектра
-однакова і дорівнює значенню частоти першої гармонічної складової:
+        дискретність, причому відстань між сусідніми складовими спектра
+        однакова і дорівнює значенню частоти першої гармонічної складової:
 	</string>
-	<string name="button_main">Розрахувати значення \n складових спектру</string>
-	<!-- second layout -->
+    <string name="button_main">Розрахувати значення \n складових спектру</string>
+    <!-- second layout -->
 
-	<string name="expandable_text2">\t\tНайбільш проста процедура побудови спектрів амплітуд періодичної
-імпульсної послідовності, що має період Т, ширину імпульсів t та
-амплітуду імпульсу h.
-		\n\t\tТому для розрахунку значень складових спектру
-їх потрібно задати.
-		\n\t\tДля визначення величини амплітуд гармонійних складових
-спектру амплітуд можна використати такі вирази:</string>
-	<string name="second_activity_top">Необхідні формули:</string>
-	<string name="second_activity_entered_data">Введені дані:</string>
-	<string name="calculate_amplitudes">Розрахуємо складові спектру амплітуд імпульсного сигналу:</string>
-	<string name="second_activity_title">Спектр імпульсного сигналу\nРозрахунок складових спектру</string>
-	<string name="second_activity_subtitle">Складові спектру:</string>
-	<string name="button_second">Побудувати графік</string>
-	<!-- third layout -->
-	<string name="third_activity_title">Спектр імпульсного сигналу\nАмплітудно-частотний спектр</string>
-	<string name="button_third_text">Індивідуальне розрахункове завдання</string>
-	<string name="second_activity_chooseAll">Вибрати всі складові амплітуди для спектру</string>
-	<string name="second_activity_chooseNoOne">Не вибирати всі амплітуди</string>
+    <string name="expandable_text2">
+        \t\tНайбільш проста процедура побудови спектрів амплітуд періодичної
+        імпульсної послідовності, що має період Т, ширину імпульсів t та амплітуду імпульсу h.
+		\n\t\tТому для розрахунку значень складових спектру їх потрібно задати.
+    </string>
+    <string name="calculate_amplitudes">Розрахуємо складові спектру амплітуд імпульсного сигналу:</string>
+    <string name="textExample">Для прикладу розрахуємо 15 складових спектру \n(всього нескінченна кількість).</string>
+    <string name="second_activity_title">Спектр імпульсного сигналу\nРозрахунок складових спектру</string>
+    <string name="second_activity_subtitle">Складові спектру:</string>
+    <string name="button_second">Побудувати графік</string>
+    <!-- third layout -->
+    <string name="third_activity_title">Спектр імпульсного сигналу\nАмплітудно-частотний спектр</string>
+    <string name="button_third_text">Індивідуальне розрахункове завдання</string>
+    <string name="second_activity_chooseAll">Вибрати всі складові амплітуди для спектру</string>
+    <string name="second_activity_chooseNoOne">Не вибирати всі амплітуди</string>
     <string name="short_theory">Короткі теоретичні відомості:</string>
-	<!-- fourth layout -->
-	<string name="fourth_activity_title">Спектр імпульсного сигналу\nІндивідуальне завдання</string>
-	<string name="expecting_values">Допустимі значення: 8, 6, 2</string>
-	<string name="what_we_have">Маємо амплітудно-частотний спектр імпульсного сигналу:</string>
-	<string name="doit_byYourself">Розрахуйте самостійно значення складових спектру амплітуд та побудуйте його відповідно до наведених параметрів сигналу:</string>
-	<string name="variants">1.T=1\tc,\t\tt=1\tc,\th=1\tВ;\n2.T=2\tc,\t\tt=2\tc,\th=1\tВ;\n3.T=3\tc,\t\tt=3\tc,\th=1\tВ.</string>
-	<string name="recommends1">Розрахунки здійснюйте для 15-ти складових спектру.\nВсі отримані складові спектру відобразіть графічно на відповідному графіку.</string>
-	<string name="recommends2">Виконайте фотофіксацію здійснених розрахунків та побудованого спектру амплітуд.</string>
+    <!-- fourth layout -->
+    <string name="fourth_activity_title">Спектр імпульсного сигналу\nІндивідуальне завдання</string>
+    <string name="what_we_have">Маємо амплітудно-частотний спектр імпульсного сигналу:</string>
+    <string name="doit_byYourself">Розрахуйте самостійно значення складових спектру амплітуд та побудуйте його відповідно до наведених параметрів сигналу:</string>
+    <string name="variants">1.T=1\tc,\t\tt=1\tc,\th=1\tВ;\n2.T=2\tc,\t\tt=2\tc,\th=1\tВ;\n3.T=3\tc,\t\tt=3\tc,\th=1\tВ.</string>
+    <string name="recommends1">Розрахунки здійснюйте для 15-ти складових спектру.\nВсі отримані складові спектру відобразіть графічно на відповідному графіку.</string>
+    <string name="recommends2">Виконайте фотофіксацію здійснених розрахунків та побудованого спектру амплітуд.</string>
 
+
+    <string name="rad">рад</string>
+    <string name="second">с</string>
+    <string name="volt">В</string>
 </resources>

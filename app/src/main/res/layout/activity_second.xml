@@ -27,6 +27,7 @@
 
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
                 android:textColor="@color/white" />
+
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -41,8 +42,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
-            tools:context=".VadimProgramist"
-            android:padding="10dp">
+            android:padding="10dp"
+            tools:context=".VadimProgramist">
 
             <TextView
                 android:id="@+id/text_view2"
@@ -64,11 +65,10 @@
                 app:cardBackgroundColor="@color/bgColor"
                 app:cardElevation="0dp">
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="14dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -82,14 +82,16 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:visibility="gone">
+
                         <TextView
-                            android:id="@+id/details2"
+                            android:id="@+id/details1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/details1"
                             android:text="@string/expandable_text2"
                             android:textSize="18sp" />
+
                     </LinearLayout>
+
                 </LinearLayout>
 
                 <ImageView
@@ -100,19 +102,20 @@
 
 
             <TextView
-                android:id="@+id/text_view21"
+                android:id="@+id/text_view_example"
                 style="@style/subtitleStyle"
-                android:layout_below="@id/card1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/card1"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
-                android:textColor="@color/colorPrimary"
-                android:text="Для прикладу розрахуємо 15 складових спектру\t(всього \nнескінчена кількість)." />
+                android:text="@string/textExample"
+                android:textColor="@color/colorPrimary" />
+
             <ToggleButton
                 android:id="@+id/checkAllButton"
                 style="@style/CustomStyle"
-                android:layout_below="@+id/text_view21"
+                android:layout_below="@+id/text_view_example"
                 android:layout_marginStart="0dp"
                 android:layout_marginBottom="10dp"
                 android:textOff="@string/second_activity_chooseAll"
@@ -143,7 +146,6 @@
                 android:layout_marginTop="-10dp"
                 android:layout_marginBottom="-15dp" />
 
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/card2"
                 android:layout_width="match_parent"
@@ -157,13 +159,14 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="14dp"
                     android:orientation="vertical">
 
                     <CheckBox
                         android:id="@+id/checkBox2"
                         style="@style/CustomStyle"
                         android:layout_marginTop="40dp" />
+
                     <ru.noties.jlatexmath.JLatexMathView
                         android:id="@+id/math_view2"
                         android:layout_width="wrap_content"
@@ -174,15 +177,15 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="-10dp"
-                        android:layout_marginBottom="-15dp"/>
+                        android:layout_marginBottom="-15dp" />
 
                     <ru.noties.jlatexmath.JLatexMathView
                         android:id="@+id/textUnderCheckButton2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/checkBox2"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="40dp" />
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="10dp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -212,21 +215,22 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/checkBox3"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="40dp" />
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="12dp" />
 
                         <CheckBox
                             android:id="@+id/checkBox4"
-                            android:layout_below="@id/textUnderCheckButton3"
                             style="@style/CustomStyle"
+                            android:layout_below="@id/textUnderCheckButton3"
                             android:layout_marginTop="50dp" />
+
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/textUnderCheckButton4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/checkBox4"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="40dp" />
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="12dp" />
 
                         <CheckBox
                             android:id="@+id/checkBox5"
@@ -239,130 +243,150 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/checkBox5"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="40dp" />
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="12dp" />
 
                         <CheckBox
                             android:id="@+id/checkBox6"
                             style="@style/CustomStyle"
                             android:layout_below="@id/textUnderCheckButton5"
                             android:layout_marginTop="50dp" />
+
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/textUnderCheckButton6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/checkBox6"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="40dp" />
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="12dp" />
+
                         <CheckBox
                             android:id="@+id/checkBox7"
                             style="@style/CustomStyle"
                             android:layout_below="@id/textUnderCheckButton6"
                             android:layout_marginTop="50dp" />
+
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/textUnderCheckButton7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/checkBox7"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="40dp" />
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="12dp" />
+
                         <CheckBox
                             android:id="@+id/checkBox8"
                             style="@style/CustomStyle"
                             android:layout_below="@id/textUnderCheckButton7"
                             android:layout_marginTop="50dp" />
+
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/textUnderCheckButton8"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/checkBox8"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="40dp" />
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="12dp" />
+
                         <CheckBox
                             android:id="@+id/checkBox9"
                             style="@style/CustomStyle"
                             android:layout_below="@id/textUnderCheckButton8"
                             android:layout_marginTop="50dp" />
+
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/textUnderCheckButton9"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/checkBox9"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="40dp" />
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="12dp" />
+
                         <CheckBox
                             android:id="@+id/checkBox10"
                             style="@style/CustomStyle"
                             android:layout_below="@id/textUnderCheckButton9"
                             android:layout_marginTop="50dp" />
+
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/textUnderCheckButton10"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/checkBox10"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="40dp" />
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="12dp" />
+
                         <CheckBox
                             android:id="@+id/checkBox11"
                             style="@style/CustomStyle"
                             android:layout_below="@id/textUnderCheckButton10"
                             android:layout_marginTop="50dp" />
+
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/textUnderCheckButton11"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/checkBox11"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="40dp" />
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="12dp" />
+
                         <CheckBox
                             android:id="@+id/checkBox12"
                             style="@style/CustomStyle"
                             android:layout_below="@id/textUnderCheckButton11"
                             android:layout_marginTop="50dp" />
+
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/textUnderCheckButton12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/checkBox12"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="40dp" />
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="12dp" />
+
                         <CheckBox
                             android:id="@+id/checkBox13"
                             style="@style/CustomStyle"
                             android:layout_below="@id/textUnderCheckButton12"
                             android:layout_marginTop="50dp" />
+
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/textUnderCheckButton13"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/checkBox13"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="40dp" />
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="12dp" />
+
                         <CheckBox
                             android:id="@+id/checkBox14"
                             style="@style/CustomStyle"
                             android:layout_below="@id/textUnderCheckButton13"
                             android:layout_marginTop="50dp" />
+
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/textUnderCheckButton14"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/checkBox14"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="40dp" />
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="12dp" />
+
                         <CheckBox
                             android:id="@+id/checkBox15"
                             style="@style/CustomStyle"
                             android:layout_below="@id/textUnderCheckButton14"
                             android:layout_marginTop="50dp"
                             android:layout_marginBottom="10dp" />
+
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/textUnderCheckButton15"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/checkBox15"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="40dp" />
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="12dp" />
+
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view4"
                             android:layout_width="wrap_content"
@@ -397,7 +421,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="-10dp"
-                            android:layout_marginBottom="-15dp"/>
+                            android:layout_marginBottom="-15dp" />
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view7"
@@ -409,7 +433,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="-10dp"
-                            android:layout_marginBottom="-15dp"/>
+                            android:layout_marginBottom="-15dp" />
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view8"
@@ -421,7 +445,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="-10dp"
-                            android:layout_marginBottom="-15dp"/>
+                            android:layout_marginBottom="-15dp" />
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view9"
@@ -433,7 +457,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="-10dp"
-                            android:layout_marginBottom="-15dp"/>
+                            android:layout_marginBottom="-15dp" />
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view10"
@@ -445,7 +469,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="-10dp"
-                            android:layout_marginBottom="-15dp"/>
+                            android:layout_marginBottom="-15dp" />
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view11"
@@ -457,7 +481,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="-10dp"
-                            android:layout_marginBottom="-15dp"/>
+                            android:layout_marginBottom="-15dp" />
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view12"
@@ -469,7 +493,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="-10dp"
-                            android:layout_marginBottom="-15dp"/>
+                            android:layout_marginBottom="-15dp" />
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view13"
@@ -481,7 +505,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="-10dp"
-                            android:layout_marginBottom="-15dp"/>
+                            android:layout_marginBottom="-15dp" />
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view14"
@@ -493,7 +517,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="-10dp"
-                            android:layout_marginBottom="-15dp"/>
+                            android:layout_marginBottom="-15dp" />
 
                         <ru.noties.jlatexmath.JLatexMathView
                             android:id="@+id/math_view15"
@@ -505,10 +529,11 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="-10dp"
-                            android:layout_marginBottom="-15dp"/>
+                            android:layout_marginBottom="-15dp" />
 
 
                     </RelativeLayout>
+
                 </RelativeLayout>
 
                 <ImageView
@@ -516,7 +541,6 @@
                     android:layout_marginBottom="0dp" />
 
             </androidx.cardview.widget.CardView>
-
 
             <ru.noties.jlatexmath.JLatexMathView
                 android:id="@+id/Formula0"
@@ -534,8 +558,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/checkBox0"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="40dp" />
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp" />
 
             <ru.noties.jlatexmath.JLatexMathView
                 android:id="@+id/Formula1"
@@ -548,31 +572,30 @@
                 android:id="@+id/checkBox1"
                 style="@style/CustomStyle"
                 android:layout_below="@+id/Formula1"
-                android:layout_marginTop="30dp"/>
+                android:layout_marginTop="30dp" />
 
             <ru.noties.jlatexmath.JLatexMathView
                 android:id="@+id/textUnderCheckButton1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/checkBox1"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="40dp" />
-
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp" />
 
             <Button
                 android:id="@+id/next"
+                style="@style/ButtonGreen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/card2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="20dp"
-                android:backgroundTint="@color/colorPrimary"
                 android:onClick="startNewActivity2"
-                android:text="@string/button_second"
-                android:textColor="@color/white"/>
+                android:text="@string/button_second" />
 
         </RelativeLayout>
+
     </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

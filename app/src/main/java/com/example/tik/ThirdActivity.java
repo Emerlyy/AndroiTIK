@@ -104,8 +104,8 @@ public class ThirdActivity extends AppCompatActivity {
 
         latexAk = findViewById(R.id.latexAk);
         latexW = findViewById(R.id.latexW);
-        String W = "\\boldsymbol{\\omega\\frac{рад}{с^{-1}}}";
-        String Ak = "\\boldsymbol{A_{k}, В}";
+        String W = "\\boldsymbol{\\omega\\frac{"+getString(R.string.rad)+"}{"+getString(R.string.second)+"^{-1}}}";
+        String Ak = "\\boldsymbol{A_{k}, "+getString(R.string.volt)+"}";
         drawable = JLatexMathDrawable.builder(W)
                 .textSize(70)
                 .padding(8)

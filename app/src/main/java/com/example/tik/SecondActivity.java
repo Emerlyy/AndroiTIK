@@ -48,9 +48,6 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-       // ExpandableTextView expTv1 = (ExpandableTextView) findViewById(R.id.expand_text_view1).findViewById(R.id.expand_text_view1);
-        //expTv1.setText(getString(R.string.expandable_text1));
-
         setTitle(R.string.second_activity_title);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
 
@@ -93,7 +90,7 @@ public class SecondActivity extends AppCompatActivity {
             latexFormulas[i].setLatexDrawable(drawable);
         }
 
-        String calcLatexA0 = "\\boldsymbol{\\textcolor{OliveGreen}{A_{0}}=|" + hStr + "\\cdot \\frac{" + tStr + "}{" + TStr + "}|=\\textcolor{OliveGreen}{" + Math.abs(arrayData[0]) + " (В)}}";
+        String calcLatexA0 = "\\boldsymbol{\\textcolor{OliveGreen}{A_{0}}=|" + hStr + "\\cdot \\frac{" + tStr + "}{" + TStr + "}|=\\textcolor{OliveGreen}{" + Math.abs(arrayData[0]) + " ("+getString(R.string.volt)+")}}";
         drawable = JLatexMathDrawable.builder(calcLatexA0)
                 .textSize(160)
                 .padding(8)
@@ -124,7 +121,7 @@ public class SecondActivity extends AppCompatActivity {
 
 
             drawable = JLatexMathDrawable.builder("\\boldsymbol{\\textcolor{OliveGreen}{A_{" + i + "}}=\\mid2\\cdot " + hStr + "\\cdot \\frac{" + tStr + "\\cdot\\sin(\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2})}" +
-                            "{" + TStr + "\\cdot\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2}}\\mid=\\textcolor{OliveGreen}{" + Math.abs(arrayData[i]) + "(В)}}")
+                            "{" + TStr + "\\cdot\\textcolor{OliveGreen}{" + i + "}\\cdot "+WStr+"\\cdot \\frac{" + tStr + "}{2}}\\mid=\\textcolor{OliveGreen}{" + Math.abs(arrayData[i]) + "("+getString(R.string.volt)+")}}")
                     .textSize(160)
                     .padding(8)
                     .background(0x00000000)
@@ -132,7 +129,7 @@ public class SecondActivity extends AppCompatActivity {
                     .build();
             jLatexMathView[i].setLatexDrawable(drawable);
 
-            drawable = JLatexMathDrawable.builder("\\boldsymbol{\\omega_{"+i+"}="+i+"\\cdot"+WStr+"\\:\\frac{рад}{c^{-1}}\\\\Синусоїдальний\\:сигнал\\:з\\:амплітудою\\:A"+i+"}")
+            drawable = JLatexMathDrawable.builder("\\boldsymbol{\\omega_{"+i+"}="+i+"\\cdot"+WStr+"\\:\\frac{"+getString(R.string.rad)+"}{"+getString(R.string.second)+"^{-1}}\\\\Синусоїдальний\\:сигнал\\:з\\:амплітудою\\:A"+i+"}")
                     .textSize(40)
                     .padding(8)
                     .background(0x00000000)

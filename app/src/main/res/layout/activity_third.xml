@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -27,6 +26,7 @@
                 android:textAlignment="textStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
                 android:textColor="@color/white" />
+
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -45,52 +45,53 @@
                 android:id="@id/text"
                 style="@style/subtitleStyle"
                 android:layout_width="match_parent"
-
-                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="20dp"
-                android:layout_height="wrap_content"
                 android:text="@string/what_we_have" />
-
 
             <ru.noties.jlatexmath.JLatexMathView
                 android:id="@+id/latexAk"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:translationX="-16dp"
-                android:translationY="18dp"
+                android:layout_alignStart="@id/chart"
                 android:layout_alignTop="@id/chart"
-                android:layout_alignStart="@id/chart"/>
+                android:translationX="-16dp"
+                android:translationY="18dp" />
 
             <ru.noties.jlatexmath.JLatexMathView
                 android:id="@+id/latexW"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_alignBottom="@id/chart"
                 android:layout_alignEnd="@id/chart"
+                android:layout_alignBottom="@id/chart"
                 android:translationX="22dp"
-                android:translationY="20dp"/>
+                android:translationY="20dp" />
 
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/chart"
                 android:layout_width="match_parent"
-                android:layout_marginHorizontal="24dp"
                 android:layout_height="552dp"
                 android:layout_below="@id/text"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="24dp" />
+
             <Button
                 android:id="@+id/button3"
+                style="@style/ButtonGreen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
-                android:layout_marginTop="30dp"
                 android:layout_below="@id/chart"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
                 android:onClick="goBack2"
-                android:text="@string/button_third_text"
-                android:textColor="@color/white"/>
+                android:text="@string/button_third_text" />
+
         </RelativeLayout>
+
     </androidx.core.widget.NestedScrollView>
+
 </LinearLayout>
