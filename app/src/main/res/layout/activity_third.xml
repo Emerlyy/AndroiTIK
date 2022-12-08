@@ -59,7 +59,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:translationX="-16dp"
-                android:translationY="-6dp"
+                android:translationY="18dp"
                 android:layout_alignTop="@id/chart"
                 android:layout_alignStart="@id/chart"/>
 
@@ -89,7 +89,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:onClick="goBack2"
-                android:text="@string/button_third_text" />
+                android:text="@string/button_third_text"
+                android:textColor="@color/white"/>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

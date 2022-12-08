@@ -191,6 +191,7 @@
                         <EditText
                             android:id="@+id/editAmplitude"
                             style="@style/cardEditStyle"
+                            android:background="@color/forBGTitle"
                             android:enabled="false"
                             android:text="1" />
 
@@ -310,7 +311,8 @@
                 android:layout_centerHorizontal="true"
                 android:backgroundTint="@color/colorPrimary"
                 android:onClick="startNewActivity"
-                android:text="@string/button_main" />
+                android:text="@string/button_main"
+                android:textColor="@color/white"/>
 
 
         </RelativeLayout>

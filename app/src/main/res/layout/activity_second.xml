@@ -569,7 +569,8 @@
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="@color/colorPrimary"
                 android:onClick="startNewActivity2"
-                android:text="@string/button_second" />
+                android:text="@string/button_second"
+                android:textColor="@color/white"/>
 
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>

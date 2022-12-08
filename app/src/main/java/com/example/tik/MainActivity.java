@@ -111,12 +111,14 @@ public class MainActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
+            @SuppressLint("ResourceAsColor")
             @Override
             public void afterTextChanged(Editable s) {
                 boolean enabled = editWidth.length() != 0 && editPeriod.length() != 0 && editAmplitude.length() != 0&&((editPeriod.getText().toString().equals("8")||editPeriod.getText().toString().equals("6")||editPeriod.getText().toString().equals("2"))
                         &&(editWidth.getText().toString().equals("6")||editWidth.getText().toString().equals("4")||editWidth.getText().toString().equals("2")));
                 if(!enabled){
                     nextStepButton.setEnabled(false);
+
                     return;
                 }
                 nextStepButton.setEnabled(true);
