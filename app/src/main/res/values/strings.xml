@@ -34,7 +34,7 @@
     <string name="textExample">Для прикладу розрахуємо 15 складових спектру \n(всього нескінченна кількість).</string>
     <string name="second_activity_title">Спектр імпульсного сигналу\nРозрахунок складових спектру</string>
     <string name="second_activity_subtitle">Складові спектру:</string>
-    <string name="button_second">Побудувати графік</string>
+    <string name="button_second">Побудувати спектр</string>
     <!-- third layout -->
     <string name="third_activity_title">Спектр імпульсного сигналу\nАмплітудно-частотний спектр</string>
     <string name="button_third_text">Індивідуальне розрахункове завдання</string>
