@@ -17,16 +17,22 @@
             android:padding="5dp"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/MyTheme.ActionBar.TitleTextStyle">
-
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                android:onClick="onBack"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="4dp"
+                android:layout_height="match_parent"
+                android:maxLines="2"
                 android:text="@string/second_activity_title"
-                android:textAlignment="textStart"
-
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                app:autoSizeMaxTextSize="30sp"
+                app:autoSizeMinTextSize="10sp"
+                app:autoSizeTextType="uniform" />
 
         </androidx.appcompat.widget.Toolbar>
 

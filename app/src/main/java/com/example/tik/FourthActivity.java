@@ -2,7 +2,9 @@ package com.example.tik;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import ru.noties.jlatexmath.JLatexMathDrawable;
 import ru.noties.jlatexmath.JLatexMathView;
@@ -29,5 +31,10 @@ public class FourthActivity extends AppCompatActivity {
                     .build();
             mathView[i].setLatexDrawable(drawable);
         }
+    }
+
+    public void onBack(View view){
+        Intent intent = new Intent(this, ThirdActivity.class);
+        startActivity(intent);
     }
 }

@@ -126,4 +126,9 @@ public class ThirdActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FourthActivity.class);
         startActivity(intent);
     }
+
+    public void onBack(View view){
+        Intent intent = new Intent(this, SecondActivity.class);
+        startActivity(intent);
+    }
 }

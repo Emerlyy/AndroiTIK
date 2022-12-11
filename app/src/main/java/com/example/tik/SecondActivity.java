@@ -209,5 +209,10 @@ public class SecondActivity extends AppCompatActivity {
         hiddenLayout.setVisibility(isDetailsVisible);
     }
 
+    public void onBack(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
 }
 
